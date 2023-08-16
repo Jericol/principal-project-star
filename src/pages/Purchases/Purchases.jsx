@@ -7,7 +7,7 @@ import CartBanner from "../../../public/img/carrito.jpg"
 import ContactBar from '../../components/ContacBar/ContactBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Cart from '../../components/cart/Cart';
-import Prueba from '../../../public/img/Capilar 2.jpg'
+
 
 
 function Purchases() {
@@ -96,9 +96,6 @@ function Purchases() {
                     </div>
                 </main>
             </div >
-            <div className='lg:col-span-2  fixed lg:static right-0 top-0 bg-[#1f1d2b] w-full h-full'>
-                <Cart />
-            </div>
         </div >
 
     )

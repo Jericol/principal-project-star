@@ -7,11 +7,6 @@ import Pse from "../../../public/medios de pagos/Banner-PSE-removebg-preview.png
 import Master from "../../../public/medios de pagos/mastercard-removebg-preview.png";
 import MercadoPago from "../../../public/medios de pagos/mercadopago-removebg-preview.png";
 import Wompie from "../../../public/medios de pagos/Wompi_LogoPrincipal.png";
-import ContraEntrega from "../../../public/img/BANNER-ENTREGA-INMEDIATA.jpg";
-import Facebook from '../../../public/redes/facebook.png';
-import Instagram from '../../../public/redes/instagram.png';
-import Tiktok from '../../../public/redes/tiktok-logo-1F4A5DCD45-seeklogo.com.png';
-import Pbxwhite from '../../../public/Logo/ICONO-PBX-POSITIVO.png';
 import Pbxblack from '../../../public/Logo/ICONO-PBX.png';
 import Marcas from '../../../public/Logo/BANNER-LOGOS.jpg'
 
@@ -162,7 +157,7 @@ function Footer() {
                         <h2 className='mb-6 text-xl font-bold font-monserrat'>Redes sociales</h2>
                         {/* redes sociales */}
                         <ul className='flex items-center font-monserrat font-semibold  gap-2 lg:relative lg:bottom-8 lg:border-b pb-5  lg:border-gray-700'>
-                            <li>
+                            {/* <li>
                                 <img
                                     src={Facebook}
                                     alt=""
@@ -182,7 +177,7 @@ function Footer() {
                                     alt=""
                                     style={{ width: '30px' }}
                                 />
-                            </li>
+                            </li> */}
                         </ul>
                         {/* pbx */}
                         <div className='lg:relative lg:bottom-[9rem] lg:right-4 ' >

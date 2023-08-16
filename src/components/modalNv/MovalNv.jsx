@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import ButtonSide from '../../../public/Logo/control.png';
+
 
 
 
@@ -63,7 +63,7 @@ function MovalNv({ showModal, setShowModal, open, setOpen }) {
     return (
         <div>
             <button
-                className="bg-slate-300 text-black dark:text-white ring-2 ring-gray-600 active:bg-slate-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                className="bg-slate-300 text-black dark:text-white  ring-gray-600 active:bg-slate-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
                 onClick={() => setShowModal(true)}
             >
@@ -176,7 +176,7 @@ function MovalNv({ showModal, setShowModal, open, setOpen }) {
 
                                     </button>
                                     <button
-                                        className="ring-4 ring-blue-400 hover:ring-[#272531] ring-offset-4 ring-offset-blue-100 hover:ring-offset-blue-600 hover:text-white 
+                                        className=" ring-blue-400 hover:ring-[#272531] ring-offset-4 ring-offset-blue-100 hover:ring-offset-blue-600 hover:text-white 
                                         dark:ring-offset-slate-900 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg 
                                         focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-blue-300 relative top-6 right-[5.8rem] outline-none 
                                         dark:text-black"

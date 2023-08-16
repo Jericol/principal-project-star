@@ -1,12 +1,4 @@
 import Banner from '../../../../public/img/BANNER-ATENCION-DISTRIBUIDORES.jpg';
-import Slate from '../../../../public/imagenesP/1764GRIS.png';
-import SlateOpen from '../../../../public/imagenesP/1764 ABIERTO.png';
-import Logo from '../../../../public/Logo/STARPROFESSIONAL.png'
-import BannerCorporativo from '../../../../public/redes/team.jpg';
-import BannerCategoria from '../../../../public/redes/banner-S1.jpg';
-import BannerCategoriaFirst from '../../../../public/redes/bannerS2.jpg';
-import Icono from '../../../../public/Logo/STAR-ICONO.png';
-import Logotipo from '../../../../public/Logo/STAR-LOGOTIPO.png'
 
 
 
@@ -27,10 +19,10 @@ function Distribuidores() {
             <main className='mb-8 h-[150rem]'>
                 <div className='flex items-center justify-evenly relative right-[5rem]'>
                     <div className='relative top-[7rem]'>
-                        <img src={Slate} alt="" style={{ width: '500px' }} />
+                       
                     </div>
                     <div className=''>
-                        <img src={Logo} alt="" />
+                      
                         <h2 className='dark:text-white text-black text-[4rem] font-bold relative bottom-[4rem] left-[2rem]'>
                             Corporativo
                         </h2>
@@ -56,8 +48,7 @@ function Distribuidores() {
                     </div>
                 </div>
                 <div className='flex items-center gap-x-16 relative left-[9rem] top-[6rem]'>
-                    <img src={BannerCategoria} alt="" style={{ width: '700px' }} />
-                    <img src={BannerCategoriaFirst} alt="" style={{ width: '700px' }} />
+                  
                 </div>
                 <h2 className='text-2xl font-semibold text-center relative top-6 text-black'>¿Por qué elegirnos?</h2>
                 {/* porque elegirnos */}
@@ -87,7 +78,7 @@ function Distribuidores() {
                 </div>
                 {/* banner de equipo */}
                 <div className='relative top-[16rem] left-[18rem]'>
-                    <img src={BannerCorporativo} alt="" className='rounded-xl' />
+                   
                 </div>
                 <div className='flex items-center justify-around'>
                     <p className='text-black text-2xl w-[64rem] relative top-[22rem] left-[4rem]'>
@@ -97,27 +88,7 @@ function Distribuidores() {
                     </p>
                     
                 </div>
-                <div className='w-full h-[29rem] bg-black relative top-[25rem]'>
-                    <div className='flex items-center justify-center'>
-                        <h2 className='text-2xl font-bold relative top-[3rem]'>Contáctanos y cotiza</h2>
-                    </div>
-                    <div className='flex flex-col'>
-                        <p className='text-2xl relative left-[38rem] top-[3rem] w-[34rem]'>
-                            Déjanos tus datos y nos comunicaremos contigo lo más pronto posible Escríbenos por
-                        </p>
-                        <button className='bg-slate-400  w-[17rem] py-2 rounded-lg relative left-[47rem] top-[4rem]'>
-                            Correo electronico
-                        </button>
-                    </div>
-                    <div className='flex items-center justify-center gap-10 relative  top-[6rem]'>
-                        <div className='relative left-[2rem]'>
-                            <img src={Icono} alt=""  style={{width: '155px'}}/>
-                        </div>
-                        <div className='lg:border-l-2 pl-8 lg:border-gray-700'>
-                            <img src={Logotipo} alt="" style={{width: '150px'}}/>
-                        </div>
-                    </div>
-                </div>
+               
             </main>
         </div>
     )

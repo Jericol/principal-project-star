@@ -2,13 +2,12 @@
 
 import { Link, useNavigate } from 'react-router-dom';
 import {
-    RiHome3Line, RiStore2Line, RiShoppingBag3Line, RiCustomerService2Line, RiTruckLine, RiTeamLine,
-    RiShareCircleLine, RiShoppingCart2Line, RiAccountPinCircleLine, RiLayoutRightLine, RiMoonClearFill, RiSunLine,
+    RiHome3Line, RiStore2Line, RiShoppingBag3Line,  RiTeamLine,
+     RiShoppingCart2Line, RiAccountPinCircleLine,  RiMoonClearFill, RiSunLine,
 } from "react-icons/ri";
 import Logo from "../../../public/Logo/LOGO-STAR-BLANCO.png";
 import LogoBlack from "../../../public/Logo/LOGO-STAR-NEGRO.png"
 import { useEffect, useState } from 'react';
-import Control from '../../../public/Logo/control.png'
 import MovalNv from '../modalNv/MovalNv';
 
 // eslint-disable-next-line react/prop-types
