@@ -1,0 +1,25 @@
+@layer components {
+    /* componente de contacbar */
+    .container-static {
+        @apply flex items-center justify-around  bg-black dark:bg-[#2e2b41] border-b border-black pl-8  dark:border-b dark:border-slate-200 dark:pl-8
+    }
+    .section-primary{
+        @apply relative top-2
+    }
+    .email-info{
+        @apply dark:text-white text-white lg:relative lg:bottom-5 lg:left-8 font-advent lg:text-lg 
+        md:relative md:text-base 
+    }
+    .pbx-info{
+        @apply dark:text-white text-white lg:relative lg:bottom-5 lg:left-8 font-advent text-lg uppercase space-x-2
+        md:text-base 
+    }
+    .icono-bar-one{
+        @apply text-2xl lg:relative lg:top-1  
+    }
+    .send-free{
+        @apply dark:text-white text-white lg:relative lg:bottom-5 lg:left-8 font-advent lg:text-lg 
+        md:hidden md:px-4 md:py-3
+    }
+
+}
