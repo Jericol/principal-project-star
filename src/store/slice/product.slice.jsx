@@ -17,7 +17,10 @@ export const ProductSlice = createSlice({
 export const getProductsThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     return axios.get('http://190.60.237.163/articulos/?size=2000')
-        .then((res) => dispatch(setProducts(res.data.RESP)))
+        .then((res) => {
+            dispatch(setProducts(res.data.RESP))
+            console.log(res)
+        })
         .finally(() => dispatch(setIsLoading(false)));
 }
 

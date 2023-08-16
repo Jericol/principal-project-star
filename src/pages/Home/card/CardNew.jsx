@@ -8,10 +8,11 @@ function CardNew() {
 
 
     useEffect(() => {
-        axios.get('http://190.60.237.163/nuevos?size=20')
+        axios.get('http://190.60.237.163/articulos/?size=20')
             .then(res => setItemNew(res.data.RESP))
     }, []);
 
+    console.log(itemNew)
 
     return (
         <div className='grid grid-cols-3'>
