@@ -14,15 +14,16 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import Group from '../../components/Categorias/Grupos/Group';
 import Pagination from '../../components/Pagination/Pagination';
 import AlertAdd from '../../components/alertas-add/AlertAdd';
+import { data } from 'autoprefixer';
+import { addCartThunk } from '../../store/slice/cart.slice';
 
 function ProductNews({ allProducts, setAllProducts, countProducts, setCountProducts, total, setTotal }) {
 
     const dispatch = useDispatch();
     // traer articulos de redux
     const productList = useSelector(state => state.product);
-    // total de productos
+    // total de productos de paginacion
     const totalProduct = productList.length;
-
     // paginacion paginas y numero de productos
     const [productsPage, setProductsPage] = useState(8);
     const [currentPage, setCurrentPage] = useState(1);
@@ -31,8 +32,11 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
     const firsIndex = lastIndex - productsPage
     // navigar haci otras rutas
     const navigate = useNavigate();
-    // estado de pruebas api
-    const [ product, setProduct ] = useState([]);
+    // estado de categorias movil
+    const [itemPage, setItemPage] = useState(4);
+    const [ nextPage, setNextPage ] = useState(1)
+    const [showMenu, setShowMenu ] = useState(false)
+   
 
 
     const onAddProduct = (product) => {
@@ -53,9 +57,30 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
         // setTotal(total + product?.Precio * product.quantity)
         setAllProducts([...allProducts, product])
         console.log(allProducts)
-      
-
     }
+
+    const addProductCart = (data) => {
+        console.log(data)
+        axios.post("http://190.60.237.163/encabezadoped", data)
+            .then(res => {
+                console.log(res.data)
+                localStorage.setItem('ID', res.data.ID)
+
+            })
+            .catch(error => {
+                if (error.response) {
+                    console.log('respuesta de la peticion', error.response.data)
+                } else if (error.request) {
+                    console.log('respuesta de requisito', error.request)
+                } else {
+                    console.log('error hacer la solicitud', error.message)
+                }
+            })
+
+            dispatch(addCartThunk())
+    }
+
+
 
     useEffect(() => {
         dispatch(getProductsThunk())
@@ -68,28 +93,34 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
             <div className='lg:col-span-full '>
                 <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6'>
                     <div>
-                        {/* informacion de contacto */}
-                        <div>
-
-                        </div>
                         {/* titulo y buscador */}
                         <div className='flex items-center justify-between'>
-                            <h2 className='mb-6 text-2xl text-gray-300'>Star E-commerce</h2>
-                            <form>
-                                <section className='w-full flex items-center'>
-                                    <SearchBar />
-                                </section>
-                            </form>
+                            {/* categorias */}
+                            <div className=' '>
+                                <Category />
+                            </div>
                         </div>
+                        {/* categorias movil */}
+                        <div className='mb-8 md:flex md:items-center md:justify-between md:relative md:right-5'>
+                            <Group
+                                showMenu={showMenu}
+                                setShowMenu={setShowMenu}
+                                itemPage={itemPage}
+                                setItemPage={setItemPage}
+                                nextPage={nextPage}
+                                setNextPage={setNextPage}
+                            />
+                            {/* buscador */}
+                            <div className='relative left-4 lg:hidden md:relative md:top-1'>
+                                <SearchBar />
+                            </div>
+                        </div>
+
                         {/* banner */}
                         <span>
                             <img src={BannerProduct} alt="" className='rounded-lg' />
                         </span>
                     </div>
-                </div>
-                {/* categorias */}
-                <div className=' '>
-                    <Group />
                 </div>
                 {/* Articulos */}
                 <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28'>
@@ -113,7 +144,8 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
                                     <button
                                         className='px-4 py-2 bg-indigo-500 rounded-lg'
                                         type="button"
-                                        onClick={() => onAddProduct(product)}
+                                        // onClick={() => onAddProduct(product)}
+                                        onClick={() => addProductCart(data)}
                                     >
                                         <RiShoppingCart2Line className='text-2xl text-white ' />
                                     </button>

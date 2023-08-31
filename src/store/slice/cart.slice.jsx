@@ -31,21 +31,10 @@ export const cartSlice = createSlice({
 //         .finally(() => dispatch(setIsLoading(false)))
 // }
 
-export const checkIdThunk = () => (dispatch) => {
-    dispatch(setIsLoading(true));
-    return axios.post("190.60.237.163/encabezadoped", {
-        headers: {
-            'VEND': 20,
-            'NIT': '1026555677'
-        }
-    })
-        .then((res) => dispatch(setCart(res.data.RESP)))
-        .finally(() => dispatch(setIsLoading(false)));
-}
 
- export const addCartThunk = (cartAdd) => (dispatch) => {
+ export const addCartThunk = () => (dispatch) => {
      dispatch(setIsLoading(true));
-     return axios.post("http://190.60.237.163/itempedido", cartAdd, getConfig())
+     return axios.post("http://190.60.237.163/itempedido",  headerConfig())
          .then((res) => dispatch(getCartThunk(res.data.RESP)))
          .catch(() => alert('hubo un error'))
          .finally(() => dispatch(setIsLoading(false)));

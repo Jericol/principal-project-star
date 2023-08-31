@@ -16,6 +16,8 @@ import BannerDescuentos from "../../../public/img/BANNER-INFO-DTOS.jpg"
 import CateItems from '../../components/carrusel/CateItems';
 import { useForm } from 'react-hook-form';
 import MovalNv from '../../components/modalNv/MovalNv';
+import Group from '../../components/Categorias/Grupos/Group';
+import ProductNews from '../../pages/productNews/ProductNews'
 
 
 
@@ -28,7 +30,7 @@ function Home() {
     const [showMenu, setShowMenu] = useState(false);
     const [closeCart, setCloseCart] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [ open, setOpen ] = useState(false)
+    const [open, setOpen] = useState(false)
 
     const { register, handleSubmit } = useForm();
 
@@ -48,65 +50,39 @@ function Home() {
     }
 
     return (
-        <div className='pl-6 grid grid-cols-1 lg:grid-cols-8 overflow-y-auto dark:bg-[#1f1d2b] dark:text-white w-auto'>
+        <div className='pl-6 grid grid-cols-1 lg:grid-cols-8 overflow-hidden dark:bg-[#1f1d2b] dark:text-white w-auto'>
             <div className='lg:col-span-full '>
                 {/* header */}
                 <header className='p-4'>
                     {/* titulo y busqueda */}
-                    <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6'>
+                    <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-12 mb-6'>
                         <div>
-                            
-                            {/* titulo y buscador */}
-                            <div className='flex items-center justify-between'>
-                                {/* modal */}
-                                 <div>
-                                    <MovalNv 
-                                      showModal={showModal}
-                                      setShowModal={setShowModal}
-                                      open={open}
-                                      setOpen={setOpen}
-                                    />
-                                 </div>
-                                {/* Barra de busqueda */}
-                                <form>
-                                    <section className='w-full flex items-center'>
-                                        <SearchBar />
-                                    </section>
-                                </form>
+                            {/* categorias */}
+                            <div className='mb-6 '>
+                                <Category />
                             </div>
+                            {/* menu movil  categorias */}
+                            <div className='mb-8 md:flex md:items-center md:justify-between '>
+                                <Group
+                                    showMenu={showMenu}
+                                    setShowMenu={setShowMenu}
+                                />
+                                {/* buscador */}
+                                <div className='relative  lg:hidden'>
+                                    <SearchBar />
+                                </div>
+                            </div>
+                            {/* modal y buscador articulo*/}
+
                             {/* Banner */}
                             <span className='text-white mt-3-3'>
                                 <Link to="/distribuidores">
                                     <p className='text-2xl'>
-                                        <img src={BannerDistri} alt="" className='rounded-lg' />
+                                        <img src={BannerDistri} alt="" className='rounded-lg h-[9rem] w-[28rem] md:w-full md:h-[16rem] lg:h-[28rem]' />
                                     </p>
                                 </Link>
                             </span>
                         </div>
-                    </div>
-                    {/* menu movil  categorias */}
-                    <div>
-                        <button onClick={() => setShowMenu(!showMenu)} className='lg:hidden text-2xl'>
-                            <RiApps2Fill className="text-white" />
-                        </button>
-                        <div className={`mb-2 fixed left-0 bg-[#181a20] w-full h-full z-50 transition-all ${showMenu ? "top-0" : "-top-full"}`}>
-                            <button onClick={() => setShowMenu(!showMenu)} className='text-2xl p-4 text-white'>
-                                <RiFullscreenExitLine />
-                            </button>
-                            <ul className='flex flex-col items-center text-gray-300'>
-                                {
-                                    categories.map(category => (
-                                        <div key={category?.Codigo} onClick={() => dispatch(filterProductCategoriesThunk(category?.Codigo))} className=''>
-                                            <button className='border-b-4 border-indigo-500 py-2 pr-4' onClick={() => setShowMenu(!showMenu)}>{category?.Nombre}</button>
-                                        </div>
-                                    ))
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                    {/* categorias */}
-                    <div className='mb-6 '>
-                        <Category />
                     </div>
                     {/* slider de productos */}
                     <div>
@@ -118,16 +94,16 @@ function Home() {
                     <h2 className='text-xl text-gray-300 '>productos destacados</h2>
                 </div>
                 <div className='mb-8'>
-                    <img src={BannerSend} alt="" />
-                </div>
-                <div className='mb-8'>
                     <CardNew />
                 </div>
-                <div>
-                    <img src={BannerDescuentos} alt="" className='w-full' />
+                <div className='mb-8'>
+                    <img src={BannerSend} alt="" />
                 </div>
                 <div className='mb-6'>
                     <CateItems />
+                </div>
+                <div>
+                    <img src={BannerDescuentos} alt="" className='w-full' />
                 </div>
             </div>
             {/* <div className='lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1f1d2b] w-full h-full'>

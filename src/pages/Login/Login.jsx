@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../../public/Logo/STARPROFESSIONAL.png';
 import { useDispatch } from 'react-redux';
-import { checkIdThunk } from '../../store/slice/cart.slice';
+
 
 function Login() {
 

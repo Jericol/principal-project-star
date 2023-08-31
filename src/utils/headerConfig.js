@@ -1,6 +1,6 @@
 const headerConfig = () => ({
 
-    headers: { Authorization: `Bearer ${localStorage.getItem({..."id"})}`}
+    headers: { Authorization: `Bearer ${localStorage.getItem("id")}`}
 })
 
 

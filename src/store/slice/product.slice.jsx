@@ -31,9 +31,16 @@ export const filterProductCategoriesThunk = (codigo) => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const groupFilterThunk = (codigo) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.get(`http://190.60.237.163/articulos/?familia=${codigo}&size=2000`)
+        .then((res) => dispatch(setProducts(res.data.RESP)))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const NameFiltredThunk = (newSearch) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`http://190.60.237.163/articulos/?arti=${newSearch}&size=1000`)
+    return axios.get(`http://190.60.237.163/articulos/?buscar=${newSearch}&size=1000`)
         .then((res) => dispatch(setProducts(res.data.RESP)))
         .finally(() => dispatch(setIsLoading(false)));
 }

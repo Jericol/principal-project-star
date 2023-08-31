@@ -26,6 +26,7 @@ import CartAdd from './pages/CarritoAdd/CartAdd';
 import MovalNv from './components/modalNv/MovalNv';
 import CustomerService from './pages/Contact/CustomerService';
 import ContactBar from './components/ContacBar/ContactBar';
+import Capilar from './pages/familias/Capilar';
 // import WorkWithUs from './pages/servicios/workWithUs';
 
 
@@ -47,7 +48,7 @@ function App() {
 
 
   return (
-    <div className=' w-full min-h-screen bg-slate-300 dark:bg-[#423e5c] dark:text-white'>
+    <div className=' w-full min-h-screen bg-slate-300 dark:bg-[#423e5c] dark:text-white overflow-hidden'>
       <HashRouter>
         <ContactBar />
         <AppNavbar
@@ -69,6 +70,7 @@ function App() {
           <Route path='/domicilios' element={<Domicilios />} />
           <Route path='/Faq' element={<Faq />} />
           <Route path='/dataProcessing' element={<DataProcessing />} />
+          <Route path='/Capilar' element={<Capilar />} />
           <Route path='/newProduct'
             element={
               <ProductNews
