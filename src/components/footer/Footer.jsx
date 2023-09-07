@@ -60,7 +60,7 @@ function Footer() {
 
     ]
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const [showOpen, setShowOpen] = useState(false);
 
 

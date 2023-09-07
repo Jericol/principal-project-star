@@ -17,15 +17,10 @@ function Login() {
     // prubea 3 
      const submit = (data) => {
          console.log(data)
-         axios.post("http://190.60.237.163/logincli", data, {
-             headers: {
-                 'usuario': '1026555677',
-                 'clave': 'LeoGR1026'
-             }
-        })
+         axios.post("http://190.60.237.163/logincli", data)
          .then(res => {
              console.log(res.data)
-             localStorage.setItem("usuario", res.data.usuario)
+             localStorage.setItem("token", res.data.token)
              navigate("/dashboard")
          })
          .catch(error => {
@@ -119,7 +114,7 @@ function Login() {
                             {/* Enlace de Registro */}
                             <p className="register-text">
                                 Aún no tienes una cuenta ?
-                                <Link to="" className="registre-link ">
+                                <Link to="/register" className="registre-link ">
                                     Registrate
                                 </Link>
                             </p>

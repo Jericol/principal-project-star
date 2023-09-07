@@ -77,10 +77,10 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
                 }
             })
 
-            dispatch(addCartThunk())
+            dispatch(addCartThunk(data))
     }
 
-
+console.log(data)
 
     useEffect(() => {
         dispatch(getProductsThunk())

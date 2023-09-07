@@ -17,7 +17,7 @@ function Payload() {
                 {/* metodos de pago */}
                 <div className=''>
                     <form action="">
-
+                        
                     </form>
                 </div>
             </div>

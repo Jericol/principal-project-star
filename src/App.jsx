@@ -11,7 +11,7 @@ import { useState } from "react";
 import { RiMenu3Line, RiStore2Line, RiHome3Line, RiShoppingCart2Line, RiFlutterLine } from "react-icons/ri";
 import Distribuidores from './pages/Contact/Distribuidores/Distribuidores';
 import Login from "./pages/Login/Login";
-import Register from './pages/Login/Register';
+import Register from './pages/Registro/Registro';
 import ProtetedRoutes from './components/proteccionAccount/ProtetedRoutes';
 import Domicilios from './pages/Domicilios/Domicilios';
 import Faq from './pages/Faq/Faq';
@@ -27,6 +27,10 @@ import MovalNv from './components/modalNv/MovalNv';
 import CustomerService from './pages/Contact/CustomerService';
 import ContactBar from './components/ContacBar/ContactBar';
 import Capilar from './pages/familias/Capilar';
+import RegisterPanel from './pages/Registro/RegisterPanel';
+import EmailForm from './pages/Registro/EmailForm';
+import ContactForm from './pages/Registro/ContacForm';
+import AddressForm from './pages/Registro/AddressForm'
 // import WorkWithUs from './pages/servicios/workWithUs';
 
 
@@ -48,7 +52,7 @@ function App() {
 
 
   return (
-    <div className=' w-full min-h-screen bg-slate-300 dark:bg-[#423e5c] dark:text-white overflow-hidden'>
+    <div className=' w-full min-h-screen bg-baseLight-300 dark:bg-baseDark-800 dark:text-white overflow-hidden'>
       <HashRouter>
         <ContactBar />
         <AppNavbar
@@ -71,6 +75,10 @@ function App() {
           <Route path='/Faq' element={<Faq />} />
           <Route path='/dataProcessing' element={<DataProcessing />} />
           <Route path='/Capilar' element={<Capilar />} />
+          <Route path='/register/panel' element={<RegisterPanel />}/>
+          <Route path='/register/panel/email' element={<EmailForm />}/>
+          <Route path='/registro/panel/contact' element={<ContactForm />}/>
+          <Route path='/register/panel/address' element={<AddressForm />}/>
           <Route path='/newProduct'
             element={
               <ProductNews

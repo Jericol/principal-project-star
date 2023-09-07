@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FcCustomerSupport, FcAddressBook, FcCallback, FcShipped } from "react-icons/fc";
 import { RiMailUnreadLine, RiWhatsappFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 
 function ContactBar() {
 
+    const [ slide, setSlide ] = useState(false);
+
+    
 
     return (
         <div className='box-border'>

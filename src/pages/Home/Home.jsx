@@ -63,10 +63,10 @@ function Home() {
                             </div>
                             {/* menu movil  categorias */}
                             <div className='mb-8 md:flex md:items-center md:justify-between '>
-                                <Group
+                                {/* <Group
                                     showMenu={showMenu}
                                     setShowMenu={setShowMenu}
-                                />
+                                /> */}
                                 {/* buscador */}
                                 <div className='relative  lg:hidden'>
                                     <SearchBar />
@@ -78,7 +78,7 @@ function Home() {
                             <span className='text-white mt-3-3'>
                                 <Link to="/distribuidores">
                                     <p className='text-2xl'>
-                                        <img src={BannerDistri} alt="" className='rounded-lg h-[9rem] w-[28rem] md:w-full md:h-[16rem] lg:h-[28rem]' />
+                                        <img src={BannerDistri} alt="" className='rounded-lg ' />
                                     </p>
                                 </Link>
                             </span>

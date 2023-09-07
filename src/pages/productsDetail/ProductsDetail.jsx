@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { filterProductCategoriesThunk, getProductsThunk } from "../../store/slice/product.slice";
 import { RiShoppingCartLine, RiArrowDownSFill } from "react-icons/ri";
+import { FcInTransit, FcShipped } from "react-icons/fc";
 
 import Cart from "../../components/cart/Cart";
 import Pagination from "../../components/Pagination/Pagination";
@@ -42,135 +43,368 @@ function ProductsDetail() {
 
     const Authentication = (data) => {
         axios.post("190.60.237.163/encabezadoped", data)
-        .then(res => {
-           if (res.status === 200) {
-             console.log(res.data)
-             localStorage.setItem("id", res.data.id)
-           } else {
-            console.log('error en la respuesta')
-           }
-        })
-        .catch(error => {
-            console.log(error, 'error en endpoint encabezado')
-        })
+            .then(res => {
+                if (res.status === 200) {
+                    console.log(res.data)
+                    localStorage.setItem("id", res.data.id)
+                } else {
+                    console.log('error en la respuesta')
+                }
+            })
+            .catch(error => {
+                console.log(error, 'error en endpoint encabezado')
+            })
 
-    } 
-
-    const HadleSuma = () => {
-        
     }
 
-    
 
     return (
-        <div className="lg:h-[130rem] md:h-auto">
-            <div className="mx-auto text-white  mb-5 container ">
-                {/* Detalles del producto  */}
-                <div className="lg:grid lg:grid-cols-2">
+        <div className="lg:h-[200rem] md:h-auto">
+            <div className="mx-auto   mb-5 container ">
+                {/* detalles para pc */}
+                < div className="container lg:flex items-center bg-white dark:bg-[#1f1d2b] border-2 border-slate-400 rounded-lg hidden " >
                     {
                         news.map(items => (
-                            <article key={items} className="md:grid md:grid-cols-2 pt-[12rem] pl-5 bg-white text-black dark:text-white dark:bg-[#1f1d2b] md:w-[42rem]
-                               md:h-[30rem] lg:h-[35rem] lg:w-[50rem] md:rounded-lg md:relative md:left-16 md:top-10 "
-                            >
-                                {/* foto */}
-                                <section className="flex flex-col items-center ">
-                                    <img src={items?.Foto}
-                                        alt=""
-                                        // style={{ width: "300px" }}
-                                        className="relative w-[300px] bottom-[9rem] right-9 md:relative md:bottom-[4rem] md:right-[5rem] lg:relative lg:right-16 lg:bottom-[8.5rem]"
-                                    />
-                                </section>
-                                {/* contenedor de caja */}
-                                <section className="md:relative md:bottom-10">
-                                    {/* titulo del producto caja */}
-                                    <h2 className="text-2xl relative bottom-[16rem] w-[19rem] text-center right-5 p-2 
-                                        md:relative md:bottom-[7rem] md:right-20 md:text-center font-bold  md:text-2xl 
-                                        lg:text-center lg:relative lg:right-[7.6rem] lg:w-[30rem]"
-                                    >
-                                        {items?.Descripcion}
-                                    </h2>
-                                    {/* descripcion larga */}
-                                    <p className=" text-lg relative bottom-[13rem] right-9 text-center 
-                                        lg:w-[30rem] lg:relative lg:right-[8rem] md:relative md:bottom-[5rem]
-                                        md:right-[5rem] md:text-xl md:text-center md:w-[20rem]"
-                                    >
-                                        {items?.Adicional}
-                                    </p>
-                                    {/* Botones mas precio */}
-                                    <section className="">
-                                        <section className=" relative bottom-[9.5rem] left-[4rem] md:relative md:top-[3rem] md:right-5">
-                                            <p className="text-2xl font-bold md:text-3xl
-                                                    md:font-semibold md:relative md:right-[4rem] md:bottom-[6rem] lg:relative lg:left-1"
-                                            >
-                                               $  {items?.Precio}
-                                            </p>
-                                        </section>
-                                    </section>
-                                    <section className="lg:relative lg:left-7 ">
-                                        <button 
-                                            className="px-7 py-3 bg-blue-500 rounded-lg font-bold transform hover:bg-green-400 
-                                            hover:scale-110 hover:text-black transition duration-500 text-white"
-                                            onSubmit={Authentication}
-                                        >
-                                            Add al carrito
-                                        </button>
-                                    </section>
-                                </section>
-                            </article>
+                            <>
+                                <div className=" flex-1 lg:h-[80rem]">
+                                    {/* imagen de producto */}
+                                    <div className="lg:relative lg:left-[16rem] mb-4">
+                                        <img src={items.Foto} alt={items.Descripcion} className="lg:w-[600px]" />
+                                    </div>
+                                    {/* caracteristicas del producto */}
+                                    <h2 className="text-2xl font-semibold text-black dark:text-white pl-12 mb-4">Características del producto</h2>
+                                    <div className="grid grid-cols-2 gap-6 m-4 dark:text-white">
+                                        {/* caracteristicas principales */}
+                                        <div className="border border-slate-400 h-[19rem] rounded-lg text-black ">
+                                            <h2 className="text-lg font-semibold text-center dark:text-white">Características principales</h2>
+                                            <div className="flex flex-col gap-11 relative top-[3rem]">
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="font-semibold text-lg">Marca:</p>
+                                                    <p className="font-semibold text-lg">{items.Marca}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="font-semibold text-lg">Referencia:</p>
+                                                    <p className="font-semibold text-lg">{items.Codigo}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* medidas */}
+                                        <div className="border border-slate-400 h-[19rem] rounded-lg text-black ">
+                                            <h2 className="text-lg font-semibold text-center dark:text-white">Otros</h2>
+                                            <div className="flex flex-col gap-4 relative top-[2rem]">
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="font-semibold text-lg">Alto:</p>
+                                                    <p className="font-semibold text-lg">{items.Alto}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="font-semibold text-lg">Largo:</p>
+                                                    <p className="font-semibold text-lg">{items.Largo}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="font-semibold text-lg">Ancho:</p>
+                                                    <p className="font-semibold text-lg">{items.Ancho}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* descripcion larga  */}
+                                    <div className="border border-slate-400 flex gap-4 rounded-lg h-[22rem] mx-4">
+                                        <div className="">
+                                            <h2 className="text-lg font-semibold text-center py-3 dark:text-white text-black">Descripcion</h2>
+                                            <p className="text-black font-semibold  text-xl text-center lg:px-4 dark:text-white">{items.Adicional}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* TITULO REFERENCIA TITULO Y PRECIO */}
+                                <div className="lg:w-[25rem] lg:h-[100rem] lg:relative lg:top-[5rem]">
+                                    <div className="mr-4 px-3 py-3 h-[90rem] border-2 border-slate-400 rounded-lg">
+                                        <div className="flex flex-col items-center relative top-[4rem]">
+                                            <div>
+                                                <h2 className="text-2xl font-semibold text-start text-black dark:text-white">{items.Descripcion}</h2>
+                                            </div>
+                                            {/* calificacion */}
+                                            <div className="flex items-start gap-1 relative right-[6.7rem] top-2 mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
+                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
+                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
+                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
+                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
+                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            {/* precio */}
+                                            <div className="relative right-[6.4rem] mb-6">
+                                                <p className="text-4xl font-semibold text-black dark:text-white">
+                                                    $ {items.Precio}
+                                                </p>
+                                            </div>
+                                            <span className="relative right-[5.4rem] text-xl font-semibold mb-6">Stock: Disponible</span>
+                                            {/* envios contraentrega y gratis */}
+                                            <div className="mb-6 ">
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="flex items-center gap-5">
+                                                        <FcInTransit className="text-4xl" />
+                                                        <p className="text-base font-medium">Envios contraentrega Solo Bogotá</p>
+                                                    </div>
+                                                    <div className="flex items-center gap-5">
+                                                        <FcShipped className="text-4xl" />
+                                                        <p>Envío grátis por pedidos superiores a $150.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/* tiempo de envios */}
+                                            <div className="mb-8">
+                                                <p className="text-lg font-semibold text-gray-500 dark:text-white">Envios a nivel nacional</p>
+                                                <p className="text-lg text-gray-600  dark:text-white">
+                                                    Las entregas seran de 1 a 3 dias a nivel bogotá y a nivel nacional de 5 a 7 dias habiles, Ten en cuenta que sabados, domingos y festivos no son dias habiles
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {/* redes sociales */}
+                                        <div className="mb-6">
+                                            <div className="flex items-center justify-around gap-4 pt-[4rem] mb-6">
+                                                {/* tiktok */}
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" className="bg-white rounded-2xl">
+                                                    <path fill="#212121" fillRule="evenodd" d="M10.904,6h26.191C39.804,6,42,8.196,42,10.904v26.191 C42,39.804,39.804,42,37.096,42H10.904C8.196,42,6,39.804,6,37.096V10.904C6,8.196,8.196,6,10.904,6z" clipRule="evenodd"></path><path fill="#ec407a" fillRule="evenodd" d="M29.208,20.607c1.576,1.126,3.507,1.788,5.592,1.788v-4.011 c-0.395,0-0.788-0.041-1.174-0.123v3.157c-2.085,0-4.015-0.663-5.592-1.788v8.184c0,4.094-3.321,7.413-7.417,7.413 c-1.528,0-2.949-0.462-4.129-1.254c1.347,1.376,3.225,2.23,5.303,2.23c4.096,0,7.417-3.319,7.417-7.413L29.208,20.607L29.208,20.607 z M30.657,16.561c-0.805-0.879-1.334-2.016-1.449-3.273v-0.516h-1.113C28.375,14.369,29.331,15.734,30.657,16.561L30.657,16.561z M19.079,30.832c-0.45-0.59-0.693-1.311-0.692-2.053c0-1.873,1.519-3.391,3.393-3.391c0.349,0,0.696,0.053,1.029,0.159v-4.1 c-0.389-0.053-0.781-0.076-1.174-0.068v3.191c-0.333-0.106-0.68-0.159-1.03-0.159c-1.874,0-3.393,1.518-3.393,3.391 C17.213,29.127,17.972,30.274,19.079,30.832z" clipRule="evenodd"></path><path fill="#fff" fillRule="evenodd" d="M28.034,19.63c1.576,1.126,3.507,1.788,5.592,1.788v-3.157 c-1.164-0.248-2.194-0.856-2.969-1.701c-1.326-0.827-2.281-2.191-2.561-3.788h-2.923v16.018c-0.007,1.867-1.523,3.379-3.393,3.379 c-1.102,0-2.081-0.525-2.701-1.338c-1.107-0.558-1.866-1.705-1.866-3.029c0-1.873,1.519-3.391,3.393-3.391 c0.359,0,0.705,0.056,1.03,0.159V21.38c-4.024,0.083-7.26,3.369-7.26,7.411c0,2.018,0.806,3.847,2.114,5.183 c1.18,0.792,2.601,1.254,4.129,1.254c4.096,0,7.417-3.319,7.417-7.413L28.034,19.63L28.034,19.63z" clipRule="evenodd"></path><path fill="#81d4fa" fillRule="evenodd" d="M33.626,18.262v-0.854c-1.05,0.002-2.078-0.292-2.969-0.848 C31.445,17.423,32.483,18.018,33.626,18.262z M28.095,12.772c-0.027-0.153-0.047-0.306-0.061-0.461v-0.516h-4.036v16.019 c-0.006,1.867-1.523,3.379-3.393,3.379c-0.549,0-1.067-0.13-1.526-0.362c0.62,0.813,1.599,1.338,2.701,1.338 c1.87,0,3.386-1.512,3.393-3.379V12.772H28.095z M21.635,21.38v-0.909c-0.337-0.046-0.677-0.069-1.018-0.069 c-4.097,0-7.417,3.319-7.417,7.413c0,2.567,1.305,4.829,3.288,6.159c-1.308-1.336-2.114-3.165-2.114-5.183 C14.374,24.749,17.611,21.463,21.635,21.38z" clipRule="evenodd"></path>
+                                                </svg>
+                                                {/* facebook */}
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" className="bg-white rounded-full">
+                                                    <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path><path fill="#fff" d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"></path>
+                                                </svg>
+                                                {/* instagram */}
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" className="bg-white rounded-2xl">
+                                                    <radialGradient id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1" cx="19.38" cy="42.035" r="44.899" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#fd5"></stop><stop offset=".328" stopColor="#ff543f"></stop><stop offset=".348" stopColor="#fc5245"></stop><stop offset=".504" stopColor="#e64771"></stop><stop offset=".643" stopColor="#d53e91"></stop><stop offset=".761" stopColor="#cc39a4"></stop><stop offset=".841" stopColor="#c837ab"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"></path><radialGradient id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2" cx="11.786" cy="5.54" r="29.813" gradientTransform="matrix(1 0 0 .6663 0 1.849)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#4168c9"></stop><stop offset=".999" stopColor="#4168c9" stopOpacity="0"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"></path><path fill="#fff" d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"></path><circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle><path fill="#fff" d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        {/* botones de compra y añadir al carrito */}
+                                        <div >
+                                            <div className="flex flex-col gap-5 pt-8">
+                                                <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">Comprar ahora</button>
+                                                <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-200 rounded-lg text-blue-600">añadir al carrito</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
                         ))
                     }
-                    {/* tabla de valores */}
-                    <section className="mb-8">
-                        <div className="relative left-9 top-6 lg:relative lg:top-12 lg:left-[12rem] md:relative md:top-16 md:left-16 overflow-hidden">
-                            <table className="bg-slate-300 w-[21rem] lg:w-[40rem] lg:h-[34.5rem] text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg md:w-[41rem]">
-                                <thead className="bg-white text-xs border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <tr className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="col" className="bg-[#1f1d2b] border-b px-6 py-3 dark:bg-gray-700 text-white uppercase">
-                                            nombre de producto
-                                        </th>
-                                        <td scope="col" className="bg-[#312e44] text-white px-6 py-3">
-                                            {news[0]?.Descripcion}
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody className="">
-                                    <tr className="bg-white border-b  dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row" className="bg-[#1f1d2b] border-b px-6 py-3 dark:bg-gray-700 text-white uppercase">
-                                            Marca
-                                        </th>
-                                        <td className="bg-[#312e44] text-white px-6 py-4">
-                                            {news[0]?.Marca}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row" className="bg-[#1f1d2b] border-b px-6 py-3 dark:bg-gray-700 text-white uppercase">
-                                            Alto
-                                        </th>
-                                        <td className="bg-[#312e44] text-white px-6 py-4">
-                                            {news[0]?.Alto}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row" className="bg-[#1f1d2b] border-b px-6 py-3 dark:bg-gray-700 text-white uppercase">
-                                            Ancho
-                                        </th>
-                                        <td className="bg-[#312e44] text-white px-6 py-4">
-                                            {news[0]?.Ancho}
-                                        </td>
+                </div>
+                {/* detalles para tablet */}
+                <div className="container md:flex md:items-center bg-white dark:bg-[#1f1d2b] border-2 border-slate-400 rounded-lg lg:hidden hidden">
+                    {
+                        news.map(items => (
+                            <>
+                                <div className="flex-1 h-[50rem]">
+                                    {/* imagen de producto */}
+                                    <div className="relative left-[6rem] mb-4">
+                                        <img src={items.Foto} alt={items.Descripcion} className="w-[300px]" />
+                                    </div>
+                                    {/* caracteristicas del producto */}
+                                    <h2 className="text-xl font-semibold dark:text-white pl-12 mb-4">Características del producto</h2>
+                                    <div className="grid grid-cols-2 gap-6 m-4 dark:text-white">
+                                        {/* caracteristicas principales */}
+                                        <div className="border border-slate-400 h-[14rem] rounded-lg text-black">
+                                            <div className="flex flex-col gap-11 relative top-[2rem]">
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className=" text-lg">Marca:</p>
+                                                    <p className=" text-sm">{items.Marca}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-lg">Ref:</p>
+                                                    <p className="text-sm">{items.Codigo}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* medidad */}
+                                        <div className="border border-slate-400 h-[14rem] rounded-lg text-black">
+                                            <div className="flex flex-col gap-4 relative top-[2rem]">
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-sm">Alto:</p>
+                                                    <p className="text-sm">{items.Alto}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-sm">Largo:</p>
+                                                    <p className="text-sm">{items.Largo}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-sm">Ancho:</p>
+                                                    <p className="text-sm">{items.Ancho}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* descripcion larga */}
+                                    <div className="border border-slate-400 flex gap-4 rounded-lg h-[14rem] w-[30rem] relative left-1">
+                                        <div>
+                                            <h2 className="text-lg font-semibold text-center py-3 dark:text-white text-black">Descripcion</h2>
+                                            <p className="text-black font-semibold  text-sm text-center lg:px-4 dark:text-white">{items.Adicional}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* TITULO  REFERENCIA Y PRECIO */}
+                                <div className="w-[17rem] h-[60rem] relative top-[1.5rem]">
+                                    <div className="mr-4 px-3 py-3 h-[55rem] border-2 border-slate-400 rounded-lg">
+                                        <div className="flex flex-col items-center relative top-[2rem]">
+                                            {/* titulo de producto */}
+                                            <div>
+                                                <h2 className="text-sm font-semibold text-black dark:text-white mb-4">{items.Descripcion}</h2>
+                                            </div>
+                                            {/* precio */}
+                                            <div className="relative left-1 mb-6 flex  gap-2">
+                                                <div className="">
+                                                    <p className="text-xl pl-3 font-semibold text-black dark:text-white">${items.Precio}</p>
+                                                </div> 
+                                                -
+                                                <div className="">
+                                                    <span className="text-xl pr-6 font-semibold text-black dark:text-white">Referencia:{items.Codigo}</span>
+                                                </div>
+                                            </div>
+                                            <span className="relative right-[2.2rem] text-lg font-semibold mb-6">Stock: Disponible</span>
+                                            {/* envios contra entrega */}
+                                            <div className="mb-6 ">
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="flex items-center gap-5">
+                                                        <FcInTransit className="text-4xl" />
+                                                        <p className="text-sm font-medium">Envios contraentrega Solo Bogotá</p>
+                                                    </div>
+                                                    <div className="flex items-center gap-5">
+                                                        <FcShipped className="text-4xl" />
+                                                        <p className="text-sm">Envío grátis por pedidos superiores a $150.000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/* tiempo de envios */}
+                                            <div className="mb-4">
+                                                <p className="text-sm font-semibold text-gray-500 dark:text-white">Envios a nivel nacional</p>
+                                                <p className="text-sm text-gray-600  dark:text-white">
+                                                    Las entregas seran de 1 a 3 dias a nivel bogotá y a nivel nacional de 5 a 7 dias habiles, Ten en cuenta que sabados, domingos y festivos no son dias habiles
+                                                </p>
+                                            </div>
+                                            {/* botones de compra y añadir al carrito */}
+                                            <div >
+                                                <div className="flex flex-col gap-5 pt-8 mb-6">
+                                                    <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">Comprar ahora</button>
+                                                    <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-200 rounded-lg text-blue-600">añadir al carrito</button>
+                                                </div>
+                                            </div>
+                                            {/* medios de pago */}
+                                            <div>
+                                                <div className="border border-slate-400 h-[14rem] w-[15rem]">
+                                                    <h2 className="text-center ">Medios de pago</h2>
+                                                    <div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ))
+                    }
+                </div>
+                {/* detalles para celular */}
+                <div className="container flex items-center h-[88rem] bg-white dark:bg-[#1f1d2b] border-2 border-slate-400 rounded-lg md:hidden">
+                    {
+                        news.map(items => (
+                            <>
+                                {/* contenido */}
+                                <div className="flex-1 h-[50rem] relative bottom-[12rem]">
+                                    {/* titulo */}
+                                    <div className="mb-4">
+                                        <h2 className="text-xl text-center max-w-xs relative left-12">{items.Descripcion}</h2>
+                                    </div>
+                                    {/* imagen del producto */}
+                                    <div className="relative left-[5rem] mb-4">
+                                        <img 
+                                          src={items.Foto} 
+                                          alt={items.Descripcion} 
+                                          className="w-[200px] shadow-md shadow-gray-300 rounded-lg " 
+                                        />
+                                    </div>
+                                    {/* precio */}
+                                    <div className="relative left-[3rem] mb-6 flex items-center gap-9">
+                                        <div>
+                                            <p className="text-xl font-semibold text-black dark:text-white">$ {items.Precio}</p>
+                                        </div>
+                                        <div>
+                                            <span className="text-xl font-semibold text-black dark:text-white">Referencia: {items.Codigo}</span>
+                                        </div>
+                                    </div>
+                                    {/* contraentrega */}
+                                    <div className="mb-6 ">
+                                        <div className="flex flex-col ">
+                                            <div className="flex items-center gap-5">
+                                                <FcInTransit className="text-3xl" />
+                                                <p className="text-sm font-medium">Envios contraentrega Solo Bogotá</p>
+                                            </div>
+                                            <div className="flex items-center gap-5">
+                                                <FcShipped className="text-3xl" />
+                                                <p className="text-sm">Envío grátis por pedidos superiores a $150.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* botones de compra y añadir al carrito */}
+                                    <div >
+                                        <div className="flex flex-col items-center gap-5 pt-8 mb-6">
+                                            <button className="px-3 py-3 text-center text-xs w-[17rem] font-semibold bg-blue-500 rounded-lg text-white">Comprar ahora</button>
+                                            <button className="px-3 py-3 text-center text-xs w-[17rem] font-semibold bg-blue-200 rounded-lg text-blue-600">añadir al carrito</button>
+                                        </div>
+                                    </div>
+                                    {/* caracteristicas del producto */}
+                                    <h2 className="text-xl font-semibold dark:text-white pl-12 mb-4">Características del producto</h2>
+                                    <div className="grid grid-cols-2 gap-6 m-4 dark:text-white">
+                                        {/* caracteristicas principales */}
+                                        <div className="border border-slate-400 h-[14rem] rounded-lg text-black">
+                                            <div className="flex flex-col gap-11 relative top-[2rem]">
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className=" text-lg">Marca:</p>
+                                                    <p className=" text-sm">{items.Marca}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-lg">Ref:</p>
+                                                    <p className="text-sm">{items.Codigo}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* medidad */}
+                                        <div className="border border-slate-400 h-[14rem] rounded-lg text-black">
+                                            <div className="flex flex-col gap-4 relative top-[2rem]">
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-sm">Alto:</p>
+                                                    <p className="text-sm">{items.Alto}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-sm">Largo:</p>
+                                                    <p className="text-sm">{items.Largo}</p>
+                                                </div>
+                                                <div className="flex items-center justify-around bg-slate-300 py-3">
+                                                    <p className="text-sm">Ancho:</p>
+                                                    <p className="text-sm">{items.Ancho}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* descripcion larga */}
+                                        <div className="border border-slate-400 flex gap-4 rounded-lg h-[22rem] w-[22rem] relative left-1">
+                                            <div>
+                                                <h2 className="text-lg font-semibold text-center py-3 dark:text-white text-black">Descripcion</h2>
+                                                <p className="text-black font-semibold  text-sm text-center lg:px-4 dark:text-white">{items.Adicional}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                    </tr>
-                                    <tr className="bg-white border-b dark:bg-gray-800        dark:border-gray-700">
-                                        <th scope="row" className="bg-[#1f1d2b] border-b px-6 py-3 dark:bg-gray-700 text-white uppercase">
-                                            Largo
-                                        </th>
-                                        <td className="bg-[#312e44] text-white px-6 py-4">
-                                            {news[0]?.Largo}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
+
+                            </>
+                        ))
+                    }
                 </div>
                 {/* seccion detalles */}
                 <h2>Productos Similares</h2>
@@ -191,7 +425,7 @@ function ProductsDetail() {
                                 <span>REF: {newsItem?.Codigo}</span>
                                 <p>$: {newsItem?.Precio}</p>
                                 <section>
-                                    <button 
+                                    <button
                                         className="px-7 py-3 bg-blue-500 rounded-lg font-bold transform hover:bg-green-400 
                                         hover:scale-110 hover:text-black transition duration-500"
                                     >
@@ -210,8 +444,7 @@ function ProductsDetail() {
                     />
                 </section>
             </div>
-
-        </div>
+        </div >
     )
 }
 
