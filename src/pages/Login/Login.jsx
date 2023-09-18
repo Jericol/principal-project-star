@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from '../../../public/Logo/STARPROFESSIONAL.png';
+
 import { useDispatch } from 'react-redux';
 
 
@@ -17,11 +17,11 @@ function Login() {
     // prubea 3 
      const submit = (data) => {
          console.log(data)
-         axios.post("http://190.60.237.163/logincli", data)
+         axios.post("http://190.60.237.163/logincli?usuario=1026555677&clave=LeoGR1026", data)
          .then(res => {
              console.log(res.data)
              localStorage.setItem("token", res.data.token)
-             navigate("/dashboard")
+             navigate("/")
          })
          .catch(error => {
              if (error.response) {
@@ -45,7 +45,7 @@ function Login() {
                 <div className="capa-media">
                     <div className="capa-interna">
                         <section href="#" className="seccion-logo">
-                            <img className="w-8 h-8 mr-2" src={Logo} alt="logo" style={{ width: '180px', height: '180px' }} />
+                            <img className="w-8 h-8 mr-2" src="https://i.ibb.co/xC59hxq/ISOLOGO-STAR-NEGRO.png" alt="logo" style={{ width: '180px', height: '180px' }} />
                         </section>
                         <h1 className="login-title">
                             Inicia sesión con tu cuenta star

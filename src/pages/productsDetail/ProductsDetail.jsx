@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { filterProductCategoriesThunk, getProductsThunk } from "../../store/slice/product.slice";
 import { RiShoppingCartLine, RiArrowDownSFill } from "react-icons/ri";
 import { FcInTransit, FcShipped } from "react-icons/fc";
@@ -94,15 +94,15 @@ function ProductsDetail() {
                                             <div className="flex flex-col gap-4 relative top-[2rem]">
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="font-semibold text-lg">Alto:</p>
-                                                    <p className="font-semibold text-lg">{items.Alto}</p>
+                                                    <p className="font-semibold text-lg">{items.Alto } cm</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="font-semibold text-lg">Largo:</p>
-                                                    <p className="font-semibold text-lg">{items.Largo}</p>
+                                                    <p className="font-semibold text-lg">{items.Largo} cm</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="font-semibold text-lg">Ancho:</p>
-                                                    <p className="font-semibold text-lg">{items.Ancho}</p>
+                                                    <p className="font-semibold text-lg">{items.Ancho} cm</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,6 +146,7 @@ function ProductsDetail() {
                                                     $ {items.Precio}
                                                 </p>
                                             </div>
+                                            <span className="text-2xl font-semibold relative right-[3.4rem] bottom-[1rem]">Ref: {items.Codigo}</span>
                                             <span className="relative right-[5.4rem] text-xl font-semibold mb-6">Stock: Disponible</span>
                                             {/* envios contraentrega y gratis */}
                                             <div className="mb-6 ">
@@ -188,7 +189,11 @@ function ProductsDetail() {
                                         {/* botones de compra y añadir al carrito */}
                                         <div >
                                             <div className="flex flex-col gap-5 pt-8">
-                                                <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">Comprar ahora</button>
+                                                <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">
+                                                    <Link to='/payment'>
+                                                         Comprar ahora   
+                                                    </Link>
+                                                </button>
                                                 <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-200 rounded-lg text-blue-600">añadir al carrito</button>
                                             </div>
                                         </div>
@@ -219,7 +224,7 @@ function ProductsDetail() {
                                                     <p className=" text-sm">{items.Marca}</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
-                                                    <p className="text-lg">Ref:</p>
+                                                    <p className="text-sm">Ref:</p>
                                                     <p className="text-sm">{items.Codigo}</p>
                                                 </div>
                                             </div>
@@ -229,15 +234,15 @@ function ProductsDetail() {
                                             <div className="flex flex-col gap-4 relative top-[2rem]">
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="text-sm">Alto:</p>
-                                                    <p className="text-sm">{items.Alto}</p>
+                                                    <p className="text-sm">{items.Alto} cm</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="text-sm">Largo:</p>
-                                                    <p className="text-sm">{items.Largo}</p>
+                                                    <p className="text-sm">{items.Largo} cm</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="text-sm">Ancho:</p>
-                                                    <p className="text-sm">{items.Ancho}</p>
+                                                    <p className="text-sm">{items.Ancho} cm</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -259,13 +264,13 @@ function ProductsDetail() {
                                                 <h2 className="text-sm font-semibold text-black dark:text-white mb-4">{items.Descripcion}</h2>
                                             </div>
                                             {/* precio */}
-                                            <div className="relative left-1 mb-6 flex  gap-2">
+                                            <div className="relative left-1 mb-6 flex flex-col items-center gap-2">
                                                 <div className="">
                                                     <p className="text-xl pl-3 font-semibold text-black dark:text-white">${items.Precio}</p>
                                                 </div> 
-                                                -
+                                                
                                                 <div className="">
-                                                    <span className="text-xl pr-6 font-semibold text-black dark:text-white">Referencia:{items.Codigo}</span>
+                                                    <span className="text-base pr-6 font-semibold text-black dark:text-white">Referencia: {items.Codigo}</span>
                                                 </div>
                                             </div>
                                             <span className="relative right-[2.2rem] text-lg font-semibold mb-6">Stock: Disponible</span>
@@ -292,7 +297,10 @@ function ProductsDetail() {
                                             {/* botones de compra y añadir al carrito */}
                                             <div >
                                                 <div className="flex flex-col gap-5 pt-8 mb-6">
-                                                    <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">Comprar ahora</button>
+                                                    <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">
+                                                        <Link to='/payment'>Comprar ahora</Link>
+                                                        
+                                                    </button>
                                                     <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-200 rounded-lg text-blue-600">añadir al carrito</button>
                                                 </div>
                                             </div>
@@ -379,15 +387,15 @@ function ProductsDetail() {
                                             <div className="flex flex-col gap-4 relative top-[2rem]">
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="text-sm">Alto:</p>
-                                                    <p className="text-sm">{items.Alto}</p>
+                                                    <p className="text-sm">{items.Alto} cm</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="text-sm">Largo:</p>
-                                                    <p className="text-sm">{items.Largo}</p>
+                                                    <p className="text-sm">{items.Largo} cm</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="text-sm">Ancho:</p>
-                                                    <p className="text-sm">{items.Ancho}</p>
+                                                    <p className="text-sm">{items.Ancho} cm</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -407,11 +415,11 @@ function ProductsDetail() {
                     }
                 </div>
                 {/* seccion detalles */}
-                <h2>Productos Similares</h2>
+                <h2 className="lg:relative lg:top-[8rem] lg:text-center lg:font-semibold lg:text-4xl">Productos Similares</h2>
                 {/* productos similares */}
                 <section className='lg:pl-16 lg:relative lg:top-[12rem] p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28 font-monserrat font-semibold'>
                     {
-                        newsSuggested.map(newsItem => (
+                        newsSuggested?.map(newsItem => (
                             <section key={newsItem.Codigo} onClick={() => navigate(`/productsDetail/${newsItem?.Codigo}`)}
                                 className='bg-white text-black dark:bg-[#1f1d2b] p-8 rounded-xl flex flex-col items-center gap-2 
                                  dark:text-gray-300 text-center border-2 border-black '
@@ -419,17 +427,17 @@ function ProductsDetail() {
                                 <img
                                     src={newsItem?.Foto}
                                     alt=""
-                                    className='object-cover w-60 '
+                                    className='object-cover w-60 cursor-pointer'
                                 />
                                 <p>{newsItem?.Descripcion}</p>
                                 <span>REF: {newsItem?.Codigo}</span>
                                 <p>$: {newsItem?.Precio}</p>
                                 <section>
                                     <button
-                                        className="px-7 py-3 bg-blue-500 rounded-lg font-bold transform hover:bg-green-400 
+                                        className="px-7 py-3 bg-blue-500 rounded-lg font-bold transform text-white hover:bg-green-400 
                                         hover:scale-110 hover:text-black transition duration-500"
                                     >
-                                        Add al carrito
+                                        Añadir al carrito
                                     </button>
                                 </section>
                             </section>

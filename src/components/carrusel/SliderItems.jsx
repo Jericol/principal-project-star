@@ -1,16 +1,18 @@
-import React from 'react';
-import { Carousel } from 'react-carousel3';
-
-import Banner from "../../../public/img carrousel/BANNER-ACCESORIOS-AHORA-SI.jpg";
-
+import React, { useState } from 'react';
+import './sliderItems.css';
 
 
 function SliderItems() {
+
+  
+
+   
+
     return (
-        <div className=''>
-           <img src={Banner} alt="" className='rounded-lg '/>
+        <div className='slide-container'>
+           
         </div>
     )
 }
 
-export default SliderItems
+export default SliderItems;

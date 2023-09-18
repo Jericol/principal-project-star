@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import LogoBlack from '../../../public/Logo/LOGO-STAR-NEGRO.png';
 import { RiStackLine } from "react-icons/ri";
 import { TECollapse } from "tw-elements-react";
 import './style.css';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterProductCategoriesThunk, groupFilterThunk } from '../../store/slice/product.slice';
 import CardNew from '../Home/card/CardNew';
 import Pagination from '../../components/Pagination/Pagination';
-import { alert, button } from '@material-tailwind/react';
+import { alert, button, useSelect } from '@material-tailwind/react';
+import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri";
+import Accesorios from './utils/accesorios';
+import Electricos from './utils/electricos';
+import cuidadoCapilar from './utils/cuidado-capilar';
 
 
 function Capilar() {
@@ -26,7 +29,19 @@ function Capilar() {
     const lastIndex = currentPage * productsPage
     const firsIndex = lastIndex - productsPage
     const totalProduct = items.length;
-    const [ currentList, setCurrentList ] = useState(1);
+    const [currentList, setCurrentList] = useState(1);
+    // traer articulos de redux
+    const productList = useSelector(state => state.product);
+    // accesorios
+    const [showDrop, setShowDrop] = useState(true);
+    // electricos
+    const [isOpen, setIsOpen] = useState(true);
+    // cuidado capilar
+    const [capillaryCare, setCapillarvCare] = useState(true);
+    // COLORACION Y/O QUIMICOS
+    const [coloration, setColoration] = useState(true);
+    // finalizado
+    const [finalized, setFinalized] = useState(true);
 
 
     const handleClick = (value) => {
@@ -54,6 +69,29 @@ function Capilar() {
         setCurrentList(newIndex)
     }
 
+    const nameCategories = [
+        {
+            id: 1,
+            name: 'Accesorios',
+        },
+        {
+            id: 2,
+            name: 'Electricos',
+        },
+        {
+            id: 3,
+            name: 'Cuidado capilar',
+        },
+        {
+            id: 4,
+            name: 'Coloracion y/o quimicos',
+        },
+        {
+            id: 5,
+            name: 'Finalizado'
+        }
+    ]
+
     console.log(items)
 
     console.log(categories)
@@ -68,495 +106,235 @@ function Capilar() {
                 <div >
                     <ul className=''>
                         <li className='flex gap-x-3 items-center pl-1 mb-6'>
-                            <img src={LogoBlack} alt="" className='cursor-pointer w-[70px]' />
+                            <img src="https://i.ibb.co/4gLsH8F/LOGO-STAR-NEGRO.png" alt="" className='cursor-pointer w-[70px]' />
                             <h2 className='dark:text-white origin-left font-medium font-advent text-xl'>
                                 Star professional
                             </h2>
                         </li>
-                        {/* ACCESORIOS */}
-                        <section className='flex flex-col items-center justify-center container'>
-                            <div id="accordionExample">
-                                <div className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
-                                    <h2 className="mb-0" id="headingOne">
-                                        <button
-                                            className={`${activeElement === "element1" &&
-                                                `text-black dark:text-blue-400`
-                                                } uppercase group relative flex w-[13rem] items-center rounded-t-[15px] border-0  px-5 py-4 text-left text-base text-black 
-                                            transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white font-semibold
-                                            border-b-2 pl-8 border-gray-400`}
-                                            type="button"
-                                            onClick={() => handleClick("element1")}
-                                            aria-expanded="true"
-                                            aria-controls="collapseOne"
-                                        >
-                                            Accesorios
-                                            <span
-                                                className={`${activeElement === "element1"
-                                                    ? `rotate-[-180deg] -mr-1`
-                                                    : `rotate-0 fill-[#212529]  dark:fill-white`
-                                                    } ml-auto h-5 w-5 shrink-0 fill-[#336dec] transition-transform duration-200 ease-in-out motion-reduce:transition-none dark:fill-blue-300`}
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth="1.5"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h2>
-                                    <TECollapse
-                                        show={activeElement === "element1"}
-                                        className="!mt-0 !rounded-b-none !shadow-none"
-                                    >
-                                        <div className="px-5 py-4">
-                                            <ul className='mb-6 '>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Accesorios para extenciones
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Envases y automizadores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Extensiones de cabello
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Frascos de desinfeccion
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Gorros
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Kanekalon
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Lupas
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Mandiles
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Papel aluminio
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Peines
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Protectores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Accesorios para peinados
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Rulos y chumis
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Simuladores de peluqueria
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    NN
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Tijeras-Grafiladoras-Portatijeras
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Balacas
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Bowls
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Brochas y mezcladores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Caimanes y pinzas para el cabello
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Capas y camisas antiflujo
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Cepillos
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Desechables de peluqueria
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </TECollapse>
-                                </div>
-                            </div>
-                        </section>
-                        {/* ELECTRIOCS */}
-                        <section className='flex flex-col items-center justify-center container lg:relative lg:top-[2rem]'>
-                            <div id="accordionExample">
-                                <div className="rounded-t-lg border border-neutral-200 bg-white  dark:border-neutral-600 dark:bg-neutral-800">
-                                    <h2 className="mb-0" id="headingOne">
-                                        <button
-                                            className={`${activeElement === "element2" &&
-                                                `text-black dark:text-black`
-                                                } uppercase group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 
-                                              transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white
-                                              font-semibold`}
-                                            type="button"
-                                            onClick={() => handleClick("element2")}
-                                            aria-expanded="true"
-                                            aria-controls="collapseOne"
-                                        >
-                                            Electricos
-                                            <span
-                                                className={`${activeElement === "element2"
-                                                    ? `rotate-[-180deg] -mr-1`
-                                                    : `rotate-0 fill-[#212529]  dark:fill-white`
-                                                    } ml-auto h-5 w-5 shrink-0 fill-[#336dec] transition-transform duration-200 ease-in-out motion-reduce:transition-none dark:fill-blue-300`}
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth="1.5"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h2>
-                                    <TECollapse
-                                        show={activeElement === "element2"}
-                                        className="!mt-0 !rounded-b-none !shadow-none"
-                                    >
-                                        <div className="px-5 py-4">
-                                            <ul className='mb-6 '>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Cepillo secador
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Sterilizadores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Pinzas electronica para keratina
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Pinzas y risadores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Gorros
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Kanekalon
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Lupas
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Mandiles
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </TECollapse>
-                                </div>
-                            </div>
-                        </section>
-                        {/* CUIDADO CAPILAR */}
-                        <section className='flex flex-col items-center justify-center gap-8 container lg:relative lg:top-[4rem]'>
-                            <div id="accordionExample">
-                                <div className="rounded-t-lg border border-neutral-200 bg-white  dark:border-neutral-600 dark:bg-neutral-800">
-                                    <h2 className="mb-0" id="headingOne">
-                                        <button
-                                            className={`${activeElement === "element3" &&
-                                                `text-black dark:text-black`
-                                                } uppercase group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 
-                                              transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white
-                                              font-semibold`}
-                                            type="button"
-                                            onClick={() => handleClick("element3")}
-                                            aria-expanded="true"
-                                            aria-controls="collapseOne"
-                                        >
-                                            Cuidado capilar
-                                            <span
-                                                className={`${activeElement === "element3"
-                                                    ? `rotate-[-180deg] -mr-1`
-                                                    : `rotate-0 fill-[#212529]  dark:fill-white`
-                                                    } ml-auto h-5 w-5 shrink-0 fill-[#336dec] transition-transform duration-200 ease-in-out motion-reduce:transition-none dark:fill-blue-300`}
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth="1.5"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h2>
-                                    <TECollapse
-                                        show={activeElement === "element3"}
-                                        className="!mt-0 !rounded-b-none !shadow-none"
-                                    >
-                                        <div className="px-5 py-4">
-                                            <ul className='mb-8 '>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Ampólletas
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Tonicos
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Tratamientos
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Fluido de rizos
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Macarillas
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Mascarillas de color
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Pre shampoo
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Shampoo color
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Shampoo en seco
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </TECollapse>
-                                </div>
-                            </div>
-                        </section>
-                        {/* COLORACION Y/O QUIMICOS  */}
-                        <section className='flex flex-col items-center justify-center container lg:relative lg:top-[6rem]'>
-                            <div id="accordionExample">
-                                <div className="rounded-t-lg border border-neutral-200 bg-white  dark:border-neutral-600 dark:bg-neutral-800">
-                                    <h2 className="mb-0" id="headingOne">
-                                        <button
-                                            className={`${activeElement === "element4" &&
-                                                `text-black dark:text-black`
-                                                } uppercase group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 
-                                              transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white
-                                              font-semibold`}
-                                            type="button"
-                                            onClick={() => handleClick("element4")}
-                                            aria-expanded="true"
-                                            aria-controls="collapseOne"
-                                        >
-                                            Coloracion y/o quimicos
-                                            <span
-                                                className={`${activeElement === "element4"
-                                                    ? `rotate-[-180deg] -mr-1`
-                                                    : `rotate-0 fill-[#212529]  dark:fill-white`
-                                                    } ml-auto h-5 w-5 shrink-0 fill-[#336dec] transition-transform duration-200 ease-in-out motion-reduce:transition-none dark:fill-blue-300`}
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth="1.5"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h2>
-                                    <TECollapse
-                                        show={activeElement === "element4"}
-                                        className="!mt-0 !rounded-b-none !shadow-none"
-                                    >
-                                        <div className="px-5 py-4">
-                                            <ul className='mb-6 '>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Aclarantes
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Matizantes
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Neutralizadores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Ondulados
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Pegante de extenciones
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Tinte tono sobre tono
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Tintes permanentes
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Tintes semipermanentes
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Removedor de pegante
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Activadores de color
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Agua oxigenada
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Alizadores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Ampolletas cubre canas
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Descolorantes
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Emulsiones reveladoras
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Henna
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Keratinas
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </TECollapse>
-                                </div>
-                            </div>
-                        </section>
-                        {/* FINALIZADO */}
-                        <section className='flex flex-col items-center justify-center container lg:relative lg:top-[9rem]'>
-                            <div id="accordionExample">
-                                <div className="rounded-t-lg border border-neutral-200 bg-white  dark:border-neutral-600 dark:bg-neutral-800">
-                                    <h2 className="mb-0" id="headingOne">
-                                        <button
-                                            className={`${activeElement === "element5" &&
-                                                `text-black dark:text-black`
-                                                } uppercase group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 
-                                              transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white
-                                              font-semibold`}
-                                            type="button"
-                                            onClick={() => handleClick("element5")}
-                                            aria-expanded="true"
-                                            aria-controls="collapseOne"
-                                        >
-                                            Finalizado
-                                            <span
-                                                className={`${activeElement === "element5"
-                                                    ? `rotate-[-180deg] -mr-1`
-                                                    : `rotate-0 fill-[#212529]  dark:fill-white`
-                                                    } ml-auto h-5 w-5 shrink-0 fill-[#336dec] transition-transform duration-200 ease-in-out motion-reduce:transition-none dark:fill-blue-300`}
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth="1.5"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h2>
-                                    <TECollapse
-                                        show={activeElement === "element5"}
-                                        className="!mt-0 !rounded-b-none !shadow-none"
-                                    >
-                                        <div className="px-5 py-4">
-                                            <ul className='mb-6 '>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Aceites u oleos
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Termo protectores
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Crema para peinar
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Espuma
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Fluido para cabello
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Geles
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Lacas
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Lacas fantasia
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Perfumes para cabello
-                                                </li>
-                                                <li className='mb-4 px-2 py-3 font-semibold text-base cursor-pointer pl-8 border-b-2 border-gray-400'>
-                                                    Siliconas
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </TECollapse>
-                                </div>
-                            </div>
-                        </section>
+
+
                     </ul>
                 </div>
             </div>
             {/* contenido */}
             <div className='pl-27  flex-1 h-full overflow-y-scroll'>
-                {/* nombre de los grupos */}
-                <div className='relative flex items-center justify-around'>
-                   {
-                     categories.map((category) => (
-                        <button key={category.Codigo} className='bg-black px-3 py-4 text-white' 
-                          
-                        >
-                            {category?.Grupos?.Nombre}
-                        </button>
-                     ))
-                   }
+                <div>
+                    <img src="https://i.ibb.co/TH07CLN/Capilar.jpg" alt="" className='p-8 w-full h-[22rem] object-cover bg-top' />
                 </div>
+                {/* nombre de los grupos */}
+                <div className='relative flex items-center justify-around mb-[9rem]'>
+                    {/* accesorios items 1# */}
+                    <div className='bg-white dark:bg-[#1f1d2b] dark:text-white px-2 py-3 w-[9.6rem] h-[3rem] rounded-lg'>
+                        <button onClick={() => setShowDrop(!showDrop)}>
+                            <h2 className='relative  text-xl font-semibold'>Accesorios</h2>
+                            <div className='relative left-[7rem] bottom-6 '>
+                                {
+                                    showDrop ?
+                                        <RiArrowUpSLine className='text-xl' />
+                                        :
+                                        <RiArrowDownSLine className='text-xl' />
+                                }
+                            </div>
+                        </button>
+                        {/* sidebar */}
+                        <div className={`border border-slate-400 bg-white dark:bg-[#1f1d2b] dark:text-white w-[22rem] h-[10rem] overflow-y-auto ${!showDrop ? '' : 'hidden'}`}>
+                            {/* accesorios items 1# */}
+                            {
+                                Accesorios.map(accesorios => (
+                                    <ul key={accesorios.id} className='px-2 py-2  flex flex-col items-center cursor-pointer'>
+                                        <li className='border-b border-gray-600 w-full ' onClick={() => setShowDrop(!showDrop)}>
+                                            {accesorios.List}
+                                        </li>
+                                    </ul>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    {/* electricos items 2# */}
+                    <div className='bg-white px-2 py-3 w-[9.6rem] h-[3rem] rounded-lg dark:bg-[#1f1d2b] dark:text-white'>
+                        <button onClick={() => setIsOpen(!isOpen)}>
+                            <h2 className='relative  text-xl font-semibold'>Electricos</h2>
+                            <div className='relative left-[7rem] bottom-6 '>
+                                {
+                                    isOpen ?
+                                        <RiArrowUpSLine className='text-xl' />
+                                        :
+                                        <RiArrowDownSLine className='text-xl' />
+                                }
+                            </div>
+                        </button>
+                        {/* sidebar */}
+                        <div className={`border border-slate-400 bg-white w-[22rem] dark:bg-[#1f1d2b] dark:text-white h-[10rem] overflow-y-auto ${!isOpen ? '' : 'hidden'}`}>
+                            {/* accesorios items 1# */}
+                            {
+                                Electricos.map(electricos => (
+                                    <ul key={electricos.id} className='px-2 py-2 flex flex-col items-center cursor-pointer '>
+                                        <li className='border-b border-gray-600 w-full hover:bg-gradient-to-r hover:from-white hover:to-blue-500 hover:text-black'
+                                            onClick={() => setIsOpen(!isOpen)}
+                                        >
+                                            {electricos.List}
+                                        </li>
+                                    </ul>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    {/* cuidado capilar */}
+                    <div className='bg-white px-2 py-3 w-[12.5rem] h-[3rem] rounded-lg dark:bg-[#1f1d2b] dark:text-white'>
+                        <button onClick={() => setCapillarvCare(!capillaryCare)}>
+                            <h2 className='relative  text-xl font-semibold'>Cuidado capilar</h2>
+                            <div className='relative left-[10.4rem] bottom-6 '>
+                                {
+                                    capillaryCare ?
+                                        <RiArrowUpSLine className='text-xl' />
+                                        :
+                                        <RiArrowDownSLine className='text-xl' />
+                                }
+                            </div>
+                        </button>
+                        {/* sidebar */}
+                        <div className={`border border-slate-400 bg-white w-[22rem] h-[10rem] overflow-y-auto ${!capillaryCare ? '' : 'hidden'}`}>
+                            {/* accesorios items 1# */}
+                            {
+                                cuidadoCapilar.map(cuidarCap => (
+                                    <ul key={cuidarCap.id} className='px-2 py-2 flex flex-col items-center cursor-pointer dark:bg-[#1f1d2b] dark:text-white'>
+                                        <li className='border-b border-gray-600 w-full' onClick={() => setCapillarvCare(!capillaryCare)}>
+                                            {cuidarCap.List}
+                                        </li>
+                                    </ul>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    {/* coloraciion y/o quimicos */}
+                    <div className='bg-white px-2 py-3 w-[18rem] h-[3rem] rounded-lg'>
+                        <button onClick={() => setColoration(!coloration)}>
+                            <h2 className='relative  text-xl font-semibold'>Coloracion y/o quimicos</h2>
+                            <div className='relative left-[10.4rem] bottom-6 '>
+                                {
+                                    coloration ?
+                                        <RiArrowUpSLine className='text-xl' />
+                                        :
+                                        <RiArrowDownSLine className='text-xl' />
+                                }
+                            </div>
+                        </button>
+                        {/* sidebar */}
+                        <div className={`border border-slate-400 bg-white w-[18rem] h-[10rem] overflow-y-auto ${!coloration ? '' : 'hidden'}`}>
+                            {/* accesorios items 1# */}
+                            <ul className='px-2 py-3 flex flex-col items-center cursor-pointer'>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Aclarantes
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Matizantes
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Neutralizadores
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Ondulados
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Pegante de extenciones
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Tinte tono sobre tono
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Tintes permanentes
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Tintes semipermanentes
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Removedor de pegante
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Activadores de color
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Agua oxigenada
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Alizadores
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Ampolletas cubre canas
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Descolorantes
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Emulsiones reveladoras
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Henna
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Keratinas
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    {/* finalizado */}
+                    <div className='bg-white px-2 py-3 w-[10rem] h-[3rem] rounded-lg'>
+                        <button onClick={() => setFinalized(!finalized)}>
+                            <h2 className='relative  text-xl font-semibold'>Finalizado</h2>
+                            <div className='relative left-[7.4rem] bottom-6 '>
+                                {
+                                    finalized ?
+                                        <RiArrowUpSLine className='text-xl' />
+                                        :
+                                        <RiArrowDownSLine className='text-xl' />
+                                }
+                            </div>
+                        </button>
+                        {/* sidebar */}
+                        <div className={`border border-slate-400 bg-white w-[18rem] h-[10rem] overflow-y-auto ${!finalized ? '' : 'hidden'}`}>
+                            {/* accesorios items 1# */}
+                            <ul className='px-2 py-3 flex flex-col items-center cursor-pointer'>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Aceites u oleos
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                    Termo protectores
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Crema para peinar
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Espuma
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Fluido para cabello
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Geles
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Lacas
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Lacas fantasia
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Perfumes para cabello
+                                </li>
+                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
+                                    Siliconas
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {/* TODOS LOS PRODUCTOS */}
                 <div>
                     <div className='lg:pl-5 grid grid-cols-1 lg:grid-cols-4'>
                         <div className='lg:col-span-full'>
                             <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28'>
                                 {
-                                    items.map((product, i) => (
+                                    productList.map((product, i) => (
 
                                         <div key={i} className=" w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                             <Link to={`/productsDetail/${product?.Codigo}`}>
@@ -597,5 +375,5 @@ function Capilar() {
     )
 }
 
-export default Capilar
+export default Capilar;
 

@@ -7,17 +7,15 @@ import { RiSearchLine, RiCloseFill, RiShoppingCart2Line, RiWhatsappLine, RiBilib
 import ContactBar from '../../components/ContacBar/ContactBar';
 import Cart from '../../components/cart/Cart';
 import SearchBar from '../../components/SearchBar/SearchBar'
-import BannerDistri from '../../../public/img/BANNER-DISTRIBUIDORES.jpg'
 import Category from '../../components/Categorias/Category';
 import CardNew from '../Home/card/CardNew'
 import SliderItems from '../../components/carrusel/SliderItems';
-import BannerSend from '../../../public/img/BANNER-CONTRAENTREGA.jpg';
-import BannerDescuentos from "../../../public/img/BANNER-INFO-DTOS.jpg"
 import CateItems from '../../components/carrusel/CateItems';
 import { useForm } from 'react-hook-form';
 import MovalNv from '../../components/modalNv/MovalNv';
 import Group from '../../components/Categorias/Grupos/Group';
 import ProductNews from '../../pages/productNews/ProductNews'
+
 
 
 
@@ -50,12 +48,12 @@ function Home() {
     }
 
     return (
-        <div className='pl-6 grid grid-cols-1 lg:grid-cols-8 overflow-hidden dark:bg-[#1f1d2b] dark:text-white w-auto'>
+        <div className=' grid grid-cols-1 lg:grid-cols-8 overflow-hidden dark:bg-[#1f1d2b] dark:text-white w-auto'>
             <div className='lg:col-span-full '>
                 {/* header */}
-                <header className='p-4'>
+                <header className=''>
                     {/* titulo y busqueda */}
-                    <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-12 mb-6'>
+                    <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-12 lg:mb-6'>
                         <div>
                             {/* categorias */}
                             <div className='mb-6 '>
@@ -68,24 +66,27 @@ function Home() {
                                     setShowMenu={setShowMenu}
                                 /> */}
                                 {/* buscador */}
-                                <div className='relative  lg:hidden'>
+                                <div className='relative md:hidden hidden lg:hidden'>
                                     <SearchBar />
                                 </div>
                             </div>
                             {/* modal y buscador articulo*/}
 
-                            {/* Banner */}
-                            <span className='text-white mt-3-3'>
+                            {/* Banner distribuidores*/}
+                            <span className='text-white'>
                                 <Link to="/distribuidores">
                                     <p className='text-2xl'>
-                                        <img src={BannerDistri} alt="" className='rounded-lg ' />
+                                        <img src="https://i.ibb.co/J5n3wGB/BANNER-DISTRIBUIDORES.jpg" alt="" className='lg:rounded-lg ' />
                                     </p>
                                 </Link>
                             </span>
                         </div>
                     </div>
-                    {/* slider de productos */}
-                    <div>
+                    <div className='relative top-12'>
+                        <Group />
+                    </div>
+                    {/* banner productos */}
+                    <div className=''>
                         <SliderItems />
                     </div>
                 </header>
@@ -93,17 +94,20 @@ function Home() {
                 <div className='flex items-center justify-between p-4'>
                     <h2 className='text-xl text-gray-300 '>productos destacados</h2>
                 </div>
+                {/* productos */}
                 <div className='mb-8'>
                     <CardNew />
                 </div>
+                {/* contra-entrega */}
                 <div className='mb-8'>
-                    <img src={BannerSend} alt="" />
+                    <img src="https://i.ibb.co/PGQrJmk/BANNER-PAGOS-CONTRAENTREGA.jpg" alt="contra-entrega" />
                 </div>
                 <div className='mb-6'>
                     <CateItems />
                 </div>
+                {/* banner de descuentos */}
                 <div>
-                    <img src={BannerDescuentos} alt="" className='w-full' />
+                    <img src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" alt="banner-descuentos" className='w-full' />
                 </div>
             </div>
             {/* <div className='lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1f1d2b] w-full h-full'>

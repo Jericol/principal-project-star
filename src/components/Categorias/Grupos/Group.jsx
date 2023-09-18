@@ -2,10 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { filterProductCategoriesThunk } from '../../../store/slice/product.slice';
-import { RiFullscreenExitLine, RiApps2Fill, RiCloseCircleFill, RiApps2Line } from "react-icons/ri";
+import { RiFullscreenExitLine, RiApps2Fill, RiCloseCircleFill, RiApps2Line, RiLayoutGridFill } from "react-icons/ri";
 import Categories from '../Category';
 import { Link, useNavigate } from 'react-router-dom';
 import { TECollapse } from "tw-elements-react";
+import './group.css'
 
 
 
@@ -20,6 +21,7 @@ function Group({ itemPage, setItemPage, nextPage, setNextPage, showMenu, setShow
     const [categoryNum, setCategoryNum] = useState(4)
     const navigate = useNavigate();
     const [activeElement, setActiveElement] = useState("");
+    const [showSide, setShowSide] = useState(false);
 
 
 
@@ -32,18 +34,37 @@ function Group({ itemPage, setItemPage, nextPage, setNextPage, showMenu, setShow
 
 
     return (
-        <div className='flex items-center justify-between relative left-[6rem] top-4  rounded-lg  '>
-            <div>
-                <section className='dark:text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-5 md:p-6 lg:p-4 rounded-md relative'>
-                        <Link to="/" className=' lg:p-4 flex justify-center rounded-xl md:hover:bg-emerald-200  dark:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
-                            <RiApps2Line className='text-2xl lg:text-2xl md:text-3xl dark:text-white ' />
-                            <h2 className={` origin-left duration-500 pl-2 font-medium font-advent text-lg md:text-xl dark:text-white`} onClick={() => setLogo(!logo)}>
-                                Categorias
-                            </h2>
-                        </Link>
-                </section>
+        <div className='flex items-center justify-between top-1 rounded-lg  lg:hidden bg-black p-2'>
+            <div className="slider rounded-lg">
+                <ul>
+                    {/* capilar */}
+                    <li>
+                        <img
+                            src="https://i.ibb.co/WBdwh8J/BANNER-CATEGORIA-CAPILAR.jpg"
+                            alt=""
+                        />
+                    </li>
+                    {/* uñas */}
+                    <li>
+                        <img src="https://i.ibb.co/CJr0fgn/BANNER-CATEGORIA-U-AS.jpg"
+                            alt=""
+                        />
+                    </li>
+                    {/* barberia */}
+                    <li>
+                        <img src="https://i.ibb.co/Mg74PWq/BANNER-CATEGORIA-BARBERIA.jpgg"
+                            alt=""
+                        />
+                    </li>
+                    {/* maquillaje */}
+                    <li>
+                        <img
+                            src="https://i.ibb.co/GpDBt4m/BANNER-CATEGORIA-MAQUILLAJE-Y-PESTA-AS.jpg"
+                            alt=""
+                        />
+                    </li>
+                </ul>
             </div>
-
         </div>
     )
 }

@@ -1,5 +1,4 @@
 
-import Logo from '../../../public/Logo/STARPROFESSIONAL.png'
 import { Link } from 'react-router-dom';
 
 function CustomerService() {

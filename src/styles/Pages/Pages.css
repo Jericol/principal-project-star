@@ -2,7 +2,7 @@
     /* COMPONENTE DE FAQ */
     /* contenedor principal */
     .contenedor-faq{
-        @apply h-[320rem] overflow-hidden
+        @apply h-auto overflow-hidden
     }
     /* contenedor de informacion de importadora */
     .seccion-importadora{

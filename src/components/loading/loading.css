@@ -14,13 +14,13 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
-    background-image: url('../../../public/redes/vectorAbs.jpg');
+    /* background-image: url('https://i.ibb.co/XYfR8Yh/BACKGROUND.jpg'); */
     
 }
 
 .loader--img {
-    width: 12rem;
-    height: 12rem;
+    width: 22rem;
+    height: 22rem;
     position: relative;
     animation: load 1.5s infinite;
 }

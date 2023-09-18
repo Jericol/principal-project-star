@@ -24,9 +24,9 @@ export const getProductsThunk = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
-export const filterProductCategoriesThunk = (codigo) => (dispatch) => {
+export const filterProductCategoriesThunk = (Codigo) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`http://190.60.237.163/articulos/?familia=${codigo}&size=2000`)
+    return axios.get(`http://190.60.237.163/articulos/?familia=${Codigo}&size=2000`)
         .then((res) => dispatch(setProducts(res.data.RESP)))
         .finally(() => dispatch(setIsLoading(false)));
 }
@@ -44,7 +44,6 @@ export const NameFiltredThunk = (newSearch) => (dispatch) => {
         .then((res) => dispatch(setProducts(res.data.RESP)))
         .finally(() => dispatch(setIsLoading(false)));
 }
-
 
 
 export const { setProducts } = ProductSlice.actions;

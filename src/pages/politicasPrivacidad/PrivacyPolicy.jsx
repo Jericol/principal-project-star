@@ -6,7 +6,7 @@ function PrivacyPolicy() {
     return (
         <div>
             <div className='flex items-center justify-center pt-[3rem] px-4 py-8 rounded-lg'>
-                <div className='w-[58rem] h-[700rem] bg-gray-200 '>
+                <div className='w-[58rem] h-[730rem] bg-gray-200 dark:bg-[#1f1d2b]'>
                     <h1 className='text-center py-[4rem] font-bold text-[2rem]'>POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
                     <p className='w-[55rem] text-center pl-[3rem] font-medium'>
                         El objetivo de la presente política de tratamiento de datos personales (en adelante la “PTDP”) es desarrollar y establecer

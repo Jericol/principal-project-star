@@ -34,7 +34,9 @@
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
     "react-redux": "^8.0.5",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.12.1",
+    "react-slick": "^0.29.0",
     "swiper": "^9.4.1",
     "tw-elements": "^1.0.0-beta3",
     "tw-elements-react": "^1.0.0-alpha1"
