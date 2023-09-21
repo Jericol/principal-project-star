@@ -33,19 +33,19 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
     const navigate = useNavigate();
     // estado de categorias movil
     const [itemPage, setItemPage] = useState(4);
-    const [ nextPage, setNextPage ] = useState(1)
-    const [showMenu, setShowMenu ] = useState(false)
-   
+    const [nextPage, setNextPage] = useState(1)
+    const [showMenu, setShowMenu] = useState(false)
 
 
-    
+
+
 
     const addProductCart = (data) => {
         console.log(data)
         axios.post("http://190.60.237.163/encabezadoped", data)
             .then(res => {
                 console.log(res.data)
-                localStorage.setItem('ID', res.data.ID)
+                localStorage.setItem('id', res.data.ID)
 
             })
             .catch(error => {
@@ -58,10 +58,10 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
                 }
             })
 
-            dispatch(addCartThunk(data))
+        dispatch(addCartThunk(data))
     }
 
-console.log(data)
+    console.log(data)
 
     useEffect(() => {
         dispatch(getProductsThunk())
@@ -70,7 +70,7 @@ console.log(data)
 
 
     return (
-        <div className='lg:pl-5 grid grid-cols-1 lg:grid-cols-4 overflow-hidden'>
+        <div className='lg:pl-5  overflow-hidden'>
             <div className='lg:col-span-full '>
                 <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6'>
                     <div>
@@ -103,12 +103,12 @@ console.log(data)
                     </div>
                 </div>
                 {/* Articulos */}
-                <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28'>
+                <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-28'>
                     {
                         productList.map(product => (
                             <div
                                 className='bg-white
-                              dark:bg-[#2a1f1f] p-8 rounded-xl lg:w-[18rem] 
+                              dark:bg-[#2a1f1f] p-8 rounded-xl lg:w-[23rem] 
                                 flex flex-col items-center gap-2 dark:text-gray-300 text-center shadow shadow-black'
                                 key={product?.Codigo}
 
@@ -118,8 +118,18 @@ console.log(data)
                                     onClick={() => navigate(`/productsDetail/${product?.Codigo}`)}
                                 />
                                 <p>{product?.Descripcion}</p>
-                                <span>REF: {product?.Codigo}</span>
                                 <p>$: {product?.Precio}</p>
+                                <span>REF: {product?.Codigo}</span>
+                                <div className='flex items-center justify-around gap-4 text-white bg-slate-400 px-2 py-1'>
+                                    <p>2 und</p>
+                                    <p>6 und</p>
+                                    <p>12 und</p>
+                                </div>
+                                <div className='flex items-center justify-around gap-4'>
+                                    <span className='font-semibold text-lg'>$:{product.Precio3}</span>
+                                    <span className='font-semibold text-lg'>$:{product.Precio4}</span>
+                                    <span className='font-semibold text-lg'>$:{product.Precio5}</span>
+                                </div>
                                 <div className='flex flex-col items-center justify-around gap-4'>
                                     <button className='px-4 py-2 bg-blue-700 w-[12rem] rounded-lg text-white hover:bg-blue-200 hover:text-blue-600'>
                                         <Link to='/payment'>Comprar ahora</Link>

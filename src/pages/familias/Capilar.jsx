@@ -12,7 +12,9 @@ import { alert, button, useSelect } from '@material-tailwind/react';
 import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri";
 import Accesorios from './utils/accesorios';
 import Electricos from './utils/electricos';
-import cuidadoCapilar from './utils/cuidado-capilar';
+import CuidadoCapilar from './utils/cuidado-capilar';
+import Coloracion from './utils/coloracion';
+import Finalizado from './utils/finalizado';
 
 
 function Capilar() {
@@ -196,7 +198,7 @@ function Capilar() {
                         <div className={`border border-slate-400 bg-white w-[22rem] h-[10rem] overflow-y-auto ${!capillaryCare ? '' : 'hidden'}`}>
                             {/* accesorios items 1# */}
                             {
-                                cuidadoCapilar.map(cuidarCap => (
+                                CuidadoCapilar.map(cuidarCap => (
                                     <ul key={cuidarCap.id} className='px-2 py-2 flex flex-col items-center cursor-pointer dark:bg-[#1f1d2b] dark:text-white'>
                                         <li className='border-b border-gray-600 w-full' onClick={() => setCapillarvCare(!capillaryCare)}>
                                             {cuidarCap.List}
@@ -207,10 +209,10 @@ function Capilar() {
                         </div>
                     </div>
                     {/* coloraciion y/o quimicos */}
-                    <div className='bg-white px-2 py-3 w-[18rem] h-[3rem] rounded-lg'>
+                    <div className='bg-white px-2 py-3 w-[18rem] h-[3rem] rounded-lg dark:bg-[#1f1d2b] dark:text-white'>
                         <button onClick={() => setColoration(!coloration)}>
                             <h2 className='relative  text-xl font-semibold'>Coloracion y/o quimicos</h2>
-                            <div className='relative left-[10.4rem] bottom-6 '>
+                            <div className='relative left-[16rem] bottom-6 '>
                                 {
                                     coloration ?
                                         <RiArrowUpSLine className='text-xl' />
@@ -220,65 +222,21 @@ function Capilar() {
                             </div>
                         </button>
                         {/* sidebar */}
-                        <div className={`border border-slate-400 bg-white w-[18rem] h-[10rem] overflow-y-auto ${!coloration ? '' : 'hidden'}`}>
+                        <div className={`border border-slate-400 bg-white w-[22rem] h-[10rem] overflow-y-auto dark:bg-[#1f1d2b] dark:text-white ${!coloration ? '' : 'hidden'}`}>
                             {/* accesorios items 1# */}
-                            <ul className='px-2 py-3 flex flex-col items-center cursor-pointer'>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Aclarantes
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Matizantes
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Neutralizadores
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Ondulados
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Pegante de extenciones
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Tinte tono sobre tono
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Tintes permanentes
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Tintes semipermanentes
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Removedor de pegante
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Activadores de color
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Agua oxigenada
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Alizadores
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Ampolletas cubre canas
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Descolorantes
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Emulsiones reveladoras
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Henna
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Keratinas
-                                </li>
-                            </ul>
+                            {
+                                Coloracion.map(coloracion => (
+                                    <ul key={coloracion.id} className='px-2 py-3 flex flex-col items-center cursor-pointer'>
+                                        <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                            {coloracion.List}
+                                        </li>
+                                    </ul>
+                                ))
+                            }
                         </div>
                     </div>
                     {/* finalizado */}
-                    <div className='bg-white px-2 py-3 w-[10rem] h-[3rem] rounded-lg'>
+                    <div className='bg-white px-2 py-3 w-[10rem] h-[3rem] rounded-lg dark:bg-[#1f1d2b] dark:text-white'>
                         <button onClick={() => setFinalized(!finalized)}>
                             <h2 className='relative  text-xl font-semibold'>Finalizado</h2>
                             <div className='relative left-[7.4rem] bottom-6 '>
@@ -291,40 +249,17 @@ function Capilar() {
                             </div>
                         </button>
                         {/* sidebar */}
-                        <div className={`border border-slate-400 bg-white w-[18rem] h-[10rem] overflow-y-auto ${!finalized ? '' : 'hidden'}`}>
+                        <div className={`border border-slate-400 bg-white dark:bg-[#1f1d2b] dark:text-white w-[14rem] h-[10rem] overflow-y-auto ${!finalized ? '' : 'hidden'}`}>
                             {/* accesorios items 1# */}
-                            <ul className='px-2 py-3 flex flex-col items-center cursor-pointer'>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Aceites u oleos
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
-                                    Termo protectores
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Crema para peinar
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Espuma
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Fluido para cabello
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Geles
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Lacas
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Lacas fantasia
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Perfumes para cabello
-                                </li>
-                                <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!finalized)}>
-                                    Siliconas
-                                </li>
-                            </ul>
+                            {
+                                Finalizado.map(finalizado => (
+                                    <ul key={finalizado.id} className='px-2 py-3 flex flex-col items-center cursor-pointer'>
+                                        <li className='border-b border-gray-600 w-full py-3' onClick={() => setShowDrop(!coloration)}>
+                                            {finalizado.List}
+                                        </li>
+                                    </ul>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>

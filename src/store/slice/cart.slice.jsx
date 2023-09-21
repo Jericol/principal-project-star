@@ -17,7 +17,7 @@ export const cartSlice = createSlice({
 // funcion antigua 
  export const getCartThunk = () => (dispatch) => {
      dispatch(setIsLoading(true));
-     return axios.post('http://190.60.237.163/verdetalleped', headerConfig())
+     return axios.post('http://190.60.237.163/verdetalleped', )
          .then((res) => dispatch(setCart(res.data.RESP)))
          .finally(() => dispatch(setIsLoading(false)));
  }

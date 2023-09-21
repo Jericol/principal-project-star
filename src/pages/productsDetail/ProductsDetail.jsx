@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { filterProductCategoriesThunk, getProductsThunk } from "../../store/slice/product.slice";
-import { RiShoppingCartLine, RiArrowDownSFill } from "react-icons/ri";
+import { RiShoppingCartLine, RiArrowDownSFill, RiSubtractFill, RiAddLine } from "react-icons/ri";
 import { FcInTransit, FcShipped } from "react-icons/fc";
 
 import Cart from "../../components/cart/Cart";
@@ -27,6 +27,7 @@ function ProductsDetail() {
     const navigate = useNavigate();
 
     const [Cantidad, setCantidad] = useState(1);
+    const [codeItem, setCodeItem] = useState(false);
 
 
     // PARA FILTRAR CATEGORIAS 
@@ -57,6 +58,7 @@ function ProductsDetail() {
 
     }
 
+    
 
     return (
         <div className="lg:h-[200rem] md:h-auto">
@@ -69,7 +71,7 @@ function ProductsDetail() {
                                 <div className=" flex-1 lg:h-[80rem]">
                                     {/* imagen de producto */}
                                     <div className="lg:relative lg:left-[16rem] mb-4">
-                                        <img src={items.Foto} alt={items.Descripcion} className="lg:w-[600px]" />
+                                        <img src={items.Foto} alt={items.Descripcion} className="lg:w-[600px] hover:transform hover:scale-(1.2)" />
                                     </div>
                                     {/* caracteristicas del producto */}
                                     <h2 className="text-2xl font-semibold text-black dark:text-white pl-12 mb-4">Características del producto</h2>
@@ -94,7 +96,7 @@ function ProductsDetail() {
                                             <div className="flex flex-col gap-4 relative top-[2rem]">
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="font-semibold text-lg">Alto:</p>
-                                                    <p className="font-semibold text-lg">{items.Alto } cm</p>
+                                                    <p className="font-semibold text-lg">{items.Alto} cm</p>
                                                 </div>
                                                 <div className="flex items-center justify-around bg-slate-300 py-3">
                                                     <p className="font-semibold text-lg">Largo:</p>
@@ -122,32 +124,27 @@ function ProductsDetail() {
                                             <div>
                                                 <h2 className="text-2xl font-semibold text-start text-black dark:text-white">{items.Descripcion}</h2>
                                             </div>
-                                            {/* calificacion */}
-                                            <div className="flex items-start gap-1 relative right-[6.7rem] top-2 mb-4">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
-                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
-                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
-                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
-                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
-                                                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                                                </svg>
-                                            </div>
                                             {/* precio */}
                                             <div className="relative right-[6.4rem] mb-6">
                                                 <p className="text-4xl font-semibold text-black dark:text-white">
                                                     $ {items.Precio}
                                                 </p>
                                             </div>
-                                            <span className="text-2xl font-semibold relative right-[3.4rem] bottom-[1rem]">Ref: {items.Codigo}</span>
-                                            <span className="relative right-[5.4rem] text-xl font-semibold mb-6">Stock: Disponible</span>
+                                            {/* referencia - codigo */}
+                                            <span className="text-2xl font-semibold  bottom-[1rem]">Ref: {items.Codigo}</span>
+                                            {/* escalas de precios */}
+                                            <div className='flex items-center justify-around gap-4 text-black dark:text-white border border-slate-400 px-2 py-1 
+                                              rounded-lg w-[22rem] mb-2'
+                                            >
+                                                <p className='text-xs md:text-sm lg:text-xl'>2und</p>
+                                                <p className='text-xs md:text-sm lg:text-xl'>6und</p>
+                                                <p className='text-xs md:text-sm lg:text-xl'>12und</p>
+                                            </div>
+                                            <div className='flex items-center justify-around gap-4 w-[22rem] mb-4'>
+                                                <span className='md:font-semibold lg:text-lg md:text-sm text-xs'>{items.Precio3}</span>
+                                                <span className='md:font-semibold lg:text-lg md:text-sm text-xs'>{items.Precio4}</span>
+                                                <span className='md:font-semibold lg:text-lg md:text-sm text-xs'>{items.Precio5}</span>
+                                            </div>
                                             {/* envios contraentrega y gratis */}
                                             <div className="mb-6 ">
                                                 <div className="flex flex-col gap-4">
@@ -187,14 +184,41 @@ function ProductsDetail() {
                                             </div>
                                         </div>
                                         {/* botones de compra y añadir al carrito */}
-                                        <div >
+                                        <div className="mb-6">
                                             <div className="flex flex-col gap-5 pt-8">
                                                 <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">
                                                     <Link to='/payment'>
-                                                         Comprar ahora   
+                                                        Añadir al carrito
                                                     </Link>
                                                 </button>
-                                                <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-200 rounded-lg text-blue-600">añadir al carrito</button>
+                                                <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-200 rounded-lg text-blue-600">
+                                                    Comprar ahora
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {/* referencias y codigo */}
+                                        <div className={` `}>
+                                            {/* boton de desplazamiento */}
+                                            <button onClick={() => setCodeItem(!codeItem)}>
+                                                <h2 className="text-xl font-semibold relative left-[4rem]">Escoge tu referencia</h2>
+                                                {/* icono  */}
+                                                <div className="cursor-pointer relative left-[17.5rem] bottom-[1.4rem]">
+                                                    {
+                                                        codeItem ?
+                                                        <RiAddLine className="text-lg"/>
+                                                        :
+                                                        <RiSubtractFill className="text-lg"/>
+                                                    }
+                                                </div>
+                                            </button>
+                                            {/* sidebar */}
+                                            <div className={`border border-slate-400 w-[22.3rem] h-[14rem] ${!codeItem ? '' : 'hidden' }` }>
+                                                <div className="flex flex-col items-center justify-around gap-4 pt-4">
+                                                    <label htmlFor="" className=" ">Numero de referencia</label>
+                                                    <input type="number" name="" id="" className="border border-slate-500 rounded-lg px-2 mb-6"/>
+                                                    <label htmlFor="" className=" ">Cantidad</label>
+                                                    <input type="number" name="" id="" className="border border-slate-500 rounded-lg px-2 mb-6"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -267,8 +291,8 @@ function ProductsDetail() {
                                             <div className="relative left-1 mb-6 flex flex-col items-center gap-2">
                                                 <div className="">
                                                     <p className="text-xl pl-3 font-semibold text-black dark:text-white">${items.Precio}</p>
-                                                </div> 
-                                                
+                                                </div>
+
                                                 <div className="">
                                                     <span className="text-base pr-6 font-semibold text-black dark:text-white">Referencia: {items.Codigo}</span>
                                                 </div>
@@ -299,7 +323,7 @@ function ProductsDetail() {
                                                 <div className="flex flex-col gap-5 pt-8 mb-6">
                                                     <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-500 rounded-lg text-white">
                                                         <Link to='/payment'>Comprar ahora</Link>
-                                                        
+
                                                     </button>
                                                     <button className="px-3 py-3 text-center text-lg font-semibold bg-blue-200 rounded-lg text-blue-600">añadir al carrito</button>
                                                 </div>
@@ -331,10 +355,10 @@ function ProductsDetail() {
                                     </div>
                                     {/* imagen del producto */}
                                     <div className="relative left-[5rem] mb-4">
-                                        <img 
-                                          src={items.Foto} 
-                                          alt={items.Descripcion} 
-                                          className="w-[200px] shadow-md shadow-gray-300 rounded-lg " 
+                                        <img
+                                            src={items.Foto}
+                                            alt={items.Descripcion}
+                                            className="w-[200px] shadow-md shadow-gray-300 rounded-lg "
                                         />
                                     </div>
                                     {/* precio */}
@@ -417,7 +441,7 @@ function ProductsDetail() {
                 {/* seccion detalles */}
                 <h2 className="lg:relative lg:top-[8rem] lg:text-center lg:font-semibold lg:text-4xl">Productos Similares</h2>
                 {/* productos similares */}
-                <section className='lg:pl-16 lg:relative lg:top-[12rem] p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28 font-monserrat font-semibold'>
+                <section className='lg:pl-16 lg:relative lg:top-[12rem] p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28 font-monserrat font-semibold overflow-y-auto h-[60rem]'>
                     {
                         newsSuggested?.map(newsItem => (
                             <section key={newsItem.Codigo} onClick={() => navigate(`/productsDetail/${newsItem?.Codigo}`)}
@@ -432,6 +456,18 @@ function ProductsDetail() {
                                 <p>{newsItem?.Descripcion}</p>
                                 <span>REF: {newsItem?.Codigo}</span>
                                 <p>$: {newsItem?.Precio}</p>
+                                <div className='flex items-center justify-around gap-4 text-black border-2 rounded-lg dark:text-white border-slate-400 px-2 py-1 
+                                   '
+                                >
+                                    <p className='text-xs md:text-sm lg:text-xl'>2und</p>
+                                    <p className='text-xs md:text-sm lg:text-xl'>6und</p>
+                                    <p className='text-xs md:text-sm lg:text-xl'>12und</p>
+                                </div>
+                                <div className='flex items-center justify-around gap-4'>
+                                    <span className='md:font-semibold lg:text-lg md:text-sm text-xs'>{newsItem.Precio3}</span>
+                                    <span className='md:font-semibold lg:text-lg md:text-sm text-xs'>{newsItem.Precio4}</span>
+                                    <span className='md:font-semibold lg:text-lg md:text-sm text-xs'>{newsItem.Precio5}</span>
+                                </div>
                                 <section>
                                     <button
                                         className="px-7 py-3 bg-blue-500 rounded-lg font-bold transform text-white hover:bg-green-400 
@@ -441,15 +477,16 @@ function ProductsDetail() {
                                     </button>
                                 </section>
                             </section>
-                        )).slice(firsIndex, lastIndex)
+                        ))
+                        // .slice(firsIndex, lastIndex)
                     }
-                    <Pagination
+                    {/* <Pagination
                         productsPage={productsPage}
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}
                         totalProduct={totalProduct}
 
-                    />
+                    /> */}
                 </section>
             </div>
         </div >

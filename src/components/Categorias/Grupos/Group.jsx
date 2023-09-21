@@ -34,35 +34,95 @@ function Group({ itemPage, setItemPage, nextPage, setNextPage, showMenu, setShow
 
 
     return (
-        <div className='flex items-center justify-between top-1 rounded-lg  lg:hidden bg-black p-2'>
-            <div className="slider rounded-lg">
-                <ul>
-                    {/* capilar */}
-                    <li>
-                        <img
-                            src="https://i.ibb.co/WBdwh8J/BANNER-CATEGORIA-CAPILAR.jpg"
-                            alt=""
-                        />
-                    </li>
-                    {/* uñas */}
-                    <li>
-                        <img src="https://i.ibb.co/CJr0fgn/BANNER-CATEGORIA-U-AS.jpg"
-                            alt=""
-                        />
-                    </li>
-                    {/* barberia */}
-                    <li>
-                        <img src="https://i.ibb.co/Mg74PWq/BANNER-CATEGORIA-BARBERIA.jpgg"
-                            alt=""
-                        />
-                    </li>
-                    {/* maquillaje */}
-                    <li>
-                        <img
-                            src="https://i.ibb.co/GpDBt4m/BANNER-CATEGORIA-MAQUILLAJE-Y-PESTA-AS.jpg"
-                            alt=""
-                        />
-                    </li>
+        <div>
+            <div className='md:flex items-center justify-between top-1 rounded-lg lg:hidden hidden bg-black p-2'>
+                <div className=" rounded-lg">
+                    {/* tablet */}
+                    <ul className='md:flex items-center justify-around gap-4 hidden '>
+                        {/* capilar */}
+                        <li>
+                            <img
+                                src="https://i.ibb.co/VTx22RV/CAPILAR.png"
+                                alt=""
+                                className='md:h-[5rem]  w-auto '
+                            />
+                            <h2 className='text-white text-center'>Capilar</h2>
+                        </li>
+                        {/* barberia */}
+                        <li>
+                            <img
+                                src="https://i.ibb.co/pRVwgdH/ICONO-BARBERIA.png"
+                                alt=""
+                                className='md:h-[5rem]  w-auto '
+                            />
+                            <h2 className='text-white text-center'>Barberia</h2>
+                        </li>
+                        {/* uñas */}
+                        <li>
+                            <img src="https://i.ibb.co/FbZYjtx/U-AS.png"
+                                alt=""
+                                className='h-[5rem] w-auto'
+                            />
+                            <h2 className='text-white text-center'>Uñas</h2>
+                        </li>
+                        {/* cuidado facil */}
+                        <li>
+                            <img src="https://i.ibb.co/kx8x09X/CUIDADO-FACIAL.png"
+                                alt=""
+                                className='md:h-[5rem]  w-auto '
+                            />
+                            <h2 className='text-white text-center w-9'>cuidado facial</h2>
+                        </li>
+                        {/* maquillaje */}
+                        <li>
+                            <img
+                                src="https://i.ibb.co/7GWXfsL/MAQUILLAJE-Y-PESTA-AS.png"
+                                alt=""
+                                className='md:h-[5rem]  w-auto'
+                            />
+                            <h2 className='text-white text-center'>maquillaje</h2>
+                        </li>
+                        {/* hombre */}
+                        <li>
+                            <img
+                                src="https://i.ibb.co/mNcQnyV/HOMBRE.png"
+                                alt=""
+                                className='md:h-[5rem]  w-auto'
+                            />
+                            <h2 className='text-white text-center'>hombre</h2>
+                        </li>
+                        {/* cuidado corporal */}
+                        <li>
+                            <img
+                                src="https://i.ibb.co/PwwMjG0/CUIDADO-CORPORAL.png"
+                                alt=""
+                                className='md:h-[5rem]  w-auto'
+                            />
+                            <h2 className='text-white text-center w-9'>cuidado corporal</h2>
+                        </li>
+                        {/* accesorios */}
+                        <li>
+                            <img
+                                src="https://i.ibb.co/DgbfdFY/ACCESORIOS.png"
+                                alt=""
+                                className='md:h-[5rem]  w-auto'
+                            />
+                            <h2 className='text-white text-center w-9'>accesorios</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {/* celular */}
+            <div className='rounded-lg '>
+                <ul className='flex items-center justify-around gap-4'>
+                    <li><img src="" alt="" /></li>
+                    <li><img src="" alt="" /></li>
+                    <li><img src="" alt="" /></li>
+                    <li><img src="" alt="" /></li>
+                    <li><img src="" alt="" /></li>
+                    <li><img src="" alt="" /></li>
+                    <li><img src="" alt="" /></li>
+                    <li><img src="" alt="" /></li>
                 </ul>
             </div>
         </div>

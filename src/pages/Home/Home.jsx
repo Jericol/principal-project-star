@@ -82,7 +82,7 @@ function Home() {
                             </span>
                         </div>
                     </div>
-                    <div className='relative top-12'>
+                    <div className='relative top-12 md:mb-8'>
                         <Group />
                     </div>
                     {/* banner productos */}
