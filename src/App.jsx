@@ -49,7 +49,7 @@ function App() {
 
 
   return (
-    <div className=' w-full min-h-screen bg-baseLight-300 dark:bg-baseDark-800 dark:text-white overflow-hidden'>
+    <div className='min-h-screen bg-baseLight-300 dark:bg-baseDark-800 dark:text-white overflow-hidden'>
       <HashRouter>
         <ScrollToTop />
         <ContactBar />

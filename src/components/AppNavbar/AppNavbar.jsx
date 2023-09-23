@@ -63,30 +63,30 @@ function AppNavbar({ showMenu, allProducts, setAllProducts, total, countProducts
         <div>
             {/* menu para pc */}
             <div>
-                <header className='container text-black p-4 flex items-center justify-between'>
+                <header className='text-black p-4 flex items-center justify-between font-semibold text-2xl'>
                     {/* lista de menu para pc */}
-                    <ul>
+                    <ul className='flex items-center gap-12'>
                         {/* logo para pc */}
-                        <li>
+                        <li className='flex items-center gap-4 '>
                             <img src="https://i.ibb.co/4gLsH8F/LOGO-STAR-NEGRO.png" alt="" className='w-[120px]'/>
                             <h2>Star Professional</h2>
                         </li>
-                        <li>
+                        <li className='pl-8'>
                             <Link to='/'>
                                 <h2>Inicio</h2>
                             </Link>
                         </li>
-                        <li>
+                        <li className='pl-8'>
                             <Link to='/newProduct'> 
                                 <h2>Productos</h2>
                             </Link>
                         </li>
-                        <li>
+                        <li className='pl-8'>
                             <Link to=''>
                                 <h2>Kits</h2>
                             </Link>
                         </li>
-                        <li>
+                        <li className='pl-8'>
                             <Link to='/Faq'>
                                 <h2>Quienes somos</h2>
                             </Link>
