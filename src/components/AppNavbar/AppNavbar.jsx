@@ -3,7 +3,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import {
     RiHome3Line, RiStore2Line, RiShoppingBag3Line, RiTeamLine,
-    RiShoppingCart2Line, RiAccountPinCircleLine, RiMoonClearFill, RiSunLine, RiMenu2Line, RiCloseFill, RiUserLine
+    RiShoppingCart2Line, RiAccountPinCircleLine, RiMoonClearFill,
+    RiSunLine, RiMenu2Line, RiCloseFill, RiUserLine, RiArrowDropDownFill, RiArrowDropUpFill
 } from "react-icons/ri";
 import { useEffect, useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -23,6 +24,12 @@ function AppNavbar({ showMenu, allProducts, setAllProducts, total, countProducts
     const [slow, setSlow] = useState(false);
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(false);
+    // estado de home desplegable
+    const [home, setHome] = useState(true);
+    // estado de producto desplegable
+    const [allProduct, setAllProduct] = useState(true);
+    // desplegable kits
+    const [ kits, setKits ] = useState(true);
 
     const navigate = useNavigate();
 
@@ -85,7 +92,7 @@ function AppNavbar({ showMenu, allProducts, setAllProducts, total, countProducts
                                     alt="logo-star-blanco"
                                     className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"} w-[80px] `}
                                 />
-                            }                    
+                            }
                         </Link>
                         {/* nombre empresa */}
                         <h2 className={`dark:text-white font-medium font-advent text-2xl duration-300 
@@ -186,31 +193,300 @@ function AppNavbar({ showMenu, allProducts, setAllProducts, total, countProducts
                                     className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"} md:w-[180px] w-[120px]`}
                                 />
                             }
-                        
+
                         </Link>
                     </div>
                     {/* lista de paginas pc */}
-                    <ul className='md:hidden hidden lg:flex items-center justify-around'>
+                    <div className='md:hidden hidden lg:flex items-center justify-around'>
                         {/* lista de paginas  */}
-                        <div className='flex items-center justify-around lg:relative lg:right-[6rem]'>
+                        <div className='flex items-center lg:relative lg:right-[6rem]'>
                             {/* HOME BOTON */}
-                            <li className='dark:text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-5 md:p-6 lg:p-4 rounded-md'>
-                                <Link to="/" className=' lg:p-4 flex justify-center rounded-xl md:hover:bg-emerald-200 bg-emerald-400 dark:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
-                                    <RiHome3Line className='text-lg lg:text-2xl md:text-3xl dark:text-white ' />
-                                    <h2 className={` origin-left duration-500 pl-2 font-medium font-advent text-lg md:text-xl dark:text-white`}>
-                                        Home
+                            <button className='dark:text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer rounded-md'
+
+                            >
+                                <Link to="/" className=' lg:p-4 flex justify-center rounded-xl w-[11rem]  '>
+                                    {/* <RiHome3Line className='text-lg lg:text-2xl md:text-3xl dark:text-white ' /> */}
+                                    <h2 className={` origin-left duration-500  pr-4 font-medium font-advent text-lg md:text-xl dark:text-white`}>
+                                        Inicio
                                     </h2>
                                 </Link>
-                            </li>
+                                <div className='relative right-[4rem] rounded-full border border-slate-400' onClick={() => setHome(!home)}>
+                                    {
+                                        home ?
+                                            <RiArrowDropDownFill className='text-2xl' />
+                                            :
+                                            <RiArrowDropUpFill className='text-2xl' />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`absolute top-[6.5rem] -left-[47.5rem] bg-white dark:bg-[#1f1d2b] dark:text-white 
+                                       w-[150rem] h-[8rem] transition-all duration-[.4s] ${!home ? '' : 'hidden'}`}
+                                >
+
+                                </div>
+                            </button>
                             {/* TODOS LOS PRODUCTOS */}
-                            <li className='dark:text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-5 md:p-6 lg:lg:p-4 rounded-md '>
-                                <Link to="/newProduct" className='lg:p-4 flex justify-center rounded-xl hover:bg-emerald-200 hover:dark:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
-                                    <RiStore2Line className='text-4xl lg:text-2xl md:text-3xl text-black dark:text-white ' />
+                            <button className='dark:text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-5 md:p-6 lg:lg:p-4 rounded-md 
+                              relative right-[3rem]'
+                            >
+                                <Link to="/newProduct" className='lg:p-4 flex justify-center rounded-xl ' >
                                     <h2 className={` origin-left duration-500 pl-2 font-medium font-advent text-xl`}>
                                         Productos
                                     </h2>
                                 </Link>
-                            </li>
+                                {/* boton despliegue */}
+                                <div className='relative right-[1rem] rounded-full border border-slate-400 ring ring-pink-500 ring-offset-2'
+                                    onClick={() => setAllProduct(!allProduct)}
+                                >
+                                    {
+                                        allProduct ?
+                                            <RiArrowDropDownFill className='text-2xl' />
+                                            :
+                                            <RiArrowDropUpFill className='text-2xl' />
+                                    }
+                                </div>
+                                <div className={`absolute top-[7.5rem] -left-[20rem] bg-slate-300 dark:bg-[#1f1d2b] dark:text-white 
+                                    w-[94rem] h-[9rem] transition-all duration-[.4s] ${!allProduct ? '' : 'hidden'} border-b border-black 
+                                    ring ring-pink-500 ring-offset-4 rounded-lg`}
+                                >
+                                    <div className='flex items-center justify-evenly'>
+                                        <ul className='flex justify-items-stretch p-3  gap-8 '>
+                                            {/* capilar */}
+                                            <li className='flex flex-col relative right-[11rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/1fJb6rD/CAPILAR-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/VTx22RV/CAPILAR.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                }
+                                                <h3 className='text-xl  font-semibold pr-4'>Capilar</h3>
+                                            </li>
+                                            {/* barberia */}
+                                            <li className='flex flex-col gap-1 relative right-[5rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/yp5Dvz8/ICONO-BARBERIA-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/pRVwgdH/ICONO-BARBERIA.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+
+                                                }
+                                                <h3 className='text-xl  font-semibold pr-4'>Barberia</h3>
+                                            </li>
+                                            {/* uñas */}
+                                            <li className='flex flex-col gap-1 relative right-[1.5rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/XLQYpyC/U-AS-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/FbZYjtx/U-AS.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                }
+                                                <h3 className='text-xl  font-semibold pr-4'>Uñas</h3>
+                                            </li>
+                                            {/* pestañas */}
+                                            <li className='flex flex-col gap-1 relative left-[3rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/F4dMB2r/MAQUILLAJE-Y-PESTA-AS-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px] relative '
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/mcTKPT3/MAQUILLAJE-Y-PESTA-AS.png"
+                                                            alt=""
+                                                            className='w-[80px] relative '
+                                                        />
+                                                }
+                                                <h3 className='text-xl font-semibold pr-4 font-monserrat'>Pestañas</h3>
+                                            </li>
+                                            {/* cuidado corporal */}
+                                            <li className='flex flex-col gap-1 relative left-[5rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/J2JV9j0/CUIDADO-CORPORAL-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px] relative left-[4rem]'
+                                                        />
+
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/PwwMjG0/CUIDADO-CORPORAL.png"
+                                                            alt=""
+                                                            className='w-[80px] relative left-[4rem]'
+                                                        />
+
+                                                }
+                                                <h3 className='text-xl font-semibold pr-4 font-monserrat'>Cuidado corporal</h3>
+                                            </li>
+                                            {/* cuidado facial */}
+                                            <li className='flex flex-col gap-1 relative left-[17rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/jLWD2Th/CUIDADO-FACIAL-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px] relative left-8'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/kx8x09X/CUIDADO-FACIAL.png"
+                                                            alt=""
+                                                            className='w-[80px] relative left-6'
+                                                        />
+                                                }
+                                                <h3 className='text-xl font-semibold pr-4 font-monserrat'>Cuidado facial</h3>
+                                            </li>
+                                            {/* accesorios */}
+                                            <li className='flex flex-col gap-1 relative right-[5rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/RCpMvSX/ACCESORIOS-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/QJTFhbd/ACCESORIOS.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                }
+                                                <h3 className='text-xl  font-semibold relative right-2'>Accesorios</h3>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </button>
+                            {/* kits */}
+                            <button className='dark:text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-5 md:p-6 lg:lg:p-4 rounded-md 
+                              relative right-[3rem]'
+                            >
+                                <Link to="/newProduct" className='lg:p-4 flex justify-center rounded-xl ' >
+                                    <h2 className={` origin-left duration-500 pl-2 font-medium font-advent text-xl`}>
+                                        Kits
+                                    </h2>
+                                </Link>
+                                {/* boton despliegue */}
+                                <div className='relative right-[1rem] rounded-full border border-slate-400 ring ring-pink-500 ring-offset-2'
+                                    onClick={() => setKits(!kits)}
+                                >
+                                    {
+                                        kits ?
+                                            <RiArrowDropDownFill className='text-2xl' />
+                                            :
+                                            <RiArrowDropUpFill className='text-2xl' />
+                                    }
+                                </div>
+                                <div className={`absolute top-[7.5rem] -left-[20rem] bg-slate-300 dark:bg-[#1f1d2b] dark:text-white 
+                                    w-[60rem] h-[9rem] transition-all duration-[.4s] ${!kits ? '' : 'hidden'} border-b border-black 
+                                    ring ring-pink-500 ring-offset-4 rounded-lg`}
+                                >
+                                    <div className='flex items-center justify-evenly'>
+                                        <ul className='flex justify-items-stretch p-3  gap-8 '>
+                                            {/* capilar */}
+                                            <li className='flex flex-col relative right-[5rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/1fJb6rD/CAPILAR-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/VTx22RV/CAPILAR.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                }
+                                                <h3 className='text-xl  font-semibold pr-4'>Capilar</h3>
+                                            </li>
+                                            {/* barberia */}
+                                            <li className='flex flex-col gap-1 relative left-[1rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/yp5Dvz8/ICONO-BARBERIA-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/pRVwgdH/ICONO-BARBERIA.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+
+                                                }
+                                                <h3 className='text-xl  font-semibold pr-4'>Barberia</h3>
+                                            </li>
+                                            {/* maquillaje */}
+                                            <li className='flex flex-col gap-1 relative left-[5rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/MD9nBQ3/MAQUILLAJE-Y-PESTA-AS-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px] relative left-[4rem]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/7GWXfsL/MAQUILLAJE-Y-PESTA-AS.png"
+                                                            alt=""
+                                                            className='w-[80px] relative left-[4rem]'
+                                                        />
+                                                }
+                                                <h3 className='text-xl font-semibold pr-4 font-monserrat'>Maquillaje y pestañas</h3>
+                                            </li>
+                                            {/* uñas */}
+                                            <li className='flex flex-col gap-1 relative left-[7rem]'>
+                                                {
+                                                    theme === 'light' ?
+                                                        <img
+                                                            src="https://i.ibb.co/XLQYpyC/U-AS-NEGATIVO.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                        :
+                                                        <img
+                                                            src="https://i.ibb.co/FbZYjtx/U-AS.png"
+                                                            alt=""
+                                                            className='w-[80px]'
+                                                        />
+                                                }
+                                                <h3 className='text-xl  font-semibold pr-4'>Uñas</h3>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </button>
                             {/* ACERCA DE NOSOTROS */}
                             <li className='dark:text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-5 md:p-6 lg:p-4 rounded-md'>
                                 <Link to="/Faq" className='lg:p-4 flex justify-center rounded-xl hover:bg-emerald-200 hover:dark:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
@@ -221,7 +497,7 @@ function AppNavbar({ showMenu, allProducts, setAllProducts, total, countProducts
                                 </Link>
                             </li>
                         </div>
-                    </ul>
+                    </div>
                     {/* user mode  */}
                     <ul className='flex items-center justify-between relative right-[5rem]'>
                         <div className='flex items-center justify-around relative left-[7rem] box-border'>

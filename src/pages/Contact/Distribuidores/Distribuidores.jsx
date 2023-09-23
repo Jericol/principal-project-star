@@ -9,7 +9,7 @@ function Distribuidores() {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 2,
-        responsive : [
+        responsive: [
             {
                 breakpoint: 480,
                 settings: {
@@ -31,28 +31,40 @@ function Distribuidores() {
                 {/* Encabezado y subtitulo */}
                 <section className="flex flex-col items-center justify-center mb-8">
                     <h2 className="font-bold text-4xl">Únete a nuestra red de distribuidores y desbloquea un futuro de éxito y ganancias.</h2>
-                    <p className="font-semibold text-2xl">Descubre las ventajas de ser nuestro distribuidor</p>
+                    <p className="font-semibold text-2xl">
+                        En Star Professional, sabemos que la belleza es un negocio que nunca pasa de moda. Nuestra empresa se enorgullece de ofrecer una amplia gama
+                        de productos de belleza de alta calidad que han conquistado corazones y clientes en todo el pais.
+                    </p>
                 </section>
                 {/* Lista de beneficios */}
                 <div>
                     <Slider {...settings}>
+                        {/* ganancias */}
                         <div className="">
-                            <img src="https://i.pinimg.com/550x/34/9e/2a/349e2a4d065dcc55a417ac6f0528a5cf.jpg" alt="" className="max-w-full h-auto w-[700px]"/>
+                            <img src="https://i.ibb.co/DCd41bK/ganancias.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
+                            <h2>Ganancias</h2>
+                        </div>
+                        {/* estrategias */}
+                        <div>
+                            <img src="https://i.ibb.co/6HPWhfv/estrategias.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
+                            <h2>estrategias</h2>
+                        </div>
+                        {/* acompañamiento */}
+                        <div>
+                            <img src="https://i.ibb.co/Snh6fTw/acompa-amiento.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
+                            <h2>acompañamiento</h2>
+                        </div>
+                        {/* envios */}
+                        <div>
+                            <img src="https://i.ibb.co/y6TNNsV/envios-pais.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
+                            <h2>envios</h2>
+                        </div>
+                        {/* marketing */}
+                        <div>
+                            <img src="https://i.ibb.co/jMNmHP3/marketing.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
                         </div>
                         <div>
-                            <img src="https://i.pinimg.com/550x/34/9e/2a/349e2a4d065dcc55a417ac6f0528a5cf.jpg" alt="" className="max-w-full h-auto w-[700px]"/>
-                        </div>
-                        <div>
-                            <img src="https://i.pinimg.com/550x/34/9e/2a/349e2a4d065dcc55a417ac6f0528a5cf.jpg" alt="" className="max-w-full h-auto w-[700px]"/>
-                        </div>
-                        <div>
-                            <img src="https://i.pinimg.com/550x/34/9e/2a/349e2a4d065dcc55a417ac6f0528a5cf.jpg" alt="" className="max-w-full h-auto w-[700px]"/>
-                        </div>
-                        <div>
-                            <img src="https://i.pinimg.com/550x/34/9e/2a/349e2a4d065dcc55a417ac6f0528a5cf.jpg" alt="" className="max-w-full h-auto w-[700px]"/>
-                        </div>
-                        <div>
-                            <img src="https://i.pinimg.com/550x/34/9e/2a/349e2a4d065dcc55a417ac6f0528a5cf.jpg" alt="" className="max-w-full h-auto w-[700px]"/>
+                            <img src="https://i.ibb.co/0XQgF89/soporte.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
                         </div>
                     </Slider>
                 </div>
