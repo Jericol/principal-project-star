@@ -61,7 +61,7 @@ function AppNavbar({ showMenu, allProducts, setAllProducts, total, countProducts
 
     return (
         <div className='flex'>
-            <div className={`w-screen h-[5rem] md:h-[7rem] bg-slate-300 flex items-center justify-around border-b border-black pl-6 mb-6
+            <div className={`w-auto h-[5rem] md:h-[7rem] bg-slate-300 flex items-center justify-around border-b border-black pl-6 mb-6
                rounded-tr-xl rounded-br-xl z-50  transition-all dark:bg-[#1f1d2b] dark:text-white 
                ${showMenu ? "left-0" : "-left-full"}  duration-300 `}
             >
