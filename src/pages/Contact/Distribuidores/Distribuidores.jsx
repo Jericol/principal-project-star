@@ -25,7 +25,7 @@ function Distribuidores() {
     return (
         <div className="h-[900rem]">
             <header className='mb-8'>
-                <img src="https://i.ibb.co/CvcWp5j/BANNER-ATENCI-N-DISTRIBUIDORES.jpg" alt="banner-distribuidores" className='md:w-full md:h-auto' />
+                <img src="https://photos.smugmug.com/photos/i-sGKxGkq/0/0f265c99/X2/i-sGKxGkq-X2.jpg" alt="banner-distribuidores" className='md:w-full md:h-auto' />
             </header>
             <main>
                 {/* Encabezado y subtitulo */}
@@ -41,7 +41,7 @@ function Distribuidores() {
                     <Slider {...settings}>
                         {/* ganancias */}
                         <div className="">
-                            <img src="https://i.ibb.co/DCd41bK/ganancias.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
+                            <img src="https://i.imgur.com/6iLNlMV.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
                             <h2>Ganancias</h2>
                         </div>
                         {/* estrategias */}

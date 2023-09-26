@@ -60,7 +60,7 @@ function Home() {
                                 <Category />
                             </div>
                             {/* menu movil  categorias */}
-                            <div className='mb-8 md:flex md:items-center md:justify-between '>
+                            <div className=' md:flex md:items-center md:justify-between '>
                                 {/* <Group
                                     showMenu={showMenu}
                                     setShowMenu={setShowMenu}
@@ -73,7 +73,7 @@ function Home() {
                             {/* modal y buscador articulo*/}
 
                             {/* Banner distribuidores*/}
-                            <span className='text-white'>
+                            <span className='text-white relative bottom-[3rem]'>
                                 <Link to="/distribuidores">
                                     <p className='text-2xl'>
                                         <img src="https://i.ibb.co/J5n3wGB/BANNER-DISTRIBUIDORES.jpg" alt="" className='lg:rounded-lg ' />

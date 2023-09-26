@@ -30,6 +30,7 @@ import ContactForm from './pages/Registro/ContacForm';
 import AddressForm from './pages/Registro/AddressForm'
 import Payment from './pages/PasarelaPagos/Payment';
 import ScrollToTop from './components/scrollTop/ScrollToTop';
+import ContactButton from './components/contactBoton/ContactButton';
 
 
 
@@ -60,6 +61,7 @@ function App() {
         />
         {isLoading && <LoadingScreen />}
         {/* menu movil */}
+        <ContactButton />
         {/* ACA VA LO DEL MENU MOVIL */}
         <Routes>
           {/* Rutas */}

@@ -42,3 +42,5 @@ export const cartSlice = createSlice({
 export const { setCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
+// http://190.60.237.163/regcliente/
+// http://190.60.237.163/?itempedido
