@@ -14,7 +14,8 @@ import CateItems from '../../components/carrusel/CateItems';
 import { useForm } from 'react-hook-form';
 import MovalNv from '../../components/modalNv/MovalNv';
 import Group from '../../components/Categorias/Grupos/Group';
-import ProductNews from '../../pages/productNews/ProductNews'
+import ProductNews from '../../pages/productNews/ProductNews';
+import DistribuidoresF from '../../../public/img/BANNER-DISTRIBUIDORES.webp'
 
 
 
@@ -53,18 +54,14 @@ function Home() {
                 {/* header */}
                 <header className=''>
                     {/* titulo y busqueda */}
-                    <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-12 lg:mb-6'>
+                    <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-12 '>
                         <div>
                             {/* categorias */}
-                            <div className='mb-6 '>
+                            <div className=' '>
                                 <Category />
                             </div>
                             {/* menu movil  categorias */}
                             <div className=' md:flex md:items-center md:justify-between '>
-                                {/* <Group
-                                    showMenu={showMenu}
-                                    setShowMenu={setShowMenu}
-                                /> */}
                                 {/* buscador */}
                                 <div className='relative md:hidden hidden lg:hidden'>
                                     <SearchBar />
@@ -73,41 +70,33 @@ function Home() {
                             {/* modal y buscador articulo*/}
 
                             {/* Banner distribuidores*/}
-                            <span className='text-white relative bottom-[3rem]'>
+                            <span className='text-white relative bottom-[2rem]'>
                                 <Link to="/distribuidores">
                                     <p className='text-2xl'>
-                                        <img src="https://i.ibb.co/J5n3wGB/BANNER-DISTRIBUIDORES.jpg" alt="" className='lg:rounded-lg ' />
+                                        <img src={DistribuidoresF} alt="" className='lg:rounded-lg ' />
                                     </p>
                                 </Link>
                             </span>
                         </div>
                     </div>
-                    <div className='relative top-12 md:mb-8'>
+                    <div className=' '>
                         <Group />
                     </div>
-                    {/* banner productos */}
-                    <div className=''>
-                        <SliderItems />
-                    </div>
-                </header>
-                {/* titulo de los productos */}
-                <div className='flex items-center justify-between p-4'>
-                    <h2 className='text-xl text-gray-300 '>productos destacados</h2>
-                </div>
+                </header>    
                 {/* productos */}
-                <div className='mb-8'>
+                <div className=' '>
                     <CardNew />
                 </div>
                 {/* contra-entrega */}
-                <div className='mb-8'>
+                <div className='relative bottom-[4rem]'>
                     <img src="https://i.ibb.co/PGQrJmk/BANNER-PAGOS-CONTRAENTREGA.jpg" alt="contra-entrega" />
                 </div>
-                <div className='mb-6'>
+                {/* <div className=''>
                     <CateItems />
-                </div>
+                </div> */}
                 {/* banner de descuentos */}
-                <div>
-                    <img src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" alt="banner-descuentos" className='w-full' />
+                <div className='relative bottom-9'>
+                    <img src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" alt="banner-descuentos" className='h-[18rem] w-full object-cover'/>
                 </div>
             </div>
             {/* <div className='lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1f1d2b] w-full h-full'>

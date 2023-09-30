@@ -6,7 +6,8 @@ import { RiFullscreenExitLine, RiApps2Fill, RiCloseCircleFill, RiApps2Line, RiLa
 import Categories from '../Category';
 import { Link, useNavigate } from 'react-router-dom';
 import { TECollapse } from "tw-elements-react";
-import './group.css'
+import './group.css';
+
 
 
 
@@ -35,95 +36,116 @@ function Group({ itemPage, setItemPage, nextPage, setNextPage, showMenu, setShow
 
     return (
         <div>
-            <div className='md:flex items-center justify-between top-1 rounded-lg lg:hidden hidden bg-black p-2'>
-                <div className=" rounded-lg">
-                    {/* tablet */}
-                    <ul className='md:flex items-center justify-around gap-4 hidden '>
-                        {/* capilar */}
-                        <li>
+            <div className="container mx-auto px-5 py-2  ">
+                {/* para tablet */}
+                <div className="-m-1 flex flex-wrap md:-m-2 lg:hidden">
+                    <div className="flex w-1/2 flex-wrap">
+                        {/* primera arriba */}
+                        <div className="w-1/2 p-1 md:p-2">
                             <img
-                                src="https://i.ibb.co/VTx22RV/CAPILAR.png"
-                                alt=""
-                                className='md:h-[5rem]  w-auto '
-                            />
-                            <h2 className='text-white text-center'>Capilar</h2>
-                        </li>
-                        {/* barberia */}
-                        <li>
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover"
+                                src="https://i.ibb.co/BfR8kHF/CATEGORIAS-PRINCIPALES-MAQUILLAJE-Y-PESTA-AS.jpg" />
+                        </div>
+                        {/* segunda de arriba */}
+                        <div className="w-1/2 p-1 md:p-2 col-start-1 col-end-4">
                             <img
-                                src="https://i.ibb.co/pRVwgdH/ICONO-BARBERIA.png"
-                                alt=""
-                                className='md:h-[5rem]  w-auto '
-                            />
-                            <h2 className='text-white text-center'>Barberia</h2>
-                        </li>
-                        {/* uñas */}
-                        <li>
-                            <img src="https://i.ibb.co/FbZYjtx/U-AS.png"
-                                alt=""
-                                className='h-[5rem] w-auto'
-                            />
-                            <h2 className='text-white text-center'>Uñas</h2>
-                        </li>
-                        {/* cuidado facil */}
-                        <li>
-                            <img src="https://i.ibb.co/kx8x09X/CUIDADO-FACIAL.png"
-                                alt=""
-                                className='md:h-[5rem]  w-auto '
-                            />
-                            <h2 className='text-white text-center w-9'>cuidado facial</h2>
-                        </li>
-                        {/* maquillaje */}
-                        <li>
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/Xj8qb4C/BANNER-CATEGORIAS-PRINCIPALES-FACIAL.jpg" />
+                        </div>
+                        {/* grande izquierda */}
+                        <div className="w-full p-1 md:p-2">
                             <img
-                                src="https://i.ibb.co/7GWXfsL/MAQUILLAJE-Y-PESTA-AS.png"
-                                alt=""
-                                className='md:h-[5rem]  w-auto'
-                            />
-                            <h2 className='text-white text-center'>maquillaje</h2>
-                        </li>
-                        {/* hombre */}
-                        <li>
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/fYPzg2p/CATEGORIAS-PRINCIPALES-U-AS.jpg" />
+                        </div>
+                    </div>
+                    {/* grade derecha */}
+                    <div className="flex w-1/2 flex-wrap">
+                        <div className="w-full p-1 md:p-2">
                             <img
-                                src="https://i.ibb.co/mNcQnyV/HOMBRE.png"
-                                alt=""
-                                className='md:h-[5rem]  w-auto'
-                            />
-                            <h2 className='text-white text-center'>hombre</h2>
-                        </li>
-                        {/* cuidado corporal */}
-                        <li>
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/5G2vWRB/CATEGORIAS-PRINCIPALES-CAPILAR.jpg" />
+                        </div>
+                        {/* pequeña  */}
+                        <div className="w-1/2 p-1 md:p-2">
                             <img
-                                src="https://i.ibb.co/PwwMjG0/CUIDADO-CORPORAL.png"
-                                alt=""
-                                className='md:h-[5rem]  w-auto'
-                            />
-                            <h2 className='text-white text-center w-9'>cuidado corporal</h2>
-                        </li>
-                        {/* accesorios */}
-                        <li>
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg" />
+                        </div>
+                        <div className="w-1/2 p-1 md:p-2">
                             <img
-                                src="https://i.ibb.co/DgbfdFY/ACCESORIOS.png"
-                                alt=""
-                                className='md:h-[5rem]  w-auto'
-                            />
-                            <h2 className='text-white text-center w-9'>accesorios</h2>
-                        </li>
-                    </ul>
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg" />
+                        </div>
+                    </div>
                 </div>
             </div>
-            {/* celular */}
-            <div className='rounded-lg '>
-                <ul className='flex items-center justify-around gap-4'>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                </ul>
+            {/* para pc */}
+            <div className='mx-auto p-5 container'>
+                <div className='flex flex-wrap items-center justify-center gap-12'>
+                    <div>
+                        <img 
+                           src="https://i.ibb.co/BfR8kHF/CATEGORIAS-PRINCIPALES-MAQUILLAJE-Y-PESTA-AS.jpg" 
+                           alt="" 
+                           className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                    <div>
+                        <img 
+                           src="https://i.ibb.co/Xj8qb4C/BANNER-CATEGORIAS-PRINCIPALES-FACIAL.jpg" 
+                           alt="" 
+                           className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                    <div>
+                        <img 
+                           src="https://i.ibb.co/fYPzg2p/CATEGORIAS-PRINCIPALES-U-AS.jpg" 
+                           alt="" 
+                           className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                    <div>
+                        <img 
+                          src="https://i.ibb.co/5G2vWRB/CATEGORIAS-PRINCIPALES-CAPILAR.jpg" 
+                          alt="" 
+                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                    <div>
+                        <img 
+                          src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg" 
+                          alt="" 
+                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                    <div>
+                        <img 
+                          src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg" 
+                          alt="" 
+                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                    <div>
+                        <img 
+                          src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg" 
+                          alt="" 
+                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                    <div>
+                        <img 
+                          src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg" 
+                          alt="" 
+                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     )

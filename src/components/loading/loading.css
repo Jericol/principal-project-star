@@ -13,7 +13,8 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 50;
+    background-repeat: no-repeat;
     
 }
 
@@ -22,14 +23,12 @@
     height: 22rem;
     position: relative;
     animation: load 1.5s infinite;
+    z-index: 100;
 }
 
 @keyframes load {
     0%{
         top: 0;
-    }
-    50%{
-        top: -35px;
     }
     80%{
         top: -35px

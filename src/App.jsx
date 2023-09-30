@@ -31,6 +31,13 @@ import AddressForm from './pages/Registro/AddressForm'
 import Payment from './pages/PasarelaPagos/Payment';
 import ScrollToTop from './components/scrollTop/ScrollToTop';
 import ContactButton from './components/contactBoton/ContactButton';
+import Barberia from './pages/familias/Barberia';
+import Accesorios from './pages/familias/Accesorios';
+import CuidadoCorporal from './pages/familias/CuidadoCorporal';
+import CuidadoFacial from './pages/familias/CuidadoFacial';
+import Pestañas from './pages/familias/Pestañas';
+import Uñas from './pages/familias/Uñas';
+import LimpiezaDesinfeccion from './pages/familias/LimpiezaDesinfeccion';
 
 
 
@@ -74,7 +81,6 @@ function App() {
           <Route path='/domicilios' element={<Domicilios />} />
           <Route path='/Faq' element={<Faq />} />
           <Route path='/dataProcessing' element={<DataProcessing />} />
-          <Route path='/Capilar' element={<Capilar />} />
           <Route path='/register/panel' element={<RegisterPanel />}/>
           <Route path='/register/panel/email' element={<EmailForm />}/>
           <Route path='/registro/panel/contact' element={<ContactForm />}/>
@@ -93,6 +99,16 @@ function App() {
               />
             }
           />
+          {/* familias */}
+          <Route path='/Capilar' element={<Capilar />} />
+          <Route path='/Barberia' element={<Barberia />}/>
+          <Route path='/Accesorios' element={<Accesorios />}/>
+          <Route path='/CuidadoCorporal' element={<CuidadoCorporal />}/>
+          <Route path='/CuidadoFacial' element={<CuidadoFacial />}/>
+          <Route path='/Pestañas' element={<Pestañas />}/>
+          <Route path='/Uñas' element={<Uñas />}/>
+          <Route path='/LimpiezaDesinfeccion' element={<LimpiezaDesinfeccion />}/>
+          
           <Route path='/payload' element={<Payload />} />
           <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
           <Route path='/formPqrs' element={<FormPqrs />} />
