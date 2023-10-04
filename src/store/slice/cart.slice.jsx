@@ -15,26 +15,26 @@ export const cartSlice = createSlice({
     }
 })
 // funcion antigua 
- export const getCartThunk = () => (dispatch) => {
+  export const getCartThunk = (data) => (dispatch) => {
+      dispatch(setIsLoading(true));
+      return axios.post('http://190.60.237.163/verdetalleped', headerConfig(data))
+          .then((res) => dispatch(setCart(res.data.RESP)))
+          .finally(() => dispatch(setIsLoading(false)));
+  }
+
+
+ export const addCartThunk = (data) => (dispatch) => {
      dispatch(setIsLoading(true));
-     return axios.post('http://190.60.237.163/verdetalleped', )
+     return axios.post("http://190.60.237.163/itempedido",  headerConfig(data))
          .then((res) => dispatch(setCart(res.data.RESP)))
-         .finally(() => dispatch(setIsLoading(false)));
- }
-
-
- export const addCartThunk = () => (dispatch) => {
-     dispatch(setIsLoading(true));
-     return axios.post("http://190.60.237.163/?itempedido",  headerConfig())
-         .then((res) => dispatch(getCartThunk(res.data.RESP)))
          .catch(() => alert('hubo un error'))
          .finally(() => dispatch(setIsLoading(false)));
  }
 
- export const findCartThunk = () => (dispatch) => {
+ export const findCartThunk = (data) => (dispatch) => {
      dispatch(setIsLoading(true));
-     return axios.post("http://190.60.237.163/finpedido", {}, getConfig())
-         .then(() => dispatch(getCartThunk()))
+     return axios.post("http://190.60.237.163/finpedido", {}, headerConfig(data))
+         .then(() => dispatch(setCart()))
          .finally(() => dispatch(setIsLoading(false)));
  }
 

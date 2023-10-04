@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NameFiltredThunk, filterProductCategoriesThunk, getProductsThunk } from '../../store/slice/product.slice';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { RiSearchLine, RiCloseFill, RiShoppingCart2Line, RiWhatsappLine, RiBilibiliFill, RiApps2Fill, RiFullscreenExitLine, RiExternalLinkFill } from "react-icons/ri";
+import { RiSearchLine, RiCloseFill, RiShoppingCart2Line, RiWhatsappLine, RiBilibiliFill, RiApps2Fill, RiFullscreenExitLine, 
+    RiExternalLinkFill, RiInstagramLine, RiFacebookCircleFill  } 
+        from "react-icons/ri";
 import ContactBar from '../../components/ContacBar/ContactBar';
 import Cart from '../../components/cart/Cart';
 import SearchBar from '../../components/SearchBar/SearchBar'
@@ -70,8 +72,8 @@ function Home() {
                             {/* modal y buscador articulo*/}
 
                             {/* Banner distribuidores*/}
-                            <span className='text-white relative bottom-[2rem]'>
-                                <Link to="/distribuidores">
+                            <span className='text-white  '>
+                                <Link to="/distribuidores" className=''>
                                     <p className='text-2xl'>
                                         <img src={DistribuidoresF} alt="" className='lg:rounded-lg ' />
                                     </p>
@@ -91,12 +93,50 @@ function Home() {
                 <div className='relative bottom-[4rem]'>
                     <img src="https://i.ibb.co/PGQrJmk/BANNER-PAGOS-CONTRAENTREGA.jpg" alt="contra-entrega" />
                 </div>
-                {/* <div className=''>
-                    <CateItems />
-                </div> */}
+                {/* redes sociales  */}
+                <ul className='md:flex flex-col items-center justify-center gap-6 relative bottom-[4rem] lg:hidden '>
+                        <li className='flex items-center justify-center gap-4'>Nuestras redes sociales</li>
+                        <div className='flex items-center justify-between gap-8'>
+                            {/* facebook */}
+                            <li className='flex items-center justify-center w-[60px] h-[60px] text-white text-2xl bg-blue-500 rounded-lg -skew-y-6 shadow-lg 
+                               shadow-blue-600 transition duration-[0.3s] border-blue-900 dark:shadow-blue-400'
+                            >
+                                <a href="" className=''>
+                                    <RiFacebookCircleFill className='text-4xl' />
+                                </a>
+                            </li>
+                            {/* instagram */}
+                            <li className='flex items-center justify-center w-[60px] h-[60px] text-white text-2xl bg-pink-500 rounded-lg -skew-y-6 shadow-lg shadow-pink-600
+                               transition duration-[0.3s] border border-pink-700 dark:shadow-purple-400'
+                            >
+                                <a href="" className=''>
+                                    <RiInstagramLine className='text-4xl' />
+                                </a>
+                            </li>
+                            {/* whatsapp */}
+                            <li className='flex items-center justify-center w-[60px] h-[60px] text-white bg-green-500 rounded-lg -skew-y-6 shadow-lg 
+                              shadow-green-600 transition duration-[0.3s]'
+                            >
+                                <a href="" className=''>
+                                    <RiWhatsappLine className='text-4xl' />
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
                 {/* banner de descuentos */}
                 <div className='relative bottom-9'>
-                    <img src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" alt="banner-descuentos" className='h-[18rem] w-full object-cover'/>
+                    {/* para pc */}
+                    <img 
+                      src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" 
+                      alt="banner-descuentos" 
+                      className='h-[18rem] w-full object-cover lg:flex hidden'
+                    />
+                    {/* para md / sm */}
+                    <img 
+                      src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" 
+                      alt="banner-descuentos" 
+                      className='object-cover flex lg:hidden'
+                    />
                 </div>
             </div>
             {/* <div className='lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1f1d2b] w-full h-full'>

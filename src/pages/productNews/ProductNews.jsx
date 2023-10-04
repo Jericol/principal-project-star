@@ -138,7 +138,7 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
                                         className='px-4 py-2 bg-blue-200 rounded-lg w-[12rem]  text-blue-700 hover:bg-blue-700 hover:text-white'
                                         type="button"
                                         // onClick={() => onAddProduct(product)}
-                                        onClick={() => addProductCart(data)}
+                                        onClick={() => addProductCart()}
                                     >
                                         {/* <RiShoppingCart2Line className='text-2xl text-white ' /> */}
                                         Añadir al carrito

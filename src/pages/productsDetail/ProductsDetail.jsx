@@ -58,7 +58,6 @@ function ProductsDetail() {
 
     }
 
-    
 
     return (
         <div className="lg:h-[200rem] md:h-auto">

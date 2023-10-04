@@ -13,12 +13,12 @@ function Cart() {
     const dispatch = useDispatch();
     const cartList = useSelector(state => state.cart);
     const navigate = useNavigate();
-
+    
 
 
 
     useEffect(() => {
-        // dispatch(getCartThunk())
+        dispatch(getCartThunk())
 
     }, []);
 

@@ -82,9 +82,9 @@ function CardNew({ allProducts, setAllProducts, countProducts, setCountProducts,
                     </div>
                 </div>
             </div>
-            {/* para md / sm */}
-            <div className='lg:pl-5 grid grid-cols-1 lg:hidden relative left-[3.8rem]'>
-                <div className='lg:col-span-full'>
+            {/* para tablet */}
+            <div className='pl-5 md:grid grid-cols-1 lg:hidden hidden relative left-[3.8rem]'>
+                <div className='col-span-full'>
                     <div className='grid grid-cols-1 gap-3 m-5 p-5'>
                         {
                             productList.map((product, i) => (
@@ -97,7 +97,7 @@ function CardNew({ allProducts, setAllProducts, countProducts, setCountProducts,
                                     />
                                     <div className="flex flex-col justify-between p-4 leading-normal">
                                         <h5 className="mb-2 text-xl uppercase 
-                                         tracking-tight text-gray-900 dark:text-white">
+                                         tracking-tight text-gray-900 dark:text-gray-400">
                                             {product.Descripcion}
                                         </h5>
                                         <div className='flex items-center justify-between'>
@@ -140,8 +140,62 @@ function CardNew({ allProducts, setAllProducts, countProducts, setCountProducts,
                     </div>
                 </div>
             </div>
-
-
+            {/* para celular */}
+            <div className='pl-5 grid grid-cols-1 md:hidden '>
+                <div className='col-span-full'>
+                    <div className='grid grid-cols-1 gap-3 m-5 p-5 relative right-[3rem]'>
+                        {
+                            productList.map((product, i) => (
+                                <div key={i} className="flex  items-center justify-evenly bg-white border border-gray-200 rounded-lg shadow flex-row w-[23rem] hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                    <img
+                                        className="object-cover  rounded-t-lg  h-auto w-48 rounded-none rounded-l-lg"
+                                        src={product.Foto}
+                                        alt=""
+                                    />
+                                    <div className="flex flex-col justify-between p-4 leading-normal">
+                                        <h5 className="mb-2 text-sm uppercase 
+                                         tracking-tight text-gray-900 dark:text-white">
+                                            {product.Descripcion}
+                                        </h5>
+                                        <div className='flex flex-col items-center justify-between text-sm'>
+                                            <span className='font-normal text-gray-700 dark:text-gray-400'>
+                                                Ref: {product.Codigo}
+                                            </span>
+                                            <p className="font-normal text-gray-700 dark:text-gray-400">
+                                                ${product.Precio}
+                                            </p>
+                                        </div>
+                                        <div className='flex flex-col '>
+                                            <div className='flex items-center justify-around gap-4 text-black dark:text-white border border-slate-400 px-2 py-1 rounded-lg'>
+                                                <p className='text-sm'>2und</p>
+                                                <p className='text-sm'>6und</p>
+                                                <p className='text-sm'>12und</p>
+                                            </div>
+                                            <div className='flex items-center justify-around gap-4 mb-4'>
+                                                <span className='text-sm'>{product.Precio3}</span>
+                                                <span className='text-sm'>{product.Precio4}</span>
+                                                <span className='text-sm'>{product.Precio5}</span>
+                                            </div>
+                                        </div>
+                                        <button onClick={() => addProducts(product)}
+                                            className=" bg-blue-200 text-blue-800 focus:outline-none font-medium 
+                                            rounded-lg text-sm px-2 py-2.5 text-center w-full mb-4"
+                                        >
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+                                </div>
+                            )).slice(firsIndex, lastIndex)
+                        }
+                        <Pagination
+                            productsPage={productsPage}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            totalProduct={totalProduct}
+                        />
+                    </div>
+                </div>
+            </div>
        
         </div >
     )

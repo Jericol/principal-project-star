@@ -17,7 +17,7 @@ function Group({ itemPage, setItemPage, nextPage, setNextPage, showMenu, setShow
     // estado para categorias
     const [categories, setCategories] = useState([]);
 
-    const [num, setNum] = useState(1);
+    // const [num, setNum] = useState(1);
     // estado para llamar la api de categorias
     const [categoryNum, setCategoryNum] = useState(4)
     const navigate = useNavigate();
@@ -36,114 +36,258 @@ function Group({ itemPage, setItemPage, nextPage, setNextPage, showMenu, setShow
 
     return (
         <div>
-            <div className="container mx-auto px-5 py-2  ">
-                {/* para tablet */}
-                <div className="-m-1 flex flex-wrap md:-m-2 lg:hidden">
-                    <div className="flex w-1/2 flex-wrap">
-                        {/* primera arriba */}
-                        <div className="w-1/2 p-1 md:p-2">
+            {/* para pc */}
+            <div className='mx-auto p-5 container'>
+                <div className='lg:flex hidden flex-wrap items-center justify-center gap-12'>
+                    {/* pestañas */}
+                    <div>
+                        <Link to='/Pestañas'>
                             <img
-                                alt="gallery"
-                                className="block h-full w-full rounded-lg object-cover"
-                                src="https://i.ibb.co/BfR8kHF/CATEGORIAS-PRINCIPALES-MAQUILLAJE-Y-PESTA-AS.jpg" />
-                        </div>
-                        {/* segunda de arriba */}
-                        <div className="w-1/2 p-1 md:p-2 col-start-1 col-end-4">
-                            <img
-                                alt="gallery"
-                                className="block h-full w-full rounded-lg object-cover object-center"
-                                src="https://i.ibb.co/Xj8qb4C/BANNER-CATEGORIAS-PRINCIPALES-FACIAL.jpg" />
-                        </div>
-                        {/* grande izquierda */}
-                        <div className="w-full p-1 md:p-2">
-                            <img
-                                alt="gallery"
-                                className="block h-full w-full rounded-lg object-cover object-center"
-                                src="https://i.ibb.co/fYPzg2p/CATEGORIAS-PRINCIPALES-U-AS.jpg" />
-                        </div>
+                                src="https://i.ibb.co/BfR8kHF/CATEGORIAS-PRINCIPALES-MAQUILLAJE-Y-PESTA-AS.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
-                    {/* grade derecha */}
-                    <div className="flex w-1/2 flex-wrap">
-                        <div className="w-full p-1 md:p-2">
+                    {/* facial */}
+                    <div>
+                        <Link to='/CuidadoFacial'>
                             <img
-                                alt="gallery"
-                                className="block h-full w-full rounded-lg object-cover object-center"
-                                src="https://i.ibb.co/5G2vWRB/CATEGORIAS-PRINCIPALES-CAPILAR.jpg" />
-                        </div>
-                        {/* pequeña  */}
-                        <div className="w-1/2 p-1 md:p-2">
+                                src="https://i.ibb.co/Xj8qb4C/BANNER-CATEGORIAS-PRINCIPALES-FACIAL.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* uñas */}
+                    <div>
+                        <Link to='/Uñas'>
                             <img
-                                alt="gallery"
-                                className="block h-full w-full rounded-lg object-cover object-center"
-                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg" />
-                        </div>
-                        <div className="w-1/2 p-1 md:p-2">
+                                src="https://i.ibb.co/fYPzg2p/CATEGORIAS-PRINCIPALES-U-AS.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* capilar */}
+                    <div>
+                        <Link to='/Capilar'>
                             <img
-                                alt="gallery"
-                                className="block h-full w-full rounded-lg object-cover object-center"
-                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg" />
-                        </div>
+                                src="https://i.ibb.co/5G2vWRB/CATEGORIAS-PRINCIPALES-CAPILAR.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* barberia */}
+                    <div>
+                        <Link to='/Barberia'>
+                            <img
+                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* corporal */}
+                    <div>
+                        <Link TO='/CuidadoCorporal'>
+                            <img
+                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* limpieza */}
+                    <div>
+                        <Link to='/'>
+                            <img
+                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* accesorios */}
+                    <div>
+                        <Link to='/'>
+                            <img
+                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg"
+                                alt=""
+                                className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>
-            {/* para pc */}
-            <div className='mx-auto p-5 container'>
-                <div className='flex flex-wrap items-center justify-center gap-12'>
+            {/* para tablet */}
+            <div className="container mx-auto px-5 py-2  ">
+                <div className='md:flex  hidden lg:hidden md:flex-wrap columns-3 items-center justify-center gap-6'>
+                    {/* pestañas */}
                     <div>
-                        <img 
-                           src="https://i.ibb.co/BfR8kHF/CATEGORIAS-PRINCIPALES-MAQUILLAJE-Y-PESTA-AS.jpg" 
-                           alt="" 
-                           className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link to='/Pestañas'>
+                            <img
+                                src="https://i.ibb.co/BfR8kHF/CATEGORIAS-PRINCIPALES-MAQUILLAJE-Y-PESTA-AS.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
+                    {/* facial */}
                     <div>
-                        <img 
-                           src="https://i.ibb.co/Xj8qb4C/BANNER-CATEGORIAS-PRINCIPALES-FACIAL.jpg" 
-                           alt="" 
-                           className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link to='/CuidadoFacial'>
+                            <img
+                                src="https://i.ibb.co/Xj8qb4C/BANNER-CATEGORIAS-PRINCIPALES-FACIAL.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
+                    {/* uñas */}
                     <div>
-                        <img 
-                           src="https://i.ibb.co/fYPzg2p/CATEGORIAS-PRINCIPALES-U-AS.jpg" 
-                           alt="" 
-                           className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link to='/Uñas'>
+                            <img
+                                src="https://i.ibb.co/fYPzg2p/CATEGORIAS-PRINCIPALES-U-AS.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
+                    {/* capilar */}
                     <div>
-                        <img 
-                          src="https://i.ibb.co/5G2vWRB/CATEGORIAS-PRINCIPALES-CAPILAR.jpg" 
-                          alt="" 
-                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link to='/Capilar'>
+                            <img
+                                src="https://i.ibb.co/5G2vWRB/CATEGORIAS-PRINCIPALES-CAPILAR.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
+                    {/* barberia */}
                     <div>
-                        <img 
-                          src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg" 
-                          alt="" 
-                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link to='/Barberia'>
+                            <img
+                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
+                    {/* corporal */}
                     <div>
-                        <img 
-                          src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg" 
-                          alt="" 
-                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link TO='/CuidadoCorporal'>
+                            <img
+                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
+                    {/* limpieza */}
                     <div>
-                        <img 
-                          src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg" 
-                          alt="" 
-                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link to='/'>
+                            <img
+                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
+                    {/* accesorios */}
                     <div>
-                        <img 
-                          src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg" 
-                          alt="" 
-                          className='w-[18rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600'
-                        />
+                        <Link to='/'>
+                            <img
+                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg"
+                                alt=""
+                                className='w-[14rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            {/* para celular */}
+            <div className="container mx-auto px-5 py-2  ">
+                <div className='flex md:hidden flex-wrap columns-2 items-center justify-center gap-6'>
+                    {/* pestañas */}
+                    <div>
+                        <Link to='/Pestañas'>
+                            <img
+                                src="https://i.ibb.co/BfR8kHF/CATEGORIAS-PRINCIPALES-MAQUILLAJE-Y-PESTA-AS.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* facial */}
+                    <div>
+                        <Link to='/CuidadoFacial'>
+                            <img
+                                src="https://i.ibb.co/Xj8qb4C/BANNER-CATEGORIAS-PRINCIPALES-FACIAL.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* uñas */}
+                    <div>
+                        <Link to='/Uñas'>
+                            <img
+                                src="https://i.ibb.co/fYPzg2p/CATEGORIAS-PRINCIPALES-U-AS.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* capilar */}
+                    <div>
+                        <Link to='/Capilar'>
+                            <img
+                                src="https://i.ibb.co/5G2vWRB/CATEGORIAS-PRINCIPALES-CAPILAR.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* barberia */}
+                    <div>
+                        <Link to='/Barberia'>
+                            <img
+                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* corporal */}
+                    <div>
+                        <Link TO='/CuidadoCorporal'>
+                            <img
+                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* limpieza */}
+                    <div>
+                        <Link to='/'>
+                            <img
+                                src="https://i.ibb.co/XDC6ghG/CATEGORIAS-PRINCIPALES-BARBERIA.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
+                    </div>
+                    {/* accesorios */}
+                    <div>
+                        <Link to='/'>
+                            <img
+                                src="https://i.ibb.co/9yrRmCV/BANNER-CATEGORIAS-PRINCIPALES-CORPORAL.jpg"
+                                alt=""
+                                className='w-[10rem] rounded-lg hover:!scale-125 cursor-pointer hover:shadow-lg dark:hover:shadow-white hover:shadow-slate-600 hover:transition hover:duration-[0.3s]'
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>
