@@ -157,7 +157,7 @@ function CardNew({ allProducts, setAllProducts, countProducts, setCountProducts,
                                          tracking-tight text-gray-900 dark:text-white">
                                             {product.Descripcion}
                                         </h5>
-                                        <div className='flex flex-col items-center justify-between text-sm'>
+                                        <div className='flex flex-col items-center justify-between text-sm mb-2'>
                                             <span className='font-normal text-gray-700 dark:text-gray-400'>
                                                 Ref: {product.Codigo}
                                             </span>
@@ -166,20 +166,20 @@ function CardNew({ allProducts, setAllProducts, countProducts, setCountProducts,
                                             </p>
                                         </div>
                                         <div className='flex flex-col '>
-                                            <div className='flex items-center justify-around gap-4 text-black dark:text-white border border-slate-400 px-2 py-1 rounded-lg'>
+                                            <div className='flex items-center justify-around gap-4 text-black dark:text-white border border-slate-400 px-1 py-1 rounded-lg mb-2'>
                                                 <p className='text-sm'>2und</p>
                                                 <p className='text-sm'>6und</p>
                                                 <p className='text-sm'>12und</p>
                                             </div>
-                                            <div className='flex items-center justify-around gap-4 mb-4'>
+                                            <div className='flex items-center justify-around gap-4 mb-2'>
                                                 <span className='text-sm'>{product.Precio3}</span>
                                                 <span className='text-sm'>{product.Precio4}</span>
                                                 <span className='text-sm'>{product.Precio5}</span>
                                             </div>
                                         </div>
                                         <button onClick={() => addProducts(product)}
-                                            className=" bg-blue-200 text-blue-800 focus:outline-none font-medium 
-                                            rounded-lg text-sm px-2 py-2.5 text-center w-full mb-4"
+                                            className=" bg-blue-500 text-white focus:outline-none font-medium 
+                                            rounded-lg text-sm px-2 py-2 text-center w-full mb-4"
                                         >
                                             Añadir al carrito
                                         </button>

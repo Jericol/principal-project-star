@@ -17,7 +17,7 @@ function DataProcessing() {
 
 
     return (
-        <div className="pl-24 h-[100rem]">
+        <div className="pl-2 lg:h-[100rem] h-[130rem] overflow-y-auto">
             {/* elemento 1 */}
             <div id="accordionExample">
                 <div className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">

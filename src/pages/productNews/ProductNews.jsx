@@ -37,6 +37,9 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
     const [showMenu, setShowMenu] = useState(false)
 
 
+    const addProducts = (product) => {
+        setAllProducts([...allProducts, product])
+    }
 
 
 
@@ -72,17 +75,17 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
     return (
         <div className='lg:pl-5  overflow-hidden'>
             <div className='lg:col-span-full '>
-                <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6'>
+                <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-4 md:mb-6 mb-0'>
                     <div>
                         {/* titulo y buscador */}
                         <div className='flex items-center justify-between'>
                             {/* categorias */}
-                            <div className=' '>
+                            <div className=''>
                                 <Category />
                             </div>
                         </div>
                         {/* categorias movil */}
-                        <div className='mb-8 md:flex md:items-center md:flex-col md:justify-between md:relative md:right-5'>
+                        <div className='mb-8 md:flex md:items-center md:flex-col md:justify-between md:relative '>
                             <Group
                                 showMenu={showMenu}
                                 setShowMenu={setShowMenu}
@@ -103,57 +106,190 @@ function ProductNews({ allProducts, setAllProducts, countProducts, setCountProdu
                     </div>
                 </div>
                 {/* Articulos */}
-                <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-28'>
-                    {
-                        productList.map(product => (
-                            <div
-                                className='bg-white
-                              dark:bg-[#2a1f1f] p-8 rounded-xl lg:w-[23rem] 
-                                flex flex-col items-center gap-2 dark:text-gray-300 text-center shadow shadow-black'
-                                key={product?.Codigo}
+                {/* card para pc */}
+                <div className='lg:pl-5 lg:grid grid-cols-1 lg:grid-cols-4 hidden '>
+                    <div className='lg:col-span-full'>
+                        <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4  gap-3 m-5 p-5'>
+                            {
+                                productList.map((product, i) => (
 
-                            >
-                                <img src={product.Foto} alt=""
-                                    className='object-cover w-60 cursor-pointer'
-                                    onClick={() => navigate(`/productsDetail/${product?.Codigo}`)}
-                                />
-                                <p>{product?.Descripcion}</p>
-                                <p>$: {product?.Precio}</p>
-                                <span>REF: {product?.Codigo}</span>
-                                <div className='flex items-center justify-around gap-4 text-white bg-slate-400 px-2 py-1'>
-                                    <p>2 und</p>
-                                    <p>6 und</p>
-                                    <p>12 und</p>
-                                </div>
-                                <div className='flex items-center justify-around gap-4'>
-                                    <span className='font-semibold text-lg'>$:{product.Precio3}</span>
-                                    <span className='font-semibold text-lg'>$:{product.Precio4}</span>
-                                    <span className='font-semibold text-lg'>$:{product.Precio5}</span>
-                                </div>
-                                <div className='flex flex-col items-center justify-around gap-4'>
-                                    <button className='px-4 py-2 bg-blue-700 w-[12rem] rounded-lg text-white hover:bg-blue-200 hover:text-blue-600'>
-                                        <Link to='/payment'>Comprar ahora</Link>
-                                    </button>
-                                    <button
-                                        className='px-4 py-2 bg-blue-200 rounded-lg w-[12rem]  text-blue-700 hover:bg-blue-700 hover:text-white'
-                                        type="button"
-                                        // onClick={() => onAddProduct(product)}
-                                        onClick={() => addProductCart()}
-                                    >
-                                        {/* <RiShoppingCart2Line className='text-2xl text-white ' /> */}
-                                        Añadir al carrito
-                                    </button>
-                                </div>
+                                    <div key={i} className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <img
+                                            className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+                                            src={product.Foto}
+                                            alt=''
+                                            onClick={() => navigate(`/productsDetail/${product?.Codigo}`)}
+                                        />
+                                        <div className="flex flex-col justify-between p-4 leading-normal">
+                                            <h5 className="mb-2 text-xl lowercase tracking-tight text-gray-900 dark:text-white">
+                                                {product.Descripcion}
+                                            </h5>
+                                            <div className='flex items-center justify-between'>
+                                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                                    ${product.Precio}
+                                                </p>
+                                                <span className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
+                                                    Ref: {product.Codigo}
+                                                </span>
+                                            </div>
+                                            <div className='flex flex-col '>
+                                                <div className='flex items-center justify-around gap-4 text-black dark:text-white border border-slate-400 px-2 py-1 rounded-lg'>
+                                                    <p className='text-sm'>2und</p>
+                                                    <p className='text-sm'>6und</p>
+                                                    <p className='text-sm'>12und</p>
+                                                </div>
+                                                <div className='flex items-center justify-around gap-4 mb-4'>
+                                                    <span className='text-sm'>{product.Precio3}</span>
+                                                    <span className='text-sm'>{product.Precio4}</span>
+                                                    <span className='text-sm'>{product.Precio5}</span>
+                                                </div>
+                                            </div>
+                                            <button onClick={() => addProductCart(product)}
+                                                className=" bg-blue-200 text-blue-800 focus:outline-none font-medium 
+                                            rounded-lg text-sm px-2 py-2.5 text-center  w-full mb-4"
+                                            >
+                                                Añadir al carrito
+                                            </button>
+                                        </div>
+                                    </div>
 
-                            </div>
-                        )).slice(firsIndex, lastIndex)
-                    }
-                    <Pagination
-                        productsPage={productsPage}
-                        currentPage={currentPage}
-                        setCurrentPage={setCurrentPage}
-                        totalProduct={totalProduct}
+                                )).slice(firsIndex, lastIndex)
+                            }
+                            <Pagination
+                                productsPage={productsPage}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                totalProduct={totalProduct}
+                            />
+                        </div>
+                    </div>
+                </div>
+                {/* para tablet */}
+                <div className='pl-5 md:grid grid-cols-1 lg:hidden hidden relative left-[2rem]'>
+                    <div className='col-span-full'>
+                        <div className='grid grid-cols-1 gap-3 m-5 p-5'>
+                            {
+                                productList.map((product, i) => (
+
+                                    <div key={i} className="flex flex-col items-center justify-evenly bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <img
+                                            className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+                                            src={product.Foto}
+                                            alt=""
+                                        />
+                                        <div className="flex flex-col justify-between p-4 leading-normal">
+                                            <h5 className="mb-2 text-xl uppercase 
+                                         tracking-tight text-gray-900 dark:text-gray-400">
+                                                {product.Descripcion}
+                                            </h5>
+                                            <div className='flex items-center justify-between'>
+                                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                                    ${product.Precio}
+                                                </p>
+                                                <span className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
+                                                    Ref: {product.Codigo}
+                                                </span>
+                                            </div>
+                                            <div className='flex flex-col '>
+                                                <div className='flex items-center justify-around gap-4 text-black dark:text-white border border-slate-400 px-2 py-1 rounded-lg'>
+                                                    <p className='text-sm'>2und</p>
+                                                    <p className='text-sm'>6und</p>
+                                                    <p className='text-sm'>12und</p>
+                                                </div>
+                                                <div className='flex items-center justify-around gap-4 mb-4'>
+                                                    <span className='text-sm'>{product.Precio3}</span>
+                                                    <span className='text-sm'>{product.Precio4}</span>
+                                                    <span className='text-sm'>{product.Precio5}</span>
+                                                </div>
+                                            </div>
+                                            <button onClick={() => addProducts(product)}
+                                                className=" bg-blue-200 text-blue-800 focus:outline-none font-medium 
+                                            rounded-lg text-sm px-2 py-2.5 text-center w-full mb-4"
+                                            >
+                                                Añadir al carrito
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                )).slice(firsIndex, lastIndex)
+                            }
+                            <Pagination
+                                productsPage={productsPage}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                totalProduct={totalProduct}
+                            />
+                        </div>
+                    </div>
+                </div>
+                {/* para celular */}
+                <div className='pl-5 grid grid-cols-1 md:hidden '>
+                    <div className='col-span-full'>
+                        <div className='grid grid-cols-1 gap-3 m-5 p-5 relative right-[3rem]'>
+                            {
+                                productList.map((product, i) => (
+                                    <div key={i} className="flex  items-center justify-evenly bg-white border border-gray-200 rounded-lg shadow flex-row w-[23rem] hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <img
+                                            className="object-cover  rounded-t-lg  h-auto w-48 rounded-none rounded-l-lg"
+                                            src={product.Foto}
+                                            alt=""
+                                        />
+                                        <div className="flex flex-col justify-between p-4 leading-normal">
+                                            <h5 className="mb-2 text-sm uppercase 
+                                                tracking-tight text-gray-900 dark:text-white"
+                                            >
+                                                {product.Descripcion}
+                                            </h5>
+                                            {/* codigo / precio */}
+                                            <div className='flex flex-col items-center justify-between text-sm mb-2'>
+                                                <span className='font-normal text-gray-700 dark:text-gray-400'>
+                                                    Ref: {product.Codigo}
+                                                </span>
+                                                <p className="font-normal text-gray-700 dark:text-gray-400">
+                                                    ${product.Precio}
+                                                </p>
+                                            </div>
+                                            {/* scalas */}
+                                            <div className='flex flex-col '>
+                                                <div className='flex items-center justify-around gap-4 text-black dark:text-white border border-slate-400 px-1 py-1 rounded-lg mb-2'>
+                                                    <p className='text-sm'>2und</p>
+                                                    <p className='text-sm'>6und</p>
+                                                    <p className='text-sm'>12und</p>
+                                                </div>
+                                                <div className='flex items-center justify-around gap-4 mb-2'>
+                                                    <span className='text-sm'>{product.Precio3}</span>
+                                                    <span className='text-sm'>{product.Precio4}</span>
+                                                    <span className='text-sm'>{product.Precio5}</span>
+                                                </div>
+                                            </div>
+                                            <button onClick={() => addProducts(product)}
+                                                className=" bg-blue-500 text-white focus:outline-none font-medium 
+                                            rounded-lg text-sm px-2 py-2 text-center w-full "
+                                            >
+                                                Añadir al carrito
+                                            </button>
+                                        </div>
+                                    </div>
+                                )).slice(firsIndex, lastIndex)
+                            }
+                            <Pagination
+                                productsPage={productsPage}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                totalProduct={totalProduct}
+                            />
+                        </div>
+                    </div>
+                </div>
+                {/* banner de conraentrega */}
+                <div className='relative right-[9px]'>
+                    {/* para pc */}
+                    <img 
+                      src="https://i.ibb.co/PGQrJmk/BANNER-PAGOS-CONTRAENTREGA.jpg" 
+                      alt="" 
+                      className='object-cover w-full '
                     />
+
                 </div>
             </div>
         </div>

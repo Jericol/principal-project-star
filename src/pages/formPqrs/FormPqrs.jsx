@@ -3,8 +3,9 @@ import React from 'react'
 function FormPqrs() {
     return (
         <div className='pl-28 mb-6 h-[100rem] '>
-            <div className='flex items-center justify-center font-monserrat'>
-                <div className='border-2 border-gray-600 w-[80rem] dark:bg-[#1f1d2b]'>
+            {/* para pc */}
+            <div className='lg:flex hidden items-center justify-center font-monserrat'>
+                <div className='border-2 border-gray-600 lg:w-[80rem]  dark:bg-[#1f1d2b]'>
                     {/* encabezado o titulo */}
                     <div className='py-4 px-2'>
                         <h2 className='text-2xl uppercase  text-center font-semibold border-2 border-gray-500 w-[]'>

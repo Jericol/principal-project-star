@@ -3,11 +3,11 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-
+import Usuario from '../../../public/img/usuario.jpg'
 import { useDispatch } from 'react-redux';
 
 
-function Login() {
+function Login({ theme, setTheme }) {
 
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ function Login() {
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem("token", res.data.jwt)
-                //  navigate("/")
+                  navigate("/")
             })
             .catch(error => {
                 if (error.response) {
@@ -40,97 +40,100 @@ function Login() {
 
     }
 
-    // useEffect((data) => {
-    //    axios.post("http://190.60.237.163/login", data)
-    //    .then(res => setSesion(res.data.RESP))
-    // }, [])
-
-    // console.log(sesion)
+    const handleHide = () => {
+        setTheme(theme === "dark" ? "light" : "dark")
+    }
 
     return (
-        <section className="contenedor">
-            <div className="capa-superior">
-                <div className="capa-media">
-                    <div className="capa-interna">
-                        <section href="#" className="seccion-logo">
-                            <img className="w-8 h-8 mr-2" src="https://i.ibb.co/xC59hxq/ISOLOGO-STAR-NEGRO.png" alt="logo" style={{ width: '180px', height: '180px' }} />
-                        </section>
-                        <h1 className="login-title">
-                            Inicia sesión con tu cuenta star
-                        </h1>
-                        <form onSubmit={handleSubmit(submit)} className="space-y-4 md:space-y-6" action="#">
-                            {/* Usuario */}
-                            <div>
-                                <label htmlFor="username" className="user-title">Usuario</label>
-                                <input
-                                    type="text"
-                                    name="username"
-                                    id="username"
-                                    className="user-input"
-                                    placeholder="leoGomez12"
-                                    required=""
-                                    {...register("usuario")}
+        <div className='mx-auto container p-5 h-screen' >
+            <div className='flex items-center justify-center' >
+                <section className='bg-emerald-500 h-[39rem] w-[29rem] rounded-lg relative top-[7rem]'>
+                    <form action="" className='flex flex-col gap-6'>
+                        <h2 className='text-center text-2xl font-bold relative top-8'>Login Distribuidores</h2>
+                        {
+                            theme === 'light' ? 
+                            <img 
+                               src='' 
+                               alt='' 
+                               className='object-cover lg:w-[12rem] lg:h-[]'
+                            />
+                            :
+                            <img 
+                               src='' 
+                               alt=''  
+                               className=''
+                            />
+                        }
+
+                    </form>
+                </section>
+                <section className='border border-sky-500 h-[39rem] w-[27rem] rounded-lg dark:text-white text-black relative top-[7rem]'>
+                    <form action="" className='flex flex-col items-start m-5 gap-4 z-20' onSubmit={handleSubmit(submit)}>
+                        {
+                            theme === 'light' ?
+                                <img
+                                    src="../../../public/img/ICONO STAR PRO-01.png"
+                                    alt=""
+                                    className='object-cover lg:w-[12rem] lg:h-[12rem]'
                                 />
-                            </div>
-                            {/* Contraseña */}
-                            <div>
-                                <label htmlFor="password" className="">Contraseña</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    placeholder="••••••••"
-                                    className="password-input"
-                                    required=""
-                                    {...register("clave")}
+                                :
+                                <img
+                                    src="../../../public/img/ICONO STAR PRO-02.png"
+                                    alt=""
+                                    className='object-cover lg:w-[12rem] lg:h-[12rem]'
                                 />
-                            </div>
-                            {/* container de Recuerdame */}
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-start">
-                                    {/* input de Recuerdame */}
-                                    <div className="flex items-center h-5">
-                                        <input
-                                            id="remember"
-                                            aria-describedby="remember"
-                                            type="checkbox"
-                                            className="input-check"
-                                            required=""
-                                        />
-                                    </div>
-                                    {/* Texto de recuerdame */}
-                                    <div className="ml-3 text-sm">
-                                        <label
-                                            htmlFor="remember"
-                                            className="title-check"
-                                        >
-                                            Recuerdame
-                                        </label>
-                                    </div>
-                                </div>
-                                <a href="#" className="forgot-password">
-                                    Olvidaste la contraseña?
-                                </a>
-                            </div>
-                            {/* Boton de iniciar sesion */}
-                            <button
-                                type="submit"
-                                className="botonsubmit-log"
-                            >
+                        }
+                        <h2 className='text-center  text-2xl font-bold relative bottom-9 tracking-wide'>
+                            Login de usuarios
+                        </h2>
+                        {/* usuario */}
+                        <div className='flex flex-col items-start gap-2'>
+                            <label htmlFor="usuario" className='text-xl font-semibold'>Iniciar sesion</label>
+                            <input
+                                type="text"
+                                name='usuario'
+                                className='rounded-lg lg:w-[20rem] lg:h-[2.5rem] px-3'
+                                placeholder='Ingresa tu usuario'
+                                required
+                                {...register("usuario")}
+                            />
+                        </div>
+                        {/* contraseña */}
+                        <div className='flex flex-col items-start gap-4 '>
+                            <label htmlFor="" className='text-xl font-semibold tracking-wide'>Contraseña</label>
+                            <input
+                                type="password"
+                                name="password"
+                                className='rounded-lg lg:w-[20rem] lg:h-[2.5rem] px-3 '
+                                placeholder='Ingresa tu contraseña'
+                                required
+                                {...register("password")}
+                            />
+                        </div>
+                        {/* olvide contraseña / register */}
+                        <div className='flex items-center justify-between gap-14 text-blue-600'>
+                            {/* olvide la contraseña */}
+                            <section>
+                                <h2 className='cursor-pointer hover:!scale-125 transition duration-[0.3s]'>Olvide la contraseña</h2>
+                            </section>
+                            {/* register */}
+                            <section>
+                                <Link to='/register'>
+                                    <h2 className='cursor-pointer hover:!scale-125 transition duration-[0.3s]'>Registrate</h2>
+                                </Link>
+                            </section>
+                        </div>
+                        {/* buton */}
+                        <div>
+                            <button className='rounded-lg px-3 py-3 bg-blue-600 text-white w-[20rem]'>
                                 Iniciar sesion
                             </button>
-                            {/* Enlace de Registro */}
-                            <p className="register-text">
-                                Aún no tienes una cuenta ?
-                                <Link to="/register" className="registre-link ">
-                                    Registrate
-                                </Link>
-                            </p>
-                        </form>
-                    </div>
-                </div>
+                        </div>
+                    </form>
+                </section>
+
             </div>
-        </section>
+        </div>
     )
 }
 

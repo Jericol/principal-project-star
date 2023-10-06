@@ -563,7 +563,7 @@ function AppNavbar({ showMenu, allProducts, setAllProducts, total, countProducts
                                     <div className='flex items-center '>
                                         <h2 className='transition hover:!scale-105 hover:border-b-2  hover:border-black hover:shadow-md hover:shadow-blue-300 pt-2 pl-2'>
                                             <span className='border-l-4 border-pink-500 pr-4 rounded-md'></span>
-                                            <Link to='/newProduct' onClick={() => setLogo(!logo)}>
+                                            <Link to='/Faq' onClick={() => setLogo(!logo)}>
                                                 Nosotros
                                             </Link>
                                         </h2>

@@ -1,74 +1,418 @@
-import Slider from "react-slick";
+import BannerDistri from '../../../../public/img/BANNER-ATENCIÓN-DISTRIBUIDORES.webp';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { RiArrowUpSFill, RiArrowDownSFill, RiStarSFill } from "react-icons/ri";
+import { EffectCoverflow, Pagination, Navigation, EffectCards } from 'swiper';
+// imagenes beneficios
+import Ganancias from '../../../../public/img/ganancias.jpg';
+import Acompañamiento from '../../../../public/img/acompañamiento.jpg';
+import Descuentos from '../../../../public/img/descuentos.jpg';
+import Envios from '../../../../public/img/envios.jpg';
+import CallCenter from '../../../../public/img/call-center.jpg';
+// imagenes para testimonios
+import TestimonyFirst from '../../../../public/img/testimonio1.jpg';
+import TestimonySecond from '../../../../public/img/testimonio2.jpg';
+import TestimonyThird from '../../../../public/img/testimonio3.jpg';
+import TestimonyFourth from '../../../../public/img/testimonio-4-4.jpg';
+import TestimonyFifth from '../../../../public/img/testimonio-4-4.jpg';
+import { useState } from 'react';
 
 
 function Distribuidores() {
 
-    let settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        responsive: [
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            }
-        ]
-    };
+    // estado de ganancias
+    const [money, setMoney] = useState(false);
+    // estado para acompañamiento
+    const [asistent, setAsistent] = useState(false);
+    // estado para callcenter
+    const [callCenter, setCallCenter] = useState(false);
+    // estado para envios
+    const [send, setSend] = useState(false);
+    // estado para descuentos
+    const [sould, setSould] = useState(false);
+
 
     return (
-        <div className="h-[900rem]">
-            <header className='mb-8'>
-                <img src="https://photos.smugmug.com/photos/i-sGKxGkq/0/0f265c99/X2/i-sGKxGkq-X2.jpg" alt="banner-distribuidores" className='md:w-full md:h-auto' />
-            </header>
-            <main>
-                {/* Encabezado y subtitulo */}
-                <section className="flex flex-col items-center justify-center mb-8">
-                    <h2 className="font-bold text-4xl">Únete a nuestra red de distribuidores y desbloquea un futuro de éxito y ganancias.</h2>
-                    <p className="font-semibold text-2xl">
-                        En Star Professional, sabemos que la belleza es un negocio que nunca pasa de moda. Nuestra empresa se enorgullece de ofrecer una amplia gama
-                        de productos de belleza de alta calidad que han conquistado corazones y clientes en todo el pais.
+        <div className="mx-auto h-auto p-0 m-0 box-border">
+            {/* para pc */}
+            <header className='lg:flex lg:flex-col hidden'>
+                {/* banner distribuidores*/}
+                <section className='mb-8'>
+                    <img
+                        src={BannerDistri}
+                        alt="Banner-de-distribuidor"
+                        className="w-full object-cover"
+                    />
+                </section>
+                {/* titulo / parrafo */}
+                <section className='flex flex-col items-center justify-center gap-4 mb-8 p-5 m-5'>
+                    <h2 className='text-3xl font-semibold '>Potencia tus Ganancias como distribuidor: únete a nosotros</h2>
+                    <p className='text-xl w-2/4 text-center'>
+                        ¿Estás listo para un emocionante viaje hacia el éxito? Únete a nuestra red de distribución y descubre un mundo de oportunidades ilimitadas. Aquí,
+                        te ofrecemos mucho más que un simple programa de distribución. Te proporcionamos las herramientas para ganar más, un apoyo personalizado que te hará brillar y
+                        ventajas que te destacarán en el mercado. Con envíos a todo el país, un servicio al cliente excepcional y descuentos exclusivos, estamos comprometidos a ayudarte a
+                        alcanzar tus metas. Nuestros distribuidores son estrellas en ascenso, y tú podrías ser el próximo. ¿Estás listo para elevar tus ganancias y tu carrera?
+                        Únete a nosotros y comienza a brillar hoy mismo.
                     </p>
                 </section>
-                {/* Lista de beneficios */}
-                <div>
-                    <Slider {...settings}>
+                <span className='mb-8'></span>
+                {/* card / beneficios */}
+                <div className='mb-14'>
+                    <div className='flex flex-wrap items-center justify-center gap-5 h-auto'>
                         {/* ganancias */}
-                        <div className="">
-                            <img src="https://i.imgur.com/6iLNlMV.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
-                            <h2>Ganancias</h2>
+                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={Ganancias} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
+                            <button onClick={() => setMoney(!money)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
+                            >
+                                {/* titulo / logo */}
+                                <h2 className='text-center tracking-wide text-2xl font-bold font-bangers'>Mejora tus Ganancias</h2>
+                                <div className='relative left-[22rem] bottom-[1.5rem] transition duration-[0.3s]'>
+                                    {
+                                        money ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${money ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        Descubre una oportunidad única en la industria Ofrecemos los márgenes de ganancia más atractivos, precios altamente
+                                        competitivos en productos de alta calidad y te respaldamos con asistencia personalizada y recursos eficientes oportunidades de crecimiento
+                                        continuo para que tus ganancias crezcan a medida que tu negocio se expande
+                                    </p>
+
+                                </div>
+                            </button>
                         </div>
-                        {/* estrategias */}
-                        <div>
-                            <img src="https://i.ibb.co/6HPWhfv/estrategias.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
-                            <h2>estrategias</h2>
+                        {/* Acompañamiento */}
+                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-t dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-t from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={Acompañamiento} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
+                            <button onClick={() => setAsistent(!asistent)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
+                            >
+                                {/* titulo / logo */}
+                                <h2 className='text-center tracking-wide text-2xl font-bold font-bangers'>Acompañamiento</h2>
+                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                    {
+                                        asistent ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${asistent ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        En nuestra red de distribución, entendemos que tu éxito es nuestro éxito. Es por eso que ofrecemos un enfoque personalizado
+                                        que va más allá de la simple transacción.
+                                        Cuando te unes a nosotros como distribuidor, recibirás un nivel de acompañamiento que te hará sobresalir. Nuestro equipo de expertos
+                                        está dedicado a brindarte asesoramiento
+                                    </p>
+                                </div>
+                            </button>
                         </div>
-                        {/* acompañamiento */}
-                        <div>
-                            <img src="https://i.ibb.co/Snh6fTw/acompa-amiento.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
-                            <h2>acompañamiento</h2>
+                        {/* servicio al cliente */}
+                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={CallCenter} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
+                            <button onClick={() => setCallCenter(!callCenter)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
+                            >
+                                {/* titulo / boton */}
+                                <h2 className='text-center tracking-wide text-2xl font-bold font-bangers'>Servicio al cliente</h2>
+                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                    {
+                                        callCenter ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${callCenter ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        En nuestra red de distribución, no solo te proporcionamos productos excepcionales, sino que también te respaldamos con un compromiso
+                                        inquebrantable hacia tu éxito. Entendemos que cada distribuidor es único y enfrenta desafíos específicos en su camino
+                                        Es por eso que ofrecemos un soporte y asistencia
+                                    </p>
+                                </div>
+                            </button>
                         </div>
                         {/* envios */}
-                        <div>
-                            <img src="https://i.ibb.co/y6TNNsV/envios-pais.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
-                            <h2>envios</h2>
+                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={Envios} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
+                            <button onClick={() => setSend(!send)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-400'
+                            >
+                                {/* titulo / boton */}
+                                <h2 className='text-2xl tracking-wide text-center font-bold font-bangers'>Envios a todo el pais</h2>
+                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                    {
+                                        send ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${send ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        Tu alcance no tiene límites. Ofrecemos envíos a todos los rincones de Colombia, lo que significa
+                                        que puedes llegar a clientes en ciudades, pueblos y áreas remotas por igual
+                                        Nuestra amplia red logística garantiza entregas rápidas y seguras en todo el país. Así que, sin importar
+                                        dónde te encuentres o dónde estén tus clientes, Tu éxito no tiene fronteras con nosotros.
+                                    </p>
+                                </div>
+                            </button>
                         </div>
-                        {/* marketing */}
-                        <div>
-                            <img src="https://i.ibb.co/jMNmHP3/marketing.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
+                        {/* descuentos y promociones */}
+                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-r from-pink-600 to-pink-400'
+                        >
+                            <img src={Descuentos} alt="" className='shadow-md shadow-black rounded-t-md objec-cover' />
+                            <button onClick={() => setSould(!sould)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1f1d2b] rounded-md shadow-md dark:border-slate-400'
+                            >
+                                {/* titulo / boton */}
+                                <h2 className='text-center text-2xl tracking-wide font-bold font-bangers'>promociones</h2>
+                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                    {
+                                        sould ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${sould ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        valoramos a nuestros socios y lo demostramos con promociones exclusivas que te brindarán ventajas adicionales. Sabemos que el éxito
+                                        en la distribución se basa en oportunidades y márgenes atractivos. Es por eso que regularmente ofrecemos promociones especiales
+                                        también obtendrás oportunidades adicionales para incrementar tus beneficios
+                                    </p>
+                                </div>
+                            </button>
                         </div>
-                        <div>
-                            <img src="https://i.ibb.co/0XQgF89/soporte.jpg" alt="" className="max-w-full h-auto w-[700px] rounded-lg" />
-                        </div>
-                    </Slider>
+                    </div>
                 </div>
-            </main>
+                {/* card / testimonios */}
+                <div className='mb-6'>
+                    <div className='flex items-center justify-center gap-4'>
+                        <section className='w-[18%] h-2/6 border border-slate-900 rounded-md bg-white dark:bg-[#1d1f2b]'>
+                            <img src={TestimonyFirst} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                            <div className='flex items-center justify-center mb-6'>
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                            </div>
+                            <p className='text-center w-auto p-5'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, minus quas.
+                                Consectetur nesciunt facilis magni tenetur sint impedit culpa dolorem?
+                            </p>
+                        </section>
+                        <section className='w-[18%] h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
+                            <img src={TestimonySecond} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                            <div className='flex items-center justify-center mb-6'>
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                            </div>
+                            <p className='text-center w-auto p-4'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Non ex harum reprehenderit quae et cum voluptatibus quod nulla, neque hic!
+                                molestias ut ea voluptatum dolorum
+                            </p>
+                        </section>
+                        <section className='w-[18%] h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
+                            <img src={TestimonyFourth} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                            <div className='flex items-center justify-center mb-6'>
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                            </div>
+                            <p className='text-center w-auto p-4'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit vero totam
+                                molestias ut ea voluptatum dolorum quam modi enim repellat?
+                            </p>
+                        </section>
+                        <section className='w-[18%] h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
+                            <img src={TestimonyFourth} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                            <div className='flex items-center justify-center mb-6'>
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                                <RiStarSFill className='text-xl text-yellow-400' />
+                            </div>
+                            <p className='text-center w-auto p-4'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Impedit vero totam molestias ut ea voluptatum dolorum quam modi enim repellat?
+                            </p>
+                        </section>
+                    </div>
+                </div>
+                {/*  */}
+            </header>
+            {/* para tablet */}
+            <header className='md:flex md:flex-col hidden lg:hidden'>
+                {/* banner md */}
+                <section className='m-8'>
+                    <img
+                        src={BannerDistri}
+                        alt=""
+                        className=' object-cover'
+                    />
+                </section>
+                {/* titulo / parrafo */}
+                <section className='flex flex-col items-center justify-center gap-4 mb-8 p-5 m-5'>
+                    <h2 className='text-2xl font-semibold text-center w-auto'>Potencia tus Ganancias como distribuidor únete a nosotros</h2>
+                    <p className='text-xl w-auto text-center'>
+                        ¿Estás listo para un emocionante viaje hacia el éxito? Únete a nuestra red de distribución y descubre un mundo de oportunidades ilimitadas. Aquí,
+                        te ofrecemos mucho más que un simple programa de distribución. Te proporcionamos las herramientas para ganar más, un apoyo personalizado que te hará brillar y
+                        ventajas que te destacarán en el mercado. Con envíos a todo el país, un servicio al cliente excepcional y descuentos exclusivos, estamos comprometidos a ayudarte a
+                        alcanzar tus metas. Nuestros distribuidores son estrellas en ascenso, y tú podrías ser el próximo. ¿Estás listo para elevar tus ganancias y tu carrera?
+                        Únete a nosotros y comienza a brillar hoy mismo.
+                    </p>
+                </section>
+                {/* card / beneficios */}
+                <div className='mb-14'>
+                    <div className='flex flex-wrap items-center justify-center gap-5 h-auto'>
+                        {/* ganancias */}
+                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={Ganancias} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
+                            <button onClick={() => setMoney(!money)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
+                            >
+                                {/* titulo / boton */}
+                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Mejora tus ganancias</h2>
+                                <div className='relative left-[14rem] bottom-[1.2rem]'>
+                                    {
+                                        money ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${money ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        Descubre una oportunidad única en la industria Ofrecemos los márgenes de ganancia más atractivos, precios altamente
+                                        competitivos en productos de alta calidad y te respaldamos con asistencia personalizada y recursos eficientes oportunidades de crecimiento
+                                        continuo para que tus ganancias crezcan a medida que tu negocio se expande
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                        {/* acompañamiento */}
+                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={Acompañamiento} alt="" className='shadow-md shadow-black rounded-t-md objec-cover' />
+                            <button onClick={() => setAsistent(!asistent)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
+                            >
+                                {/* titulo / boton */}
+                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Acompañamiento</h2>
+                                <div className='relative left-[13rem] bottom-[1.2rem]'>
+                                    {
+                                        asistent ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${asistent ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        En nuestra red de distribución, entendemos que tu éxito es nuestro éxito. Es por eso que ofrecemos un enfoque personalizado
+                                        que va más allá de la simple transacción.
+                                        Cuando te unes a nosotros como distribuidor, recibirás un nivel de acompañamiento que te hará sobresalir. Nuestro equipo de expertos
+                                        está dedicado a brindarte asesoramiento
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                        {/* servicio al cliente */}
+                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={CallCenter} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
+                            <button onClick={() => setCallCenter(!callCenter)}
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
+                            >
+                                {/* titulo / boton */}
+                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Servicio al cliente</h2>
+                                <div className='relative left-[14rem] bottom-[1.2rem]'>
+                                    {
+                                        callCenter ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${callCenter ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        En nuestra red de distribución, no solo te proporcionamos productos excepcionales, sino que también te respaldamos con un compromiso
+                                        inquebrantable hacia tu éxito. Entendemos que cada distribuidor es único y enfrenta desafíos específicos en su camino
+                                        Es por eso que ofrecemos un soporte y asistencia
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                        {/* envios */}
+                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        >
+                            <img src={Envios} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
+                            <button onClick={() => setSend(!send)}
+                                className='p-5 m-3 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
+                            >
+                                {/* titulo / boton */}
+                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Envios a todo el pais</h2>
+                                <div className='relative left-[14rem] bottom-[1.2rem]'>
+                                    {
+                                        send ?
+                                            <RiArrowDownSFill />
+                                            :
+                                            <RiArrowUpSFill />
+                                    }
+                                </div>
+                                {/* sidebar */}
+                                <div className={`${send ? '' : 'hidden'}`}>
+                                    <p className='font-bangers font-normal'>
+                                        Tu alcance no tiene límites. Ofrecemos envíos a todos los rincones de Colombia, lo que significa
+                                        que puedes llegar a clientes en ciudades, pueblos y áreas remotas por igual
+                                        Nuestra amplia red logística garantiza entregas rápidas y seguras en todo el país. Así que, sin importar
+                                        dónde te encuentres o dónde estén tus clientes, Tu éxito no tiene fronteras con nosotros.
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
         </div>
     )
 }

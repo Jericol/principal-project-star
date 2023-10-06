@@ -6,9 +6,9 @@ function PrivacyPolicy() {
     return (
         <div>
             <div className='flex items-center justify-center pt-[3rem] px-4 py-8 rounded-lg'>
-                <div className='w-[58rem] h-[730rem] bg-gray-200 dark:bg-[#1f1d2b]'>
-                    <h1 className='text-center py-[4rem] font-bold text-[2rem]'>POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
-                    <p className='w-[55rem] text-center pl-[3rem] font-medium'>
+                <div className='lg:w-[58rem] md:w-[40rem] h-auto bg-gray-200 dark:bg-[#1f1d2b] '>
+                    <h1 className='text-center py-[4rem] font-bold md:text-[2rem] text-sm'>POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>
                         El objetivo de la presente política de tratamiento de datos personales (en adelante la “PTDP”) es desarrollar y establecer
                         los criterios, términos y condiciones con los cuales <span className='font-bold'>IMPORTADORA Y DISTRIBUIDORA STAR S.A.S.</span>  (en adelante “Importadora Star”)
                         recolecta, almacena, utiliza, circula, suprime y en general trata los Datos Personales de los Titulares
@@ -19,7 +19,7 @@ function PrivacyPolicy() {
                         de los Titulares (tal y como se definen más adelante), las finalidades del Tratamiento, los derechos de los Titulares y los mecanismos
                         con que cuentan los Titulares para conocer, actualizar, rectificar, suprimir y en general hacer valer su derecho al habeas data.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] '>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>
                         Esta PTDP será de obligatorio cumplimiento para Importadora Star y todos sus colaboradores,
                         proveedores, trabajadores, especialistas, y en general para cualquier persona, natural o jurídica que trate
                         Datos Personales, ya sea en nombre y por cuenta de Importadora Star o que Importadora Star se los haya transferido.
@@ -27,7 +27,7 @@ function PrivacyPolicy() {
                         sus adiciones o modificaciones, las cuales les serán informadas a través de medio idóneos, conforme con la normatividad
                         vigente.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]  '>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>
                         La recolección, almacenamiento, uso, circulación o cualquier otra operación o conjunto de operaciones
                         sobre Datos Personales de los Titulares tendrá como finalidad el desarrollo del objeto social de Importadora Star,
                         incluyendo el desarrollo de su actividad empresarial mediante plataformas tecnológicas digitales, entre otras, así como,
@@ -37,13 +37,13 @@ function PrivacyPolicy() {
                         contractuales que se generen en los Titulares e Importadora Star, o terceros con los cuales Importadora Star tiene
                         relación.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]  '>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>
                         Así mismo, si los Titulares entregan información a través de la página web Star Professional
                         www.starprofessional.com.co Importadora Star utilizará la información para el envío de cookies al disco
                         duro de los Titulares, con el objetivo de facilitar su navegación en la página web.
                     </p>
                     <h2 className='font-semibold text-center text-xl'>I. DEFINICIONES</h2>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]  '>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>
                         Para efectos de la interpretación de los términos de la presente PTDP, se observarán las siguientes reglas:
                         (i) Los términos con letra inicial mayúscula tendrán el significado que a ellos se asigna.
                         (ii) Los términos que denoten el singular también incluyen el plural y viceversa, siempre que el contexto así lo
@@ -95,7 +95,7 @@ function PrivacyPolicy() {
                         únicamente para las finalidades que se establecen en la presente PTDP previa Autorización del Titular.
                     </p>
                     <h2 className='font-semibold text-center text-xl'>II. ALCANCE DEL TRATAMIENTO DE DATOS PERSONALES Y DATOS SENSIBLES</h2>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]  '>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium  '>
                         Para la prestación de servicios relacionados con el objeto social de Importadora Star; así como,
                         con las finalidades comerciales y de mejoramiento de calidad, entre otras y de las gestiones para el desarrollo
                         de su objeto social, y, en general, en el giro ordinario de sus negocios en sus Establecimientos de Comercio o a
@@ -107,26 +107,28 @@ function PrivacyPolicy() {
                         transferir la información recolectada para que la usen para sus propios fines.
                     </p>
                     <h2 className='font-semibold text-center text-xl'>III. IDENTIFICACIÓN DEL RESPONSABLE DEL TRATAMIENTO</h2>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]  '>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium  '>
                         Importadora Star es una sociedad legalmente constituida bajo las Leyes de la República de Colombia,
                         dedicada principalmente al comercio al por mayor y al por menor de productos de belleza y cosméticos,
                         a través de los Establecimientos de Comercio STAR DIVINA, STAR BOUTIQUE, e IL BARBIERE, así como de las tiendas
                         virtuales a través de la página web Star Professional www.starprofessional.com.co. Esta PTDP es de obligatorio es
                         estricto cumplimiento para Importadora Star cuya información es la siguiente:
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]  '>
+                    <p className=' lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium  '>
                         Razón Social: <span className='font-semibold'>IMPORTADORA Y DISTRIBUIDORA STAR S.A.S.</span>
                     </p>
-                    <span className='w-[55rem] text-center pl-[24rem] py-[1rem]'>N.I.T: 900760691 - 4</span>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>Podrán contactarse con Importadora Star en:</p>
-                    <p className='w-[55rem] text-center pl-[2rem] relative bottom-[3rem]'>
-                        <RiArrowDropRightLine className='text-4xl relative left-[11rem] top-[1.9rem]' />  <span>Dirección: CRA 21 # 8-42 PISO 1 de la ciudad de Bogotá D.C.</span>
+                    <span className='w-[55rem] text-center md:pl-[16rem] lg:pl-[24rem] py-[1rem]'>N.I.T: 900760691 - 4</span>
+                    <p className='w-[55rem] text-center md:pr-[14rem] lg:pl-[8rem] py-[1rem]'>Podrán contactarse con Importadora Star en:</p>
+                    <p className='w-[55rem] text-center md:pr-[14rem] lg:pl-[9rem] relative bottom-[3rem]'>
+                        <RiArrowDropRightLine className='text-4xl relative lg:left-[11rem] lg:top-[1.9rem] md:left-[3rem] md:top-[2rem]' />  
+                        <span>Dirección: CRA 21 # 8-42 PISO 1 de la ciudad de Bogotá D.C.</span>
                     </p>
-                    <p className='w-[55rem] text-center pl-[2rem] relative bottom-[4.4rem]'>
-                        <RiArrowDropRightLine className='text-4xl relative left-[11rem] top-[1.9rem]' /><span>Correo Electrónico: comprasimportadorastar@gmail.com</span>
+                    <p className='w-[55rem] text-center md:pr-[15rem] lg:pl-[9rem] relative bottom-[4.4rem]'>
+                        <RiArrowDropRightLine className='text-4xl relative lg:right-[12rem] lg:top-[1.9rem] md:left-[3rem] top-[2rem]' />
+                        <span>Correo Electrónico: comprasimportadorastar@gmail.com</span>
                     </p>
                     <h2 className='font-semibold text-center text-xl'>IV. PERSONA Y ÁREA RESPONSABLE DE LA ATENCIÓN DE PETICIONES, CONSULTAS Y RECLAMOS</h2>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>
                         El área encargada dispuesta por Importadora Star para la atención de peticiones consultas y reclamos, y
                         en general para que los Titulares ejerzan sus derechos, será el área de Atención al Cliente, la persona
                         encargada será el/la señor/a [Nombre], que podrá ser contactado por los Titulares o sus causahabientes
@@ -144,9 +146,14 @@ function PrivacyPolicy() {
                     <p className='w-[55rem] text-center pl-[2rem] relative bottom-[3.8rem]'>
                         <RiArrowDropRightLine className='text-4xl relative left-[11rem] top-[1.9rem]' /><span className='font-medium'>Call center.</span>
                     </p>
-                    <span className='w-[55rem] text-center pl-[9rem] py-[1rem]'>Estos Canales de Atención serán los puntos de contacto entre los Titulares e Importadora Star.</span>
+                    <span className='lg:w-[55rem] md:w-[36rem] text-center pl-[9rem] py-[1rem]'>
+                        Estos Canales de Atención serán los puntos de contacto entre los Titulares e Importadora Star.
+                    </span>
                     <h2 className='font-semibold text-center text-xl py-6' >VI. TITULARES Y DATOS PERSONALES OBJETO DE TRATAMIENTO</h2>
-                    <p className='w-[55rem] text-center pl-[2rem]'>Importadora Star tratará los Datos Personales de las siguientes personas (para todos los efectos de la presente PTDP <span className='pl-[2rem]'>serán referidos como los “Titulares”):</span></p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem]'>
+                        Importadora Star tratará los Datos Personales de las siguientes personas (para todos los efectos de la presente PTDP 
+                        <span className='pl-[2rem]'>serán referidos como los “Titulares”):</span>
+                    </p>
                     <p className='w-[55rem] text-center pr-[43rem] relative '>
                         <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Clientes.</span>
                     </p>
@@ -171,8 +178,9 @@ function PrivacyPolicy() {
                     <p className='w-[55rem] text-center pr-[31rem] relative '>
                         <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Personas en procesos de selección.</span>
                     </p>
-                    <p className='w-[55rem] text-center pr-[4.7rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Familiares de empleados o exempleados, como su cónyuge, compañero permanente o hijos.</span>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:relative md:left-9 text-center pr-[4.7rem] relative '>
+                        <RiArrowDropRightLine className='text-4xl lg:relative lg:left-[2rem] lg:top-[1.9rem] md:relative md:top-[1.9rem] md:right-[1rem]' /><
+                        span className='font-medium'>Familiares de empleados o exempleados, como su cónyuge, compañero permanente o hijos.</span>
                     </p>
                     <p className='w-[55rem] text-center pr-[36rem] relative '>
                         <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Trabajadores en misión.</span>
@@ -190,63 +198,70 @@ function PrivacyPolicy() {
                         <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Terceros con relación comercial.</span>
                     </p>
                     <p className='w-[55rem] text-center pr-[29rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Representantes de entidades públicas.</span>
+                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' />
+                        <span className='font-medium'>Representantes de entidades públicas.</span>
                     </p>
                     <p className='w-[55rem] text-center pr-[30.4rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Representantes de la competencia.</span>
+                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' />
+                        <span className='font-medium'>Representantes de la competencia.</span>
                     </p>
                     <p className='w-[55rem] text-center pr-[37rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Aliados comerciales.</span>
+                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' />
+                        <span className='font-medium'>Aliados comerciales.</span>
                     </p>
                     <p className='w-[55rem] text-center pr-[43rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Socios.</span>
+                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' />
+                        <span className='font-medium'>Socios.</span>
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>
                         Mediante el suministro voluntario de sus Datos Personales y/o Datos Sensibles en la forma señalada en la presente PTDP
                         y en la autorización expresa, verbal, por escrito o mediante conductas inequívocas, los Titulares autorizan expresa o
                         inequívocamente a Importadora Star para tratar sus Datos Personales y/o Datos Sensibles y cualquier otra información que
                         suministren, de conformidad con esta PTDP, la ley y para las finalidades establecidas en la presente PTDP (Sección VI) o
                         cualquier finalidad adicional autorizada por los Titulares.
+                        
                     </p>
-                    <span className='w-[55rem] text-center pl-[12rem] py-[1rem]'>
+                    <span className='lg:w-[55rem] md:w-[36rem] lg:text-center md:text-center lg:pl-[12rem] py-[1rem]'>
                         De manera general, Importadora Star podrá recolectar, de cualquiera de los Titulares:
                     </span>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium '>
                         (a) Datos de identificación y ubicación
                     </p>
-                    <p className='w-[55rem] text-center pl-[5rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[5rem] py-[1rem]'>
                         Nombres y apellidos completos, tipo y numero de documento de identidad, lugar y fecha de nacimiento,
                         edad, sexo, estado civil. Información sobre la dirección física habitual o de residencia, el domicilio,
                         dirección y nombre de la compañía en la que trabaja, entre otros.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>(b) Datos de contacto y comunicación</p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem] '>Números telefónicos y celulares, como también de correo electrónico y de identificación en redes sociales.</p>
-                    <span className='w-[55rem] text-center pl-[24rem] py-[1rem] font-medium'>(c) Datos laborales</span>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem] '>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium '>(b) Datos de contacto y comunicación</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[1rem] py-[1rem] '>
+                        Números telefónicos y celulares, como también de correo electrónico y de identificación en redes sociales.
+                    </p>
+                    <span className='w-[55rem] text-center lg:pl-[24rem] md:pl-[16rem] py-[1rem] font-medium'>(c) Datos laborales</span>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[1rem] py-[1rem] '>
                         Información de naturaleza laboral y académica, la cual permite acreditar la experiencia y la formación de su Titular,
                         entre la que se encuentra información relativa a la escolaridad, profesión u ocupación
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>(d) Datos de registro</p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem]  font-medium'>(d) Datos de registro</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[1rem] py-[1rem]'>
                         En los casos de navegación en la página _____________________ se almacenará determinada información de forma automática,
                         entre la que se incluyen las consultas de búsqueda, dirección IP, actividad del sistema, fallos informáticos, tipo de navegador,
                         especificaciones que caracterizan las solicitudes, etc.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>(e) Datos de niñas, niños y adolescentes</p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>(e) Datos de niñas, niños y adolescentes</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[1rem] py-[1rem]'>
                         Importadora Star podrá tratar Datos Personales de niños, niñas y adolescentes cuyo tratamiento se sujetará a las mismas
                         condiciones para el tratamiento de Datos Sensibles. El tratamiento de Datos Personales de niñas, niños y adolescentes queda
                         prohibido, salvo que se cumplan los siguientes requisitos:
                     </p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem]'>Que responda al interés superior de las niñas, niños y adolescentes.</p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem]'>Que se asegure el respeto a los derechos fundamentales de los niños, niñas y adolescentes.</p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-6 text-center lg:pl-[1rem] py-[1rem]'>Que responda al interés superior de las niñas, niños y adolescentes.</p>
+                    <p className='lg:w-[55rem] md:w-[35rem] text-center pl-[1rem] py-[1rem]'>Que se asegure el respeto a los derechos fundamentales de los niños, niñas y adolescentes.</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[1rem] py-[1rem]'>
                         El tratamiento de los Datos Personales de niñas, niños y adolescentes será llevado a cabo previa autorización de su representante
                         legal o tutor, previo ejercicio por parte de la niña, niño o adolescente de su derecho a ser escuchado, y su opinión deberá ser
                         considerada considerando la madurez, autonomía y capacidad del menor y la respuesta a las preguntas que le sean hechas será meramente facultativa.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>(f) Datos Sensibles</p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem]  font-medium'>(f) Datos Sensibles</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[1rem] py-[1rem]'>
                         Importadora Star, podrá llevar a cabo el Tratamiento de Datos Sensibles que incluye datos biométricos, como la huella dactilar o
                         imagen (entendida como figura, fisonomía total o parcial del cuerpo del Titular) de los Titulares. Los Datos Sensibles serán tratados
                         para registro en la página web Star Professional ____________________implementada por Importadora Star para las ventas virtuales, con el
@@ -260,12 +275,15 @@ function PrivacyPolicy() {
                         Personales o Datos Sensibles en cualquiera de los Canales de Atención, autorizan a Importadora Star para tratar sus Datos Personales y/o Datos
                         Sensibles. Importadora Star podrá llevar a cabo el Tratamiento de:
                     </p>
-                    <p className='w-[55rem] text-center pl-[1rem] py-[1rem]'>(i) Si se trata de Clientes, o prospectos o aliados comerciales, de cualquier naturaleza:</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center lg:pl-[1rem] md:relative  py-[1rem]'>(i) Si se trata de Clientes, o prospectos o aliados comerciales, de cualquier naturaleza:</p>
                     <p className='w-[55rem] text-center pr-[32rem] relative '>
                         <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Nombres y apellidos completos.</span>
                     </p>
-                    <p className='w-[55rem] text-center pl-[2.6rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative right-[0.7rem] top-[1.9rem]' /><span className='font-medium'>Tipo y numero de documento de identidad (registro civil, cédula de ciudadanía, tarjeta de identidad, pasaporte, cédula de extranjería, carnet diplomático, DNI o identificación internacional)</span>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2.6rem] relative '>
+                        <RiArrowDropRightLine className='text-4xl relative right-[0.7rem] top-[1.9rem]' />
+                        <span className='font-medium'>
+                            Tipo y numero de documento de identidad (registro civil, cédula de ciudadanía, tarjeta de identidad, pasaporte, cédula de extranjería, carnet diplomático, DNI o identificación internacional)
+                        </span>
                     </p>
                     <p className='w-[55rem] text-center pr-[34rem] relative '>
                         <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Fecha y Lugar de nacimiento.</span>
@@ -297,24 +315,26 @@ function PrivacyPolicy() {
                     <p className='w-[55rem] text-center pr-[44rem] relative '>
                         <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>imagen</span>
                     </p>
-                    <p className='w-[55rem] text-center pr-[17.3rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Datos financieros, crediticios y/o derechos de carácter económico.</span>
+                    <p className='w-[55rem] text-center lg:pr-[17.3rem] relative md:right-[7rem]'>
+                        <RiArrowDropRightLine className='text-4xl relative lg:left-[2rem] lg:top-[1.9rem] md:left-[8.5rem] md:top-[2rem]' />
+                        <span className='font-medium'>Datos financieros, crediticios y/o derechos de carácter económico.</span>
                     </p>
-                    <p className='w-[55rem] text-center pr-[7rem] relative '>
-                        <RiArrowDropRightLine className='text-4xl relative left-[2rem] top-[1.9rem]' /><span className='font-medium'>Grupo poblacional (por ejemplo: etnia, víctima del conflicto armado, desmovilizado, etc.).</span>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center lg:pr-[7rem] relative md:left-[3rem]'>
+                        <RiArrowDropRightLine className='text-4xl relative lg:left-[2rem] lg:top-[1.9rem] md:right-[1.5rem] md:top-[1.5rem]' />
+                        <span className='font-medium'>Grupo poblacional (por ejemplo: etnia, víctima del conflicto armado, desmovilizado, etc.).</span>
                     </p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         La Autorización podrá con Importadora Star en un documento físico, electrónico, en cualquier otro formato
                         que permita garantizar su posterior consulta, o mediante un mecanismo técnico o tecnológico idóneo mediante
                         el cual se pueda concluir de manera inequívoca, que, de no haberse surtido una conducta del Titular, los Datos
                         Personales nunca hubieren sido capturados y almacenados en la Base de Datos.
                     </p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Importadora Star adoptará las medidas necesarias para mantener registros o mecanismos técnicos o tecnológicos
                         idóneos de cuándo y cómo obtuvo autorización por parte de los Titulares.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>VII. FINALIDADES DEL TRATAMIENTO</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem]  font-medium'>VII. FINALIDADES DEL TRATAMIENTO</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Los Datos Personales y Datos Sensibles recolectados por Importadora Star tienen como finalidad general:
                         (a) efectuar las gestiones pertinentes para el desarrollo de su objeto social en lo que tiene que ver con la
                         venta y comercialización de productos de belleza, tanto como en las tiendas físicas como en las tiendas virtuales;
@@ -337,8 +357,8 @@ function PrivacyPolicy() {
                         transferir los datos recopilados a terceros gratuita u onerosamente para que estos los utilicen para sus
                         propios fines particulares.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>VIII. DERECHOS DE LOS TITULARES</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem]  font-medium'>VIII. DERECHOS DE LOS TITULARES</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Los derechos de los Titulares a que hace referencia la presente Política de Tratamiento de Datos Personales están
                         contenidos en la Ley 1581 de 2012 y en el Decreto 1377 de 2013. En particular, son derechos de los Titulares según
                         se establece en el artículo 8 de la Ley 1581 de 2012: (iv) Conocer, actualizar y rectificar sus datos personales
@@ -368,8 +388,8 @@ function PrivacyPolicy() {
                         por parte de niños, niñas y adolescentes de sus datos personales, su derecho a la privacidad y protección de su información
                         personal y la de los demás.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>IX. SEGURIDAD DE LAS BASES DE DATOS</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>IX. SEGURIDAD DE LAS BASES DE DATOS</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Las medidas de seguridad con las que cuenta Importadora Star buscan proteger los Datos Personales de los Titulares,
                         en aras de impedir su adulteración, pérdida, usos y accesos no autorizados. Para ello, Importadora Star de forma diligente
                         implementa medidas de protección administrativas, jurídicas y técnicas que razonablemente están a su alcance. Los Titulares
@@ -382,8 +402,8 @@ function PrivacyPolicy() {
                         En el almacenamiento de la información, Importadora Star ha tomado una serie de medidas para proteger los Datos
                         Personales de un mal uso, pérdida, acceso no autorizado, modificación o divulgación.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>X. ATENCIÓN DE PETICIONES, CONSULTAS Y RECLAMOS</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>X. ATENCIÓN DE PETICIONES, CONSULTAS Y RECLAMOS</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Para la radicación y atención de su petición, consulta o reclamo el Titular deberá suministrar la siguiente información:
                         1. Nombre completo y apellidos. 2. Dirección física. 3. Correo electrónico. 4. Número de teléfono (línea fija).
                         5. Número de móvil. 6. Medios para recibir respuesta a su solicitud. 7. Motivo(s)/hecho(s) que dan lugar al reclamo
@@ -411,36 +431,36 @@ function PrivacyPolicy() {
                         visite: www.sic.gov.co. Si Importadora Star impide total o parcialmente el ejercicio del derecho por parte del Titular,
                         este podrá acudir a la Delegatura de Protección de Datos Personales de la Superintendencia de Industria y Comercio.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>XI. NUEVOS USOS</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem]  font-medium'>XI. NUEVOS USOS</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Importadora Star podrá solicitar autorización para el uso o circulación de los Datos Personales de los Titulares u otro tipo
                         de información, para finalidades diferentes a los expresados en la presente PTDP, para lo cual publicará en cualquier medio
                         público que estime conveniente según el caso.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>XII. TEMPORALIDAD</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem] font-medium'>XII. TEMPORALIDAD</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Importadora Star usará, tratará, almacenará o circulará los Datos Personales y Datos Sensibles recolectados conforme con
                         la PTDT durante un término que sea razonable y necesario, de acuerdo con las finalidades que justificaron el Tratamiento.
                         Una vez cumplidas las finalidades del Tratamiento y sin perjuicio de las normas legales que dispongan lo contrario,
                         Importadora Star procederá a suprimir los Datos Personales en su posesión. Salvo que estos deban ser conservados cuando
                         así se requiera para el cumplimiento de una obligación legal o contractual.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>XIII. MODIFICACIONES</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem]  font-medium'>XIII. MODIFICACIONES</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Sin perjuicio de los derechos constitucionales y las disposiciones legales y reglamentarias aplicables, en especial las
                         contenidas en la Ley 1581 de 2012, y el Decreto 1377 de 2013, Importadora Star podrá modificar en cualquier momento esta PTDP
                         Tales modificaciones serán informadas a los Titulares través de cualquier otro mecanismo de difusión dirigida o masiva
                         no dirigida.
                     </p>
-                    <p className='w-[55rem] text-center pl-[3rem] py-[1rem] font-medium'>XIV. PROPIEDAD INTELECTUAL</p>
-                    <p className='w-[55rem] text-center pl-[2rem] py-[1rem]'>
+                    <p className='lg:w-[55rem] md:w-[36rem] md:pl-[2.5rem] text-center lg:pl-[3rem]  font-medium'>XIV. PROPIEDAD INTELECTUAL</p>
+                    <p className='lg:w-[55rem] md:w-[36rem] text-center pl-[2rem] py-[1rem]'>
                         Las Bases de Datos, o los distintos tipos de repositorios electrónicos, son creaciones intelectuales sujetas a la protección
                         del derecho de autor. Importadora Star es el titular de las Bases de Datos que utiliza, para lo cual se sujeta plenamente a las
                         normas sobre protección de Datos Personales y habeas data contenidas en la Ley 1581 de 2012, y el Decreto 1377 de 2013.
                         En consecuencia, Importadora Star como titular de derechos sobre las Base de Datos, es el único que tiene la facultad para
                         autorizar el uso, reproducción o disposición de las mismas a terceros.
                     </p>
-                    <div className='flex items-center justify-between px-8 py-[8rem]'>
+                    <div className='flex items-center justify-between px-8 py-4'>
                         <button className='bg-black text-white py-4 px-10 rounded-lg'>
                             <Link to="/" className='no-underline text-white'>Regresar</Link>
                         </button>

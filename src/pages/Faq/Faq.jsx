@@ -2,7 +2,7 @@
 
 function Faq() {
     return (
-        <section className='h-[200rem] overflow-hidden'>
+        <section className='lg:h-[160rem] md:h-[70rem] h-[40rem] overflow-hidden'>
             <header className=' '>
                 <div className='mb-8'>
                     <img src="https://i.ibb.co/zHb5n6W/banner-edificio.jpg"
@@ -18,7 +18,7 @@ function Faq() {
                     />
                 </div>
                 {/* mision y vision */}
-                <div className="flex items-center justify-center gap-12 lg:relative lg:top-[16rem] lg:left-2 md:relative md:top-[3rem]">
+                <div className="flex items-center justify-center gap-12 lg:relative lg:top-[16rem] lg:left-2 md:relative md:top-[3rem] relative top-[2rem]">
                     <div className="grid grid-cols-2 gap-2">
                         <div>
                             <img 
@@ -39,11 +39,18 @@ function Faq() {
                     </div>
                 </div>
                 {/* valores corporativos */}
-                <div className="lg:relative lg:top-[25rem] lg:left-[29rem] md:relative md:top-[4rem]">
+                <div className="lg:relative lg:top-[25rem] lg:left-[29rem] md:relative md:top-[4rem] relative top-[4rem]">
+                    {/* para pc */}
                     <img 
                        src="https://i.ibb.co/dK6T6mv/BANNER-VALORES-CORPORATIVOS.jpg" 
                        alt="" 
-                       className="h-auto lg:w-[80rem] md:w-[50rem] object-cover rounded-lg hover:shadow-gray-500 hover:transition-all hover:transform hover:duration-[.4s] "
+                       className="lg:flex hidden md:hidden h-auto lg:w-[80rem] md:w-[50rem] object-cover rounded-lg hover:shadow-gray-500 hover:transition-all hover:transform hover:duration-[.4s] "
+                    />
+                    {/* para tablet */}
+                    <img 
+                       src="https://i.ibb.co/dK6T6mv/BANNER-VALORES-CORPORATIVOS.jpg" 
+                       alt="" 
+                       className="flex lg:hidden object-cover "
                     />
                 </div>
             </header>

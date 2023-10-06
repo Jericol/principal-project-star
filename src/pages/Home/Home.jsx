@@ -94,11 +94,10 @@ function Home() {
                     <img src="https://i.ibb.co/PGQrJmk/BANNER-PAGOS-CONTRAENTREGA.jpg" alt="contra-entrega" />
                 </div>
                 {/* redes sociales  */}
-                <ul className='md:flex flex-col items-center justify-center gap-6 relative bottom-[4rem] lg:hidden '>
-                        <li className='flex items-center justify-center gap-4'>Nuestras redes sociales</li>
-                        <div className='flex items-center justify-between gap-8'>
+                <ul className='md:flex flex-col items-center justify-center gap-6 relative bottom-[3.3rem] lg:hidden '>
+                        <div className='flex items-center justify-around md:justify-between gap-8'>
                             {/* facebook */}
-                            <li className='flex items-center justify-center w-[60px] h-[60px] text-white text-2xl bg-blue-500 rounded-lg -skew-y-6 shadow-lg 
+                            <li className='flex items-center justify-center md:w-[60px] md:h-[60px] w-[50px] h-[50px] text-white text-2xl bg-blue-500 rounded-lg -skew-y-6 shadow-lg 
                                shadow-blue-600 transition duration-[0.3s] border-blue-900 dark:shadow-blue-400'
                             >
                                 <a href="" className=''>
@@ -106,7 +105,7 @@ function Home() {
                                 </a>
                             </li>
                             {/* instagram */}
-                            <li className='flex items-center justify-center w-[60px] h-[60px] text-white text-2xl bg-pink-500 rounded-lg -skew-y-6 shadow-lg shadow-pink-600
+                            <li className='flex items-center justify-center md:w-[60px] md:h-[60px] w-[50px] h-[50px] text-white text-2xl bg-pink-500 rounded-lg -skew-y-6 shadow-lg shadow-pink-600
                                transition duration-[0.3s] border border-pink-700 dark:shadow-purple-400'
                             >
                                 <a href="" className=''>
@@ -114,7 +113,7 @@ function Home() {
                                 </a>
                             </li>
                             {/* whatsapp */}
-                            <li className='flex items-center justify-center w-[60px] h-[60px] text-white bg-green-500 rounded-lg -skew-y-6 shadow-lg 
+                            <li className='flex items-center justify-center md:w-[60px] md:h-[60px] w-[50px] h-[50px] text-white bg-green-500 rounded-lg -skew-y-6 shadow-lg 
                               shadow-green-600 transition duration-[0.3s]'
                             >
                                 <a href="" className=''>
