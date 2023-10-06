@@ -37,8 +37,8 @@ function Distribuidores() {
 
     return (
         <div className="mx-auto h-auto p-0 m-0 box-border">
-            {/* para pc */}
-            <header className='lg:flex lg:flex-col hidden'>
+            {/* para pc / tablet */}
+            <header className='md:flex md:flex-col '>
                 {/* banner distribuidores*/}
                 <section className='mb-8'>
                     <img
@@ -49,8 +49,10 @@ function Distribuidores() {
                 </section>
                 {/* titulo / parrafo */}
                 <section className='flex flex-col items-center justify-center gap-4 mb-8 p-5 m-5'>
-                    <h2 className='text-3xl font-semibold '>Potencia tus Ganancias como distribuidor: únete a nosotros</h2>
-                    <p className='text-xl w-2/4 text-center'>
+                    <h2 className='lg:text-3xl md:text-2xl md:text-center text-xl text-center md:w-auto font-semibold '>
+                        Potencia tus Ganancias como distribuidor: únete a nosotros
+                    </h2>
+                    <p className='lg:w-2/4 md:text-xl md:h-auto  md:text-center w-auto overflow-y-auto h-[14rem] text-center'>
                         ¿Estás listo para un emocionante viaje hacia el éxito? Únete a nuestra red de distribución y descubre un mundo de oportunidades ilimitadas. Aquí,
                         te ofrecemos mucho más que un simple programa de distribución. Te proporcionamos las herramientas para ganar más, un apoyo personalizado que te hará brillar y
                         ventajas que te destacarán en el mercado. Con envíos a todo el país, un servicio al cliente excepcional y descuentos exclusivos, estamos comprometidos a ayudarte a
@@ -63,16 +65,16 @@ function Distribuidores() {
                 <div className='mb-14'>
                     <div className='flex flex-wrap items-center justify-center gap-5 h-auto'>
                         {/* ganancias */}
-                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 
-                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
+                        <div className='lg:w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 
+                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 md:w-[19rem] w-[20rem]'
                         >
                             <img src={Ganancias} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
                             <button onClick={() => setMoney(!money)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 lg:w-[28rem] md:w-[16.8rem] w-[18rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
                             >
                                 {/* titulo / logo */}
-                                <h2 className='text-center tracking-wide text-2xl font-bold font-bangers'>Mejora tus Ganancias</h2>
-                                <div className='relative left-[22rem] bottom-[1.5rem] transition duration-[0.3s]'>
+                                <h2 className='text-center tracking-wide lg:text-2xl md:text-xl font-bold'>Ganancias</h2>
+                                <div className='relative lg:left-[22rem] lg:bottom-[1.5rem] md:left-[14rem] md:bottom-[1.2rem] left-[13rem] bottom-[1.2rem]'>
                                     {
                                         money ?
                                             <RiArrowDownSFill />
@@ -82,7 +84,7 @@ function Distribuidores() {
                                 </div>
                                 {/* sidebar */}
                                 <div className={`${money ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
+                                    <p className='font-normal'>
                                         Descubre una oportunidad única en la industria Ofrecemos los márgenes de ganancia más atractivos, precios altamente
                                         competitivos en productos de alta calidad y te respaldamos con asistencia personalizada y recursos eficientes oportunidades de crecimiento
                                         continuo para que tus ganancias crezcan a medida que tu negocio se expande
@@ -92,16 +94,16 @@ function Distribuidores() {
                             </button>
                         </div>
                         {/* Acompañamiento */}
-                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-t dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                        <div className='lg:w-[25%] md:w-[19rem] w-[20rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-t dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
                           bg-gradient-to-t from-pink-600 via-pink-500 to-pink-400'
                         >
                             <img src={Acompañamiento} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
                             <button onClick={() => setAsistent(!asistent)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 lg:w-[28rem] md:w-[16.8rem] w-[18rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
                             >
                                 {/* titulo / logo */}
-                                <h2 className='text-center tracking-wide text-2xl font-bold font-bangers'>Acompañamiento</h2>
-                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                <h2 className='text-center tracking-wide lg:text-2xl md:text-xl font-bold '>Acompañamiento</h2>
+                                <div className='relative lg:left-[22rem] lg:bottom-[1.5rem] md:left-[14rem] md:bottom-[1.2rem] left-[13.4rem] bottom-[1.2rem]'>
                                     {
                                         asistent ?
                                             <RiArrowDownSFill />
@@ -111,7 +113,7 @@ function Distribuidores() {
                                 </div>
                                 {/* sidebar */}
                                 <div className={`${asistent ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
+                                    <p className='font-normal'>
                                         En nuestra red de distribución, entendemos que tu éxito es nuestro éxito. Es por eso que ofrecemos un enfoque personalizado
                                         que va más allá de la simple transacción.
                                         Cuando te unes a nosotros como distribuidor, recibirás un nivel de acompañamiento que te hará sobresalir. Nuestro equipo de expertos
@@ -121,16 +123,16 @@ function Distribuidores() {
                             </button>
                         </div>
                         {/* servicio al cliente */}
-                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                        <div className='lg:w-[25%] md:w-[19rem] w-[20rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
                           bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
                         >
                             <img src={CallCenter} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
                             <button onClick={() => setCallCenter(!callCenter)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 lg:w-[28rem] md:w-[16.8rem] w-[18rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-300'
                             >
                                 {/* titulo / boton */}
-                                <h2 className='text-center tracking-wide text-2xl font-bold font-bangers'>Servicio al cliente</h2>
-                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                <h2 className='text-center tracking-wide lg:text-2xl md:text-xl font-bold'>Servicio al cliente</h2>
+                                <div className='relative lg:left-[22rem] lg:bottom-[1.5rem] md:left-[14rem] md:bottom-[1.2rem] left-[14rem] bottom-[1.2rem]'>
                                     {
                                         callCenter ?
                                             <RiArrowDownSFill />
@@ -140,7 +142,7 @@ function Distribuidores() {
                                 </div>
                                 {/* sidebar */}
                                 <div className={`${callCenter ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
+                                    <p className='font-normal'>
                                         En nuestra red de distribución, no solo te proporcionamos productos excepcionales, sino que también te respaldamos con un compromiso
                                         inquebrantable hacia tu éxito. Entendemos que cada distribuidor es único y enfrenta desafíos específicos en su camino
                                         Es por eso que ofrecemos un soporte y asistencia
@@ -149,16 +151,16 @@ function Distribuidores() {
                             </button>
                         </div>
                         {/* envios */}
-                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                        <div className='lg:w-[25%] md:w-[19rem] w-[20rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
                           bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
                         >
                             <img src={Envios} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
                             <button onClick={() => setSend(!send)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-400'
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 lg:w-[28rem] md:w-[16.8rem] w-[18rem] dark:bg-[#1d1f2b] rounded-md shadow-md shadow-black dark:border-slate-400'
                             >
                                 {/* titulo / boton */}
-                                <h2 className='text-2xl tracking-wide text-center font-bold font-bangers'>Envios a todo el pais</h2>
-                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                <h2 className='lg:text-2xl md:text-xl tracking-wide text-center font-bold'>Envios a todo el pais</h2>
+                                <div className='relative lg:left-[22rem] lg:bottom-[1.5rem] md:left-[14rem] md:bottom-[1.2rem] left-[14rem] bottom-[1.3rem]'>
                                     {
                                         send ?
                                             <RiArrowDownSFill />
@@ -178,16 +180,16 @@ function Distribuidores() {
                             </button>
                         </div>
                         {/* descuentos y promociones */}
-                        <div className='w-[25%] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                        <div className='lg:w-[25%] md:w-[19rem] w-[20rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
                           bg-gradient-to-r from-pink-600 to-pink-400'
                         >
                             <img src={Descuentos} alt="" className='shadow-md shadow-black rounded-t-md objec-cover' />
                             <button onClick={() => setSould(!sould)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[28rem] dark:bg-[#1f1d2b] rounded-md shadow-md dark:border-slate-400'
+                                className='p-5 m-4 border border-gray-500 bg-slate-100 lg:w-[28rem] md:w-[16.8rem] w-[18rem] dark:bg-[#1f1d2b] rounded-md shadow-md dark:border-slate-400'
                             >
                                 {/* titulo / boton */}
-                                <h2 className='text-center text-2xl tracking-wide font-bold font-bangers'>promociones</h2>
-                                <div className='relative left-[22rem] bottom-[1.5rem]'>
+                                <h2 className='text-center lg:text-2xl md:text-xl tracking-wide font-bold'>promociones</h2>
+                                <div className='relative lg:left-[22rem] lg:bottom-[1.5rem] md:left-[13rem] md:bottom-[1.2rem] left-[14rem] bottom-[1.2rem]'>
                                     {
                                         sould ?
                                             <RiArrowDownSFill />
@@ -197,7 +199,7 @@ function Distribuidores() {
                                 </div>
                                 {/* sidebar */}
                                 <div className={`${sould ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
+                                    <p className='font-normal'>
                                         valoramos a nuestros socios y lo demostramos con promociones exclusivas que te brindarán ventajas adicionales. Sabemos que el éxito
                                         en la distribución se basa en oportunidades y márgenes atractivos. Es por eso que regularmente ofrecemos promociones especiales
                                         también obtendrás oportunidades adicionales para incrementar tus beneficios
@@ -209,9 +211,14 @@ function Distribuidores() {
                 </div>
                 {/* card / testimonios */}
                 <div className='mb-6'>
-                    <div className='flex items-center justify-center gap-4'>
-                        <section className='w-[18%] h-2/6 border border-slate-900 rounded-md bg-white dark:bg-[#1d1f2b]'>
-                            <img src={TestimonyFirst} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                    <div className='md:flex md:flex-wrap items-center justify-center gap-4'>
+                        <section className='lg:w-[18%] md:w-[25%] w-[80%] mx-auto h-2/6 border border-slate-900 rounded-md bg-white dark:bg-[#1d1f2b]'>
+                            <img 
+                               src={TestimonyFirst} 
+                               alt="" 
+                               className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover lg:w-[12rem] md:w-[9rem] w-[12rem] mx-auto border 
+                                border-slate-800' 
+                            />
                             <div className='flex items-center justify-center mb-6'>
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
@@ -219,13 +226,18 @@ function Distribuidores() {
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
                             </div>
-                            <p className='text-center w-auto p-5'>
+                            <p className='text-center w-auto h-auto p-5 lg:overflow-hidden lg:h-auto md:overflow-y-auto md:h-[4rem]'>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, minus quas.
                                 Consectetur nesciunt facilis magni tenetur sint impedit culpa dolorem?
                             </p>
                         </section>
-                        <section className='w-[18%] h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
-                            <img src={TestimonySecond} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                        <section className='lg:w-[18%] md:w-[25%] w-[80%] mx-auto h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
+                            <img 
+                               src={TestimonySecond} 
+                               alt="" 
+                               className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover lg:w-[12rem] md:w-[9rem] w-[12rem] mx-auto border 
+                                border-slate-800' 
+                            />
                             <div className='flex items-center justify-center mb-6'>
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
@@ -233,14 +245,19 @@ function Distribuidores() {
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
                             </div>
-                            <p className='text-center w-auto p-4'>
+                            <p className='text-center w-auto h-auto p-4 lg:overflow-hidden lg:h-auto md:overflow-x-auto md:h-[4rem]'>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Non ex harum reprehenderit quae et cum voluptatibus quod nulla, neque hic!
                                 molestias ut ea voluptatum dolorum
                             </p>
                         </section>
-                        <section className='w-[18%] h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
-                            <img src={TestimonyFourth} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                        <section className='lg:w-[18%] md:w-[25%] w-[80%] mx-auto h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
+                            <img 
+                               src={TestimonyFourth} 
+                               alt="" 
+                               className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover lg:w-[12rem] md:w-[9rem] w-[12rem] mx-auto border 
+                                border-slate-800' 
+                            />
                             <div className='flex items-center justify-center mb-6'>
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
@@ -248,13 +265,18 @@ function Distribuidores() {
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
                             </div>
-                            <p className='text-center w-auto p-4'>
+                            <p className='text-center w-auto p-4 lg:overflow-hidden lg:h-auto md:overflow-y-auto md:h-[4rem]'>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit vero totam
                                 molestias ut ea voluptatum dolorum quam modi enim repellat?
                             </p>
                         </section>
-                        <section className='w-[18%] h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
-                            <img src={TestimonyFourth} alt="" className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover w-[12rem] mx-auto border border-slate-800' />
+                        <section className='lg:w-[18%] md:w-[25%] w-[80%] mx-auto h-2/6 border border-slate-900 bg-white dark:bg-[#1d1f2b]'>
+                            <img 
+                               src={TestimonyFourth} 
+                               alt="" 
+                               className='shadow-md shadow-black dark:shadow-white rounded-full m-4 object-cover lg:w-[12rem] md:w-[9rem] w-[12rem] mx-auto border 
+                                border-slate-800' 
+                            />
                             <div className='flex items-center justify-center mb-6'>
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
@@ -262,157 +284,14 @@ function Distribuidores() {
                                 <RiStarSFill className='text-xl text-yellow-400' />
                                 <RiStarSFill className='text-xl text-yellow-400' />
                             </div>
-                            <p className='text-center w-auto p-4'>
+                            <p className='text-center lg:w-auto lg:h-auto lg:overflow-hidden md:overflow-y-auto md:h-[4rem] p-4'>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Impedit vero totam molestias ut ea voluptatum dolorum quam modi enim repellat?
                             </p>
                         </section>
                     </div>
                 </div>
-                {/*  */}
             </header>
-            {/* para tablet */}
-            <header className='md:flex md:flex-col hidden lg:hidden'>
-                {/* banner md */}
-                <section className='m-8'>
-                    <img
-                        src={BannerDistri}
-                        alt=""
-                        className=' object-cover'
-                    />
-                </section>
-                {/* titulo / parrafo */}
-                <section className='flex flex-col items-center justify-center gap-4 mb-8 p-5 m-5'>
-                    <h2 className='text-2xl font-semibold text-center w-auto'>Potencia tus Ganancias como distribuidor únete a nosotros</h2>
-                    <p className='text-xl w-auto text-center'>
-                        ¿Estás listo para un emocionante viaje hacia el éxito? Únete a nuestra red de distribución y descubre un mundo de oportunidades ilimitadas. Aquí,
-                        te ofrecemos mucho más que un simple programa de distribución. Te proporcionamos las herramientas para ganar más, un apoyo personalizado que te hará brillar y
-                        ventajas que te destacarán en el mercado. Con envíos a todo el país, un servicio al cliente excepcional y descuentos exclusivos, estamos comprometidos a ayudarte a
-                        alcanzar tus metas. Nuestros distribuidores son estrellas en ascenso, y tú podrías ser el próximo. ¿Estás listo para elevar tus ganancias y tu carrera?
-                        Únete a nosotros y comienza a brillar hoy mismo.
-                    </p>
-                </section>
-                {/* card / beneficios */}
-                <div className='mb-14'>
-                    <div className='flex flex-wrap items-center justify-center gap-5 h-auto'>
-                        {/* ganancias */}
-                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
-                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
-                        >
-                            <img src={Ganancias} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
-                            <button onClick={() => setMoney(!money)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
-                            >
-                                {/* titulo / boton */}
-                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Mejora tus ganancias</h2>
-                                <div className='relative left-[14rem] bottom-[1.2rem]'>
-                                    {
-                                        money ?
-                                            <RiArrowDownSFill />
-                                            :
-                                            <RiArrowUpSFill />
-                                    }
-                                </div>
-                                {/* sidebar */}
-                                <div className={`${money ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
-                                        Descubre una oportunidad única en la industria Ofrecemos los márgenes de ganancia más atractivos, precios altamente
-                                        competitivos en productos de alta calidad y te respaldamos con asistencia personalizada y recursos eficientes oportunidades de crecimiento
-                                        continuo para que tus ganancias crezcan a medida que tu negocio se expande
-                                    </p>
-                                </div>
-                            </button>
-                        </div>
-                        {/* acompañamiento */}
-                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
-                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
-                        >
-                            <img src={Acompañamiento} alt="" className='shadow-md shadow-black rounded-t-md objec-cover' />
-                            <button onClick={() => setAsistent(!asistent)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
-                            >
-                                {/* titulo / boton */}
-                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Acompañamiento</h2>
-                                <div className='relative left-[13rem] bottom-[1.2rem]'>
-                                    {
-                                        asistent ?
-                                            <RiArrowDownSFill />
-                                            :
-                                            <RiArrowUpSFill />
-                                    }
-                                </div>
-                                {/* sidebar */}
-                                <div className={`${asistent ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
-                                        En nuestra red de distribución, entendemos que tu éxito es nuestro éxito. Es por eso que ofrecemos un enfoque personalizado
-                                        que va más allá de la simple transacción.
-                                        Cuando te unes a nosotros como distribuidor, recibirás un nivel de acompañamiento que te hará sobresalir. Nuestro equipo de expertos
-                                        está dedicado a brindarte asesoramiento
-                                    </p>
-                                </div>
-                            </button>
-                        </div>
-                        {/* servicio al cliente */}
-                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
-                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
-                        >
-                            <img src={CallCenter} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
-                            <button onClick={() => setCallCenter(!callCenter)}
-                                className='p-5 m-4 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
-                            >
-                                {/* titulo / boton */}
-                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Servicio al cliente</h2>
-                                <div className='relative left-[14rem] bottom-[1.2rem]'>
-                                    {
-                                        callCenter ?
-                                            <RiArrowDownSFill />
-                                            :
-                                            <RiArrowUpSFill />
-                                    }
-                                </div>
-                                {/* sidebar */}
-                                <div className={`${callCenter ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
-                                        En nuestra red de distribución, no solo te proporcionamos productos excepcionales, sino que también te respaldamos con un compromiso
-                                        inquebrantable hacia tu éxito. Entendemos que cada distribuidor es único y enfrenta desafíos específicos en su camino
-                                        Es por eso que ofrecemos un soporte y asistencia
-                                    </p>
-                                </div>
-                            </button>
-                        </div>
-                        {/* envios */}
-                        <div className='w-[19rem] h-2/4 border border-slate-500 rounded-md dark:border-slate-200 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
-                          bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400'
-                        >
-                            <img src={Envios} alt="" className='shadow-md shadow-black rounded-t-md object-cover' />
-                            <button onClick={() => setSend(!send)}
-                                className='p-5 m-3 border border-gray-500 bg-slate-100 w-[16.8rem] dark:bg-[#1d1f2b] rounded-md shadow-md dark:border-slate-400'
-                            >
-                                {/* titulo / boton */}
-                                <h2 className='text-center text-xl tracking-wide font-semibold font-bangers'>Envios a todo el pais</h2>
-                                <div className='relative left-[14rem] bottom-[1.2rem]'>
-                                    {
-                                        send ?
-                                            <RiArrowDownSFill />
-                                            :
-                                            <RiArrowUpSFill />
-                                    }
-                                </div>
-                                {/* sidebar */}
-                                <div className={`${send ? '' : 'hidden'}`}>
-                                    <p className='font-bangers font-normal'>
-                                        Tu alcance no tiene límites. Ofrecemos envíos a todos los rincones de Colombia, lo que significa
-                                        que puedes llegar a clientes en ciudades, pueblos y áreas remotas por igual
-                                        Nuestra amplia red logística garantiza entregas rápidas y seguras en todo el país. Así que, sin importar
-                                        dónde te encuentres o dónde estén tus clientes, Tu éxito no tiene fronteras con nosotros.
-                                    </p>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
         </div>
     )
 }
