@@ -33,6 +33,7 @@ import CuidadoFacial from './pages/familias/CuidadoFacial';
 import Pestañas from './pages/familias/Pestañas';
 import Uñas from './pages/familias/Uñas';
 import LimpiezaDesinfeccion from './pages/familias/LimpiezaDesinfeccion';
+import LoginAdmin from './pages/Login/LoginAdmin';
 
 
 
@@ -82,6 +83,10 @@ function App() {
           <Route path='/productsDetail/:Codigo' element={<ProductsDetail />} />
           <Route path='/register' element={<Register />} />
           <Route path='/distribuidores' element={<Distribuidores />} />
+          <Route 
+           path='/loginAdmin'
+           element={<LoginAdmin />}
+          />
           <Route path='/login' 
               element={
                 <Login 

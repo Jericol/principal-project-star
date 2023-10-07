@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form';
@@ -15,14 +14,14 @@ function Login({ theme, setTheme }) {
     const [sesion, setSesion] = useState([])
 
 
-    // prubea 3 
+    // peticion de login de usuario
     const submit = (data) => {
         console.log(data)
-        axios.post("http://190.60.237.163/login", data)
+        axios.post("http://190.60.237.163/logincli", data)
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem("token", res.data.jwt)
-                  navigate("/dashboard")
+                navigate("/dashboard")
             })
             .catch(error => {
                 if (error.response) {
@@ -33,11 +32,7 @@ function Login({ theme, setTheme }) {
                     console.log("Error al hacer la solicitud:", error.message);
                 }
             });
-
-
-
         //  dispatch(checkIdThunk())
-
     }
 
     const handleHide = () => {
@@ -47,27 +42,8 @@ function Login({ theme, setTheme }) {
     return (
         <div className='mx-auto container p-5 h-screen' >
             <div className='flex items-center justify-center' >
-                <section className='bg-emerald-500 h-[39rem] w-[29rem] rounded-lg relative top-[7rem]'>
-                    <form action="" className='flex flex-col gap-6'>
-                        <h2 className='text-center text-2xl font-bold relative top-8'>Login Distribuidores</h2>
-                        {
-                            theme === 'light' ? 
-                            <img 
-                               src='' 
-                               alt='' 
-                               className='object-cover lg:w-[12rem] lg:h-[]'
-                            />
-                            :
-                            <img 
-                               src='' 
-                               alt=''  
-                               className=''
-                            />
-                        }
-
-                    </form>
-                </section>
-                <section className='border border-sky-500 h-[39rem] w-[27rem] rounded-lg dark:text-white text-black relative top-[7rem]'>
+                {/* login de usuario */}
+                <section className='border bg-slate-200 h-[39rem] w-[27rem] rounded-lg dark:text-white text-black relative top-[7rem]'>
                     <form action="" className='flex flex-col items-start m-5 gap-4 z-20' onSubmit={handleSubmit(submit)}>
                         {
                             theme === 'light' ?
@@ -124,14 +100,18 @@ function Login({ theme, setTheme }) {
                             </section>
                         </div>
                         {/* buton */}
-                        <div>
+                        <div className='flex flex-col items-center gap-6'>
                             <button className='rounded-lg px-3 py-3 bg-blue-600 text-white w-[20rem]'>
                                 Iniciar sesion
+                            </button>
+                            <button className='rounded-lg px-3 py-3 bg-blue-600 text-white w-[20rem]'>
+                                <Link to='/LoginAdmin'>
+                                   sesion administrador
+                                </Link>
                             </button>
                         </div>
                     </form>
                 </section>
-
             </div>
         </div>
     )
