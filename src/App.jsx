@@ -10,7 +10,6 @@ import Distribuidores from './pages/Contact/Distribuidores/Distribuidores';
 import Login from "./pages/Login/Login";
 import Register from './pages/Registro/Registro';
 import ProtetedRoutes from './components/proteccionAccount/ProtetedRoutes';
-import Domicilios from './pages/Domicilios/Domicilios';
 import Faq from './pages/Faq/Faq';
 import DataProcessing from './pages/tratmientoDeDatos/DataProcessing';
 import ProductNews from './pages/productNews/ProductNews';
@@ -19,8 +18,6 @@ import Footer from './components/footer/Footer';
 import Payload from './pages/payload/Payload';
 import PrivacyPolicy from './pages/politicasPrivacidad/PrivacyPolicy';
 import FormPqrs from './pages/formPqrs/FormPqrs';
-import MovalNv from './components/modalNv/MovalNv'
-import ContactBar from './components/ContacBar/ContactBar';
 import Capilar from './pages/familias/Capilar';
 import RegisterPanel from './pages/Registro/RegisterPanel';
 import EmailForm from './pages/Registro/EmailForm';
@@ -70,7 +67,6 @@ function App() {
     <div className='min-h-screen bg-baseLight-300 dark:bg-baseDark-800 dark:text-white overflow-hidden'>
       <HashRouter>
         <ScrollToTop />
-        <ContactBar />
         <AppNavbar
           showMenu={showMenu}
           allProducts={allProducts}
@@ -94,7 +90,6 @@ function App() {
                 />
               } 
           />
-          <Route path='/domicilios' element={<Domicilios />} />
           <Route path='/Faq' element={<Faq />} />
           <Route path='/dataProcessing' element={<DataProcessing />} />
           <Route path='/register/panel' element={<RegisterPanel />}/>
@@ -128,7 +123,6 @@ function App() {
           <Route path='/payload' element={<Payload />} />
           <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
           <Route path='/formPqrs' element={<FormPqrs />} />
-          <Route path='/movalbar' element={<MovalNv />} />
           <Route path='/dashboard' element={<Dashboard />} />
           {/* Rutas protegidas */}
           <Route element={<ProtetedRoutes />}>

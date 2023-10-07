@@ -1,4 +1,7 @@
-
+import Corporativo from '../../../public/img/BANNER-DESCRIPCION-CORPORATIVA.jpg';
+import Vision from '../../../public/img/BANNER-VISION.jpg';
+import Mision from '../../../public/img/BANNER-MISION.jpg';
+import Valores from '../../../public/img/BANNER-VALORES-CORPORATIVOS.jpg'
 
 function Faq() {
     return (
@@ -12,7 +15,7 @@ function Faq() {
                 </div>
                 <div className="lg:relative lg:top-36">
                     <img
-                        src="https://i.ibb.co/NL3g95B/BANNER-DESCRIPCION-CORPORATIVA.jpg"
+                        src={Corporativo}
                         alt=""
                         className="hover:shadow-lg hover:shadow-gray-500 hover:transition-all hover:transform hover:duration-[.4s] dark:hover:shadow-md dark:hover:shadow-white"
                     />
@@ -24,7 +27,7 @@ function Faq() {
                             <img 
                                className="lg:h-auto md:w-[63rem]  rounded-lg hover:shadow-lg hover:shadow-slate-500 hover:transition hover:transform hover:duration-[.10s] 
                                 dark:hover:shadow-md dark:hover:shadow-white object-cover" 
-                               src="https://i.ibb.co/D5TvMbY/BANNER-VISION.jpg" 
+                               src={Vision}
                                alt="" 
                             />
                         </div>
@@ -32,7 +35,7 @@ function Faq() {
                             <img 
                                className="h-auto w-[63rem] rounded-lg hover:shadow-lg hover:shadow-slate-500 hover:transition hover:transform hover:duration-[.10s] 
                                dark:hover:shadow-md dark:hover:shadow-white  object-cover" 
-                               src="https://i.ibb.co/J5G1w2R/BANNER-MISION.jpg" 
+                               src={Mision} 
                                alt="" 
                             />
                         </div>
@@ -42,13 +45,13 @@ function Faq() {
                 <div className="lg:relative lg:top-[25rem] lg:left-[29rem] md:relative md:top-[4rem] relative top-[4rem]">
                     {/* para pc */}
                     <img 
-                       src="https://i.ibb.co/dK6T6mv/BANNER-VALORES-CORPORATIVOS.jpg" 
+                       src={Valores}
                        alt="" 
                        className="lg:flex hidden md:hidden h-auto lg:w-[80rem] md:w-[50rem] object-cover rounded-lg hover:shadow-gray-500 hover:transition-all hover:transform hover:duration-[.4s] "
                     />
                     {/* para tablet */}
                     <img 
-                       src="https://i.ibb.co/dK6T6mv/BANNER-VALORES-CORPORATIVOS.jpg" 
+                       src={Valores}
                        alt="" 
                        className="flex lg:hidden object-cover "
                     />

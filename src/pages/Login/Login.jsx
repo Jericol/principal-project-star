@@ -18,11 +18,11 @@ function Login({ theme, setTheme }) {
     // prubea 3 
     const submit = (data) => {
         console.log(data)
-        axios.post("http://190.60.237.163/logincli", data)
+        axios.post("http://190.60.237.163/login", data)
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem("token", res.data.jwt)
-                  navigate("/")
+                  navigate("/dashboard")
             })
             .catch(error => {
                 if (error.response) {
@@ -95,7 +95,7 @@ function Login({ theme, setTheme }) {
                                 className='rounded-lg lg:w-[20rem] lg:h-[2.5rem] px-3'
                                 placeholder='Ingresa tu usuario'
                                 required
-                                {...register("usuario")}
+                                {...register('usuario')}
                             />
                         </div>
                         {/* contraseña */}
@@ -107,7 +107,7 @@ function Login({ theme, setTheme }) {
                                 className='rounded-lg lg:w-[20rem] lg:h-[2.5rem] px-3 '
                                 placeholder='Ingresa tu contraseña'
                                 required
-                                {...register("password")}
+                                {...register('clave')}
                             />
                         </div>
                         {/* olvide contraseña / register */}

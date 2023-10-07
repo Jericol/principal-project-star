@@ -8,11 +8,9 @@ import { filterProductCategoriesThunk, getProductsThunk } from '../../store/slic
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Category from '../../components/Categorias/Category'
 import Cart from '../../components/cart/Cart';
-import ContactBar from '../../components/ContacBar/ContactBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Group from '../../components/Categorias/Grupos/Group';
 import Pagination from '../../components/Pagination/Pagination';
-import AlertAdd from '../../components/alertas-add/AlertAdd';
 import { data } from 'autoprefixer';
 import { addCartThunk } from '../../store/slice/cart.slice';
 

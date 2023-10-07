@@ -6,7 +6,6 @@ import axios from 'axios';
 import { RiSearchLine, RiCloseFill, RiShoppingCart2Line, RiWhatsappLine, RiBilibiliFill, RiApps2Fill, RiFullscreenExitLine, 
     RiExternalLinkFill, RiInstagramLine, RiFacebookCircleFill  } 
         from "react-icons/ri";
-import ContactBar from '../../components/ContacBar/ContactBar';
 import Cart from '../../components/cart/Cart';
 import SearchBar from '../../components/SearchBar/SearchBar'
 import Category from '../../components/Categorias/Category';
@@ -14,7 +13,6 @@ import CardNew from '../Home/card/CardNew'
 import SliderItems from '../../components/carrusel/SliderItems';
 import CateItems from '../../components/carrusel/CateItems';
 import { useForm } from 'react-hook-form';
-import MovalNv from '../../components/modalNv/MovalNv';
 import Group from '../../components/Categorias/Grupos/Group';
 import ProductNews from '../../pages/productNews/ProductNews';
 import DistribuidoresF from '../../../public/img/BANNER-DISTRIBUIDORES.webp'
@@ -69,8 +67,6 @@ function Home() {
                                     <SearchBar />
                                 </div>
                             </div>
-                            {/* modal y buscador articulo*/}
-
                             {/* Banner distribuidores*/}
                             <span className='text-white  '>
                                 <Link to="/distribuidores" className=''>
