@@ -34,6 +34,7 @@ import Pestañas from './pages/familias/Pestañas';
 import Uñas from './pages/familias/Uñas';
 import LimpiezaDesinfeccion from './pages/familias/LimpiezaDesinfeccion';
 import LoginAdmin from './pages/Login/LoginAdmin';
+import SettingHttp from './components/SettingHttps/SettingHttp';
 
 
 
@@ -67,6 +68,7 @@ function App() {
   return (
     <div className='min-h-screen bg-baseLight-300 dark:bg-baseDark-800 dark:text-white overflow-hidden'>
       <HashRouter>
+        <SettingHttp />
         <ScrollToTop />
         <AppNavbar
           showMenu={showMenu}
