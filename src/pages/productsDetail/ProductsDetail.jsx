@@ -9,6 +9,7 @@ import { FcInTransit, FcShipped } from "react-icons/fc";
 import Cart from "../../components/cart/Cart";
 import Pagination from "../../components/Pagination/Pagination";
 import { getCartThunk } from "../../store/slice/cart.slice";
+import LinkSeccion from "../../components/Botonup/LinkSeccion";
 
 
 function ProductsDetail() {
@@ -38,10 +39,17 @@ function ProductsDetail() {
                 // console.log(res.data.RESP[0]?.CodFami)
                 dispatch(filterProductCategoriesThunk(res.data.RESP[0]?.CodFami))
             })
+            .catch(error => {
+                if (error.menssage) {
+                    console.log("no resivimos nuestra peticion")
+                } else {
+                    console.log("solicitud rechazada")
+                }
+            })
     }, [Codigo]);
 
     // console.log(news)
-
+    // encabezado de verdatalle de carrito
     const Authentication = (data) => {
         axios.post("190.60.237.163/encabezadoped", data)
             .then(res => {
@@ -55,12 +63,11 @@ function ProductsDetail() {
             .catch(error => {
                 console.log(error, 'error en endpoint encabezado')
             })
-
     }
 
 
     return (
-        <div className="lg:h-[200rem] md:h-auto">
+        <div className="lg:h-[200rem] dark:bg-[#1f1d2b] dark:text-white md:h-auto">
             <div className="mx-auto   mb-5 container ">
                 {/* detalles para pc */}
                 < div className="container lg:flex items-center bg-white dark:bg-[#1f1d2b] border-2 border-slate-400 rounded-lg hidden " >
@@ -204,19 +211,19 @@ function ProductsDetail() {
                                                 <div className="cursor-pointer relative left-[17.5rem] bottom-[1.4rem]">
                                                     {
                                                         codeItem ?
-                                                        <RiAddLine className="text-lg"/>
-                                                        :
-                                                        <RiSubtractFill className="text-lg"/>
+                                                            <RiAddLine className="text-lg" />
+                                                            :
+                                                            <RiSubtractFill className="text-lg" />
                                                     }
                                                 </div>
                                             </button>
                                             {/* sidebar */}
-                                            <div className={`border border-slate-400 w-[22.3rem] h-[14rem] ${!codeItem ? '' : 'hidden' }` }>
+                                            <div className={`border border-slate-400 w-[22.3rem] h-[14rem] ${!codeItem ? '' : 'hidden'}`}>
                                                 <div className="flex flex-col items-center justify-around gap-4 pt-4">
                                                     <label htmlFor="" className=" ">Numero de referencia</label>
-                                                    <input type="number" name="" id="" className="border border-slate-500 rounded-lg px-2 mb-6"/>
+                                                    <input type="number" name="" id="" className="border border-slate-500 rounded-lg px-2 mb-6" />
                                                     <label htmlFor="" className=" ">Cantidad</label>
-                                                    <input type="number" name="" id="" className="border border-slate-500 rounded-lg px-2 mb-6"/>
+                                                    <input type="number" name="" id="" className="border border-slate-500 rounded-lg px-2 mb-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -440,7 +447,7 @@ function ProductsDetail() {
                 {/* seccion detalles */}
                 <h2 className="lg:relative lg:top-[8rem] lg:text-center lg:font-semibold lg:text-4xl">Productos Similares</h2>
                 {/* productos similares */}
-                <section className='lg:pl-16 lg:relative lg:top-[12rem] p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28 font-monserrat font-semibold overflow-y-auto h-[60rem]'>
+                <section className='lg:pl-16 lg:relative lg:top-[12rem] p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-28 font-monserrat font-semibold overflow-y-auto h-[60rem] mb-6'>
                     {
                         newsSuggested?.map(newsItem => (
                             <section key={newsItem.Codigo} onClick={() => navigate(`/productsDetail/${newsItem?.Codigo}`)}
@@ -487,6 +494,19 @@ function ProductsDetail() {
 
                     /> */}
                 </section>
+                <div className="w-full bg-slate-400 h-auto relative rounded-md p-5 dark:bg-[#332f46]">
+                    <div className="flex items-center justify-center gap-4 lg:gap-[12rem] dark:text-white py-8">
+                    <Link to="/" className="uppercase text-md md:text-2xl tracking-[2px] py-1 px-1 md:py-2 md:px-2 bg-white dark:dark:bg-[#262131] rounded-md font-semibold">
+                            ir a inicio
+                        </Link>
+                        <Link to="/newProduct" className="uppercase text-md md:text-2xl tracking-[2px] py-1 px-1 md:py-2 md:px-2 bg-white dark:dark:bg-[#262131] rounded-md font-semibold">
+                            ir a productos
+                        </Link>
+                        <Link to="/login" className="uppercase md:text-2xl tracking-[2px] md:py-2 md:px-2 py-1 px-2 bg-white dark:dark:bg-[#262131] rounded-md font-semibold">
+                            ir a acceder
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div >
     )

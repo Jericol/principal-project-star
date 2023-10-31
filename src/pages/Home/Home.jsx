@@ -3,19 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NameFiltredThunk, filterProductCategoriesThunk, getProductsThunk } from '../../store/slice/product.slice';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { RiSearchLine, RiCloseFill, RiShoppingCart2Line, RiWhatsappLine, RiBilibiliFill, RiApps2Fill, RiFullscreenExitLine, 
-    RiExternalLinkFill, RiInstagramLine, RiFacebookCircleFill  } 
-        from "react-icons/ri";
-import Cart from '../../components/cart/Cart';
 import SearchBar from '../../components/SearchBar/SearchBar'
 import Category from '../../components/Categorias/Category';
 import CardNew from '../Home/card/CardNew'
-import SliderItems from '../../components/carrusel/SliderItems';
-import CateItems from '../../components/carrusel/CateItems';
 import { useForm } from 'react-hook-form';
 import Group from '../../components/Categorias/Grupos/Group';
-import ProductNews from '../../pages/productNews/ProductNews';
+// import ProductNews from '../../pages/productNews/ProductNews';
 import DistribuidoresF from '../../../public/img/BANNER-DISTRIBUIDORES.webp'
+import LinkSeccion from '../../components/Botonup/LinkSeccion';
 
 
 
@@ -23,13 +18,9 @@ import DistribuidoresF from '../../../public/img/BANNER-DISTRIBUIDORES.webp'
 function Home() {
 
     const dispatch = useDispatch();
-    const productList = useSelector(state => state.product);
-    const navigate = useNavigate();
+    // const productList = useSelector(state => state.product);
+    // const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
-    const [showMenu, setShowMenu] = useState(false);
-    const [closeCart, setCloseCart] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-    const [open, setOpen] = useState(false)
 
     const { register, handleSubmit } = useForm();
 
@@ -57,7 +48,7 @@ function Home() {
                     <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-12 '>
                         <div>
                             {/* categorias */}
-                            <div className=' '>
+                            <div className=''>
                                 <Category />
                             </div>
                             {/* menu movil  categorias */}
@@ -80,63 +71,41 @@ function Home() {
                     <div className=' '>
                         <Group />
                     </div>
-                </header>    
+                </header>
                 {/* productos */}
                 <div className=' '>
                     <CardNew />
+                </div>
+                <div className="w-full bg-gray-400 dark:bg-[#393550] h-auto relative bottom-[4rem] mb-[4rem] rounded-md">
+                    <div className="flex items-center justify-center gap-5 md:gap-[12rem] dark:text-white py-8">
+                        <Link to="/newProduct" className="uppercase text-sm md:text-2xl tracking-[2px] py-2 px-2 bg-white dark:dark:bg-[#262131] rounded-md font-semibold">
+                            ir a productos
+                        </Link>
+                        <Link to="/login" className="uppercase text-sm md:text-2xl tracking-[2px] py-2 px-2 bg-white dark:dark:bg-[#262131] rounded-md font-semibold">
+                            ir a acceder
+                        </Link>
+                    </div>
                 </div>
                 {/* contra-entrega */}
                 <div className='relative bottom-[4rem]'>
                     <img src="https://i.ibb.co/PGQrJmk/BANNER-PAGOS-CONTRAENTREGA.jpg" alt="contra-entrega" />
                 </div>
-                {/* redes sociales  */}
-                <ul className='md:flex flex-col items-center justify-center gap-6 relative bottom-[3.3rem] lg:hidden '>
-                        <div className='flex items-center justify-around md:justify-between gap-8'>
-                            {/* facebook */}
-                            <li className='flex items-center justify-center md:w-[60px] md:h-[60px] w-[50px] h-[50px] text-white text-2xl bg-blue-500 rounded-lg -skew-y-6 shadow-lg 
-                               shadow-blue-600 transition duration-[0.3s] border-blue-900 dark:shadow-blue-400'
-                            >
-                                <a href="" className=''>
-                                    <RiFacebookCircleFill className='text-4xl' />
-                                </a>
-                            </li>
-                            {/* instagram */}
-                            <li className='flex items-center justify-center md:w-[60px] md:h-[60px] w-[50px] h-[50px] text-white text-2xl bg-pink-500 rounded-lg -skew-y-6 shadow-lg shadow-pink-600
-                               transition duration-[0.3s] border border-pink-700 dark:shadow-purple-400'
-                            >
-                                <a href="" className=''>
-                                    <RiInstagramLine className='text-4xl' />
-                                </a>
-                            </li>
-                            {/* whatsapp */}
-                            <li className='flex items-center justify-center md:w-[60px] md:h-[60px] w-[50px] h-[50px] text-white bg-green-500 rounded-lg -skew-y-6 shadow-lg 
-                              shadow-green-600 transition duration-[0.3s]'
-                            >
-                                <a href="" className=''>
-                                    <RiWhatsappLine className='text-4xl' />
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
                 {/* banner de descuentos */}
                 <div className='relative bottom-9'>
                     {/* para pc */}
-                    <img 
-                      src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" 
-                      alt="banner-descuentos" 
-                      className='h-[18rem] w-full object-cover lg:flex hidden'
+                    <img
+                        src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg"
+                        alt="banner-descuentos"
+                        className='h-[18rem] w-full object-cover lg:flex hidden'
                     />
                     {/* para md / sm */}
-                    <img 
-                      src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg" 
-                      alt="banner-descuentos" 
-                      className='object-cover flex lg:hidden'
+                    <img
+                        src="https://i.ibb.co/R0j791t/BANNER-INFO-DTOS.jpg"
+                        alt="banner-descuentos"
+                        className='object-cover flex lg:hidden'
                     />
                 </div>
             </div>
-            {/* <div className='lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1f1d2b] w-full h-full'>
-                <Cart />
-            </div> */}
         </div>
     )
 }

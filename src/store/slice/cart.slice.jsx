@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { setIsLoading } from './isLoading.slice';
 import axios from 'axios';
-import getConfig from '../../utils/getConfig';
-import headerConfig from '../../utils/headerConfig.js'
+import headerConfig from '../../utils/headerConfig';
+
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -14,6 +14,18 @@ export const cartSlice = createSlice({
         }
     }
 })
+
+
+
+
+export const checkIdThunk = () => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.post("http://190.60.237.163/encabezadoped", {})
+        .then((res) => dispatch(setCart(res.data.RESP)))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
+
 // funcion antigua 
   export const getCartThunk = (data) => (dispatch) => {
       dispatch(setIsLoading(true));
